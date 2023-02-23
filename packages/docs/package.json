@@ -1,6 +1,7 @@
 {
 	"name": "docs",
 	"version": "0.0.1",
+	"private": true,
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -35,5 +36,9 @@
 		"vite": "^4.0.0",
 		"vitest": "^0.25.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"prism-svelte": "^0.5.0",
+		"prismjs": "^1.29.0"
+	}
 }

@@ -1,6 +1,7 @@
 {
-	"name": "core",
+	"name": "svelte-use-core",
 	"version": "0.0.1",
+	"main": "./package/index.js",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",

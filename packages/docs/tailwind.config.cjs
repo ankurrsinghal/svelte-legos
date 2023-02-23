@@ -15,6 +15,13 @@ module.exports = {
         'text': '#444',
         'second-text': '#7b7766',
         'sidebar-text': 'rgba(255, 255, 255, .9)',
+      },
+      fontWeight: {
+        300: 300,
+        600: 600
+      },
+      fontFamily: {
+        fira: 'Fira'
       }
     },
   },

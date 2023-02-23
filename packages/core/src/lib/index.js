@@ -1,1 +1,1 @@
-// Reexport your entry components here
+export { useWindowSize } from "./useWindowSize";
