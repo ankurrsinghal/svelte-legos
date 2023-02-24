@@ -1,27 +1,26 @@
-import { writable, type Readable } from 'svelte/store';
+import { writable } from 'svelte/store';
 
 export interface UseCounterOptions {
-	counter: Readable<number>;
-	inc: (n?: number) => void;
-	dec: (n?: number) => void;
-	set: (n: number) => void;
-	reset: () => void;
+	min?: number;
+	max?: number;
 }
 
-export function useCounter(initialValue = 0): UseCounterOptions {
+export function useCounter(initialValue = 0, options: UseCounterOptions = {}) {
 	const store = writable(initialValue);
 
+	const { min = -Infinity, max = Infinity } = options;
+
 	const inc = (incrementBy = 1) => {
-		store.update((counter) => counter + incrementBy);
+		store.update((counter) => Math.min(max, counter + incrementBy));
 	};
 	const dec = (decrementBy = 1) => {
-		store.update((counter) => counter - decrementBy);
+		store.update((counter) => Math.max(min, counter - decrementBy));
 	};
 	const set = (value: number) => {
-		store.set(value);
+		store.set(Math.min(max, Math.max(min, value)));
 	};
 	const reset = () => {
-		store.set(initialValue);
+		set(initialValue);
 	};
 
 	return {
