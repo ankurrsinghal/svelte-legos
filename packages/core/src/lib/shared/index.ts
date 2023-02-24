@@ -8,3 +8,7 @@ export function tryOnDestroy(fn: () => void) {
     // fail silently
   } 
 }
+
+export function noop() {
+  // noop
+}

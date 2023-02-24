@@ -1,15 +1,48 @@
-import { readable } from "svelte/store";
+import type { Fn, Stoppable } from '$lib/shared/utils/types';
+import { useTimeoutFn, type UseTimeoutFnOptions } from '$lib/useTimeoutFn';
+import { noop } from 'svelte/internal';
+import { derived, type Readable } from 'svelte/store';
 
-export function useTimeout(time = 1000) {
-  const ready = readable(false, (set) => {
-    const timerId = setTimeout(() => {
-      set(true);
-    }, time);
+export interface UseTimeoutOptions<Controls extends boolean> extends UseTimeoutFnOptions {
+	/**
+	 * Expose more controls
+	 *
+	 * @default false
+	 */
+	controls?: Controls;
+	/**
+	 * Callback on timeout
+	 */
+	callback?: Fn;
+}
 
-    return () => {
-      clearTimeout(timerId);
-    };
-  });
+/**
+ * Update value after a given time with controls.
+ *
+ * @see   {@link https://vueuse.org/useTimeout}
+ * @param interval
+ * @param options
+ */
+export function useTimeout(
+	interval?: number,
+	options?: UseTimeoutOptions<false>
+): Readable<boolean>;
+export function useTimeout(
+	internal: number,
+	options: UseTimeoutOptions<true>
+): { ready: Readable<boolean> } & Stoppable;
+export function useTimeout(internal = 1000, options: UseTimeoutOptions<boolean> = {}) {
+	const { controls: exposeControls = false, callback = noop } = options;
+	const controls = useTimeoutFn(callback, internal, options);
 
-  return ready;
+	const ready = derived(controls.isPending, ($isPending) => !$isPending);
+
+	if (exposeControls) {
+		return {
+			ready,
+			...controls
+		};
+	} else {
+		return ready;
+	}
 }

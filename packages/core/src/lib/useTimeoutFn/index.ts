@@ -1,7 +1,7 @@
 import type { Fn, Stoppable } from '$lib/shared/utils/types';
 import { writable } from 'svelte/store';
 
-export type UseTimeoutFnProps = {
+export interface UseTimeoutFnOptions {
 	/**
 	 * Start the timer immediate after calling this function
 	 *
@@ -20,7 +20,7 @@ export type UseTimeoutFnProps = {
 export function useTimeoutFn(
 	fn: Fn,
 	interval = 1000,
-	options: UseTimeoutFnProps = { immediate: true }
+	options: UseTimeoutFnOptions = { immediate: true }
 ): Stoppable {
 	const { immediate } = options;
 	const { set, subscribe } = writable(false);
