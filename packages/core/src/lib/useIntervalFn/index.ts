@@ -1,19 +1,10 @@
-import { isSafeIntegerThrowable, isWritable, tryOnDestroy, unwrapWritable, writableToReadable } from '$lib/shared';
+import { isReadable, isSafeIntegerThrowable, tryOnDestroy, unwrapReadable, writableToReadable } from '$lib/shared';
 import type { Fn, Pausable } from '$lib/shared/utils/types';
-import { writable } from 'svelte/store';
+import { writable, type Readable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
 
-export interface UseIntervalFnOptions {
-	/**
-	 * Start the timer immediate after calling this function
-	 *
-	 * @default true
-	 */
-	immediate?: boolean;
-}
-
 /**
- * Wrapper for `setTimeout` with controls.
+ * Wrapper for `setInterval` with controls.
  *
  * @param cb
  * @param interval
@@ -21,10 +12,13 @@ export interface UseIntervalFnOptions {
  */
 export function useIntervalFn(
 	fn: Fn,
-	interval: number | Writable<number> = 1000,
-	options: UseIntervalFnOptions = {}
+	interval: number | Readable<number> | undefined
 ): Pausable {
-	const { immediate = true } = options;
+
+  if (interval === undefined) {
+    interval = 1000;
+  }
+
 	const isActiveWritable = writable(false);
 
 	let timerId: ReturnType<typeof setInterval> | null = null;
@@ -42,13 +36,13 @@ export function useIntervalFn(
 	}
 
 	function resume() {
-    const intervalValue = unwrapWritable(interval);
+    const intervalValue = unwrapReadable(interval);
 
     isSafeIntegerThrowable(intervalValue);
 
 		isActiveWritable.set(true);
 		clean();
-		timerId = setInterval(fn, unwrapWritable(interval));
+		timerId = setInterval(fn, intervalValue);
 	}
 
 	function changeIntervalTime(newInterval: number) {
@@ -56,15 +50,15 @@ export function useIntervalFn(
 		resume();
 	}
 
-	if (isWritable(interval)) {
+	if (isReadable(interval)) {
 		const unsub = (interval as Writable<number>).subscribe(() => {
 			resume();
 		});
 
 		tryOnDestroy(unsub);
-	}
-
-	if (immediate) resume();
+	} else {
+    resume();
+  }
 
 	tryOnDestroy(pause);
 
