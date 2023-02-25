@@ -1,3 +1,4 @@
+import { tryOnDestroy } from '$lib/shared';
 import type { Fn, Stoppable } from '$lib/shared/utils/types';
 import { writable } from 'svelte/store';
 
@@ -20,9 +21,9 @@ export interface UseTimeoutFnOptions {
 export function useTimeoutFn(
 	fn: Fn,
 	interval = 1000,
-	options: UseTimeoutFnOptions = { immediate: true }
+	options: UseTimeoutFnOptions = {}
 ): Stoppable {
-	const { immediate } = options;
+	const { immediate = true } = options;
 	const { set, subscribe } = writable(false);
 
 	let timerId: ReturnType<typeof setTimeout> | null = null;
@@ -47,6 +48,8 @@ export function useTimeoutFn(
 	if (immediate) {
 		start();
 	}
+
+  tryOnDestroy(stop);
 
 	return {
 		isPending: { subscribe },
