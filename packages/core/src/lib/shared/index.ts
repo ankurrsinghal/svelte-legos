@@ -41,3 +41,6 @@ export function isSafeIntegerThrowable(int: unknown) {
 		throw new Error('Interval is not a safe integer');
 	}
 }
+
+export const isClient = typeof window !== 'undefined';
+export const defaultWindow = isClient ? window : undefined;

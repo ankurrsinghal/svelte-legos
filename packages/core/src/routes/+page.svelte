@@ -1,10 +1,10 @@
 <script>
-	import UseIntervalFnDemo from "$lib/useIntervalFn/demo.svelte";
+	import UseMouseDemo from "$lib/useMouse/demo.svelte";
 </script>
 
 <div>
   <div>
-    <h2>useIntervalFn</h2>
-    <UseIntervalFnDemo />
+    <h2>useMouse</h2>
+    <UseMouseDemo />
   </div>
 </div>
