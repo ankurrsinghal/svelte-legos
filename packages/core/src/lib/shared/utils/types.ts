@@ -21,6 +21,11 @@ export interface Position {
 	y: number;
 }
 
+export interface Size {
+	width: number;
+	height: number;
+}
+
 export interface Stoppable {
   isPending: Readable<boolean>;
   stop: Fn;
