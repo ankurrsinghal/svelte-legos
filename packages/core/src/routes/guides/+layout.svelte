@@ -1,0 +1,91 @@
+<script>	
+	/** @type {import('./$types').LayoutData} */
+	export let data;
+</script>
+
+<svelte:head>
+	<style>
+		:root {
+			--code-bg: var(--back-light);
+			--code-base: hsl(45, 7%, 35%);
+			--code-comment: hsl(0, 0%, 41%);
+			--code-keyword: hsl(204, 88%, 35%);
+			--code-function: hsl(19, 67%, 44%);
+			--code-string: hsl(41, 37%, 38%);
+			--code-number: hsl(120, 100%, 25%);
+			--code-template-string: hsl(2, 80%, 47%);
+			--code-tags: var(--code-function);
+			--code-important: var(--code-string);
+		}
+
+		pre {
+			tab-size: 2;
+			-moz-tab-size: 2;
+		}
+
+		.code-block pre {
+			background-color: var(--code-bg);
+			color: var(--code-base);
+			border-radius: 0.5rem;
+			padding: 1rem;
+			margin: 0 0 1rem;
+			font-size: 14px;
+		}
+
+		.code-block pre code,
+		.token {
+			color: var(--code-base);
+		}
+
+		.token.tag,
+		.token.attr-value .attr-equals {
+			color: var(--code-function);
+		}
+
+		.token.string,
+		.token.interpolation-punctuation,
+		.token.attr-value,
+		.token.inserted {
+			color: var(--code-string);
+		}
+
+		.token.builtin,
+		.token.function {
+			color: var(--code-function);
+		}
+
+		.token.keyword,
+		.token.boolean {
+			color: var(--code-keyword);
+		}
+
+		.token.comment {
+			color: var(--code-comment);
+		}
+
+		.token.deleted {
+			color: #fc9b9b;
+		}
+
+		.token.template-string .interpolation-punctuation,
+		.token.template-string .string {
+			color: var(--code-template-string);
+		}
+	</style>
+</svelte:head>
+
+<div>
+	<section class="fixed top-0 w-80 bg-slate-300 h-screen" />
+	<section class="pl-80">
+		<slot />
+		<div>
+			<div class="p-4 text-sm">
+				<pre>
+          <code>
+{@html data.code}
+          </code>
+        </pre>
+			</div>
+		</div>
+	</section>
+</div>
