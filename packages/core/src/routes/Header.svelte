@@ -1,6 +1,5 @@
 <script>
 	import { base } from '$app/paths';
-	import logo from '$lib/images/svelte-logo.svg';
 </script>
 
 <section
