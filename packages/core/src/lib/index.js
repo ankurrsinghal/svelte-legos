@@ -1,1 +1,1 @@
-export { useWindowSize } from "./useWindowSize";
+export { useWindowSize } from "./hooks/useWindowSize";

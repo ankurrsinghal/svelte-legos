@@ -1,6 +1,6 @@
-<script>	
-	/** @type {import('./$types').LayoutData} */
-	export let data;
+<script lang="ts">	
+	import type { LayoutData } from './$types';
+	export let data: LayoutData;
 </script>
 
 <svelte:head>
@@ -75,17 +75,16 @@
 </svelte:head>
 
 <div>
-	<section class="fixed top-0 w-80 bg-slate-300 h-screen" />
+	<section class="fixed top-0 w-80 bg-slate-300 h-screen pt-16 flex flex-col">
+		<ul class="">
+			{#each data.hooks as hook}
+				<li>
+					<a href={'/guides/' + hook}>{hook}</a>
+				</li>
+			{/each}
+		</ul>
+	</section>
 	<section class="pl-80">
 		<slot />
-		<div>
-			<div class="p-4 text-sm">
-				<pre>
-          <code>
-{@html data.code}
-          </code>
-        </pre>
-			</div>
-		</div>
 	</section>
 </div>
