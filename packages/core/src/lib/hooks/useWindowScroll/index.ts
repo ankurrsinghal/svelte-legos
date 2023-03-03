@@ -11,7 +11,7 @@ function getCurrentScroll(window = defaultWindow): Position {
 	if (!window) return initialValue;
 	return {
 		x: window.scrollX,
-		y: window.screenY
+		y: window.scrollY
 	};
 }
 

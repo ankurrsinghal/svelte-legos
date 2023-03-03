@@ -9,8 +9,15 @@ function last<T>(arr: T[]) {
 
 export async function load({ route }: any) {
   const hookName = last(route.id.split('/'));
-  const code = fs.readFileSync(`./src/lib/hooks/${hookName}/demo.svelte`).toString();
+  let code = undefined;
+  let meta = {};
+  try {
+    meta = JSON.parse(fs.readFileSync(`./src/lib/hooks/${hookName}/meta.json`).toString());
+    code = fs.readFileSync(`./src/lib/hooks/${hookName}/usage.txt`).toString();
+  } catch(e) {}
   return {
-    code: Prism.highlight(code, Prism.languages.svelte, 'svelte')
+    hookName,
+    meta,
+    code: code && Prism.highlight(code, Prism.languages.svelte, 'svelte')
   }
 }
