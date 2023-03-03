@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { useMouse } from './index';
+  import { useMouse } from '$lib/hooks/useMouse';
   const position = useMouse();
 </script>
 

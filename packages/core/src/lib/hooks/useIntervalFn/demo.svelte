@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import { writable } from 'svelte/store';
-	import { useIntervalFn } from './';
+	import { useIntervalFn } from '$lib/hooks/useIntervalFn';
 	const greetings = [
 		'Hello',
 		'Hi',

@@ -5,6 +5,9 @@
 </script>
 
 <div>
+  <div>
+    <slot />
+  </div>
   <div class="p-4 text-sm">
     <pre>
       <code>

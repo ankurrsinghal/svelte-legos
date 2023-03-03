@@ -79,7 +79,7 @@
 		<ul class="">
 			{#each data.hooks as hook}
 				<li>
-					<a href={'/guides/' + hook}>{hook}</a>
+					<a href={'/guides/hooks/' + hook}>{hook}</a>
 				</li>
 			{/each}
 		</ul>
