@@ -76,7 +76,7 @@
 
 <div>
 	<section class="fixed top-0 w-80 h-screen pt-16 flex flex-col border-r border-black">
-		<ul class="space-y-2 mt-8">
+		<ul class="space-y-3 mt-8">
 			{#each data.hooks as hook}
 				<li>
 					<a href={'/guides/hooks/' + hook} class="hover:underline">{hook}</a>
