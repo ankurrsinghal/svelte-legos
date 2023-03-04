@@ -1,6 +1,7 @@
 <script lang="ts">
   import { useWindowScroll } from '$lib/hooks/useWindowScroll';
-	import { onMount } from 'svelte';
+	import DemoContainer from '$lib/shared/components/DemoContainer.svelte';
+	import { onDestroy, onMount } from 'svelte';
   const position = useWindowScroll();
 
   onMount(() => {
@@ -12,13 +13,23 @@
       }
     }
   })
+
+  onDestroy(() => {
+    if (typeof window === "object") {
+      const mainContainer = window.document.getElementById('main-container');
+      if (mainContainer) {
+        mainContainer.style.setProperty('width', 'initial');
+        mainContainer.style.setProperty('height', 'initial');
+      }
+    }
+  })
 </script>
 
 <div class="scroll-container">
   <div class="mt-8">
-    <p class="border border-black p-4 rounded-md bg-slate-100 inline-block">
+    <DemoContainer>
       See scroll values in the lower right corner of the screen.
-    </p>
+    </DemoContainer>
   </div>
   <div class="position-view">
     <div>
