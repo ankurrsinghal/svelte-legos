@@ -3,7 +3,7 @@
 </script>
 
 <section
-	class="fixed top-0 h-16 w-screen after:absolute after:-bottom-1 after:h-1 after:w-full after:bg-gradient-to-b after:from-gray-100 after:via-gray-50 after:to-transparent z-10 bg-white"
+	class="border-b border-black fixed top-0 h-16 w-screen z-10 bg-white"
 >
   <nav class="container flex items-center justify-between h-full m-auto">
     <a href="/" class="flex items-center space-x-2">

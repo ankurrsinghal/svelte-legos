@@ -1,0 +1,5 @@
+<script lang="ts">
+import { useCounter } from "$lib/hooks/useCounter";
+
+const { counter, inc, dec, set, reset } = useCounter();
+</script>

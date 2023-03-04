@@ -75,7 +75,7 @@
 </svelte:head>
 
 <div>
-	<section class="fixed top-0 w-80 h-screen pt-16 flex flex-col border-r border-black">
+	<section class="fixed top-0 w-80 h-screen pt-16 pl-20 flex flex-col border-r border-black bg-slate-100">
 		<ul class="space-y-3 mt-8">
 			{#each data.hooks as hook}
 				<li>
