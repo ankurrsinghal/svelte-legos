@@ -12,9 +12,9 @@ import { SiteDescription, SiteTitle } from './constants';
 	<meta name="description" content={SiteDescription} />
 </svelte:head>
 
-<section class="py-36 ">
+<section class="py-36 container mx-auto">
   <div class="max-w-xl space-y-4">
-    <h1 class="text-7xl tracking-wider font-bold uppercase text-second">Svelte<b class="text-prime">Use</b></h1>
+    <h1 class="text-7xl tracking-wider font-bold uppercase text-second">Svelte <b class="text-prime">Legos</b></h1>
     <h3 class="text-3xl font-light text-text">Collection of Essential Svelte Utilities</h3>
   </div>
   <div class="mt-12">

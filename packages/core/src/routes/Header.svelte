@@ -7,7 +7,7 @@
 >
   <nav class="container flex items-center justify-between h-full m-auto">
     <a href="/" class="flex items-center space-x-2">
-      <span class="text-xl font-bold">SvelteUse</span>
+      <span class="text-xl font-bold">Svelte <span class="text-prime">Legos</span></span>
     </a>
     <div>
       <input class="border-black" type="text" />
