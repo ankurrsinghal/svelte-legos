@@ -11,7 +11,7 @@ function getCurrentDocumentVisibility(document = defaultDocument): DocumentVisib
 
 export function useDocumentVisibility({
 	document = defaultDocument
-}: ConfigurableDocument): Readable<DocumentVisibilityState> {
+}: ConfigurableDocument = {}): Readable<DocumentVisibilityState> {
 	const visibility = readable(getCurrentDocumentVisibility(document), (set) => {
 		function handler() {
 			set(getCurrentDocumentVisibility());

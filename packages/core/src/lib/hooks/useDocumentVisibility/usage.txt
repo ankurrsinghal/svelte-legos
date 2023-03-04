@@ -1,0 +1,13 @@
+<script lang="ts">
+import { useDocumentVisibility } from "$lib/hooks/useDocumentVisibility";
+
+const visibility = useDocumentVisibility();
+
+$: {
+  if ($visibility === 'hidden') {
+    // do something when window is not visible
+  } else {
+    // handle visibility again
+  }
+}
+</script>
