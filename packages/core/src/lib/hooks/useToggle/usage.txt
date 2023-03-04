@@ -1,7 +1,7 @@
 <script lang="ts">
-import { useElementSize } from "$lib/hooks/useElementSize";
+import { useDocumentVisibility } from "$lib/hooks/useDocumentVisibility";
 
-const visibility = useElementSize();
+const visibility = useDocumentVisibility();
 
 $: {
   if ($visibility === 'hidden') {

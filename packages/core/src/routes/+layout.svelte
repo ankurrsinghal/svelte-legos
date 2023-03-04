@@ -5,7 +5,7 @@
 
 <div class="bg-gray-50">
   <Header />
-  <main class="pt-16">
+  <main class="pt-16 w-screen h-screen">
     <slot />
   </main>
 </div>

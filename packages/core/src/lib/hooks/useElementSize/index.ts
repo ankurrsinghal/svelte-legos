@@ -12,7 +12,7 @@ function isElementVisible(element: Element, window: Window): boolean {
 	);
 }
 
-export function useElementVisibility(
+export function useElementSize(
 	target: Element,
 	options: ConfigurableWindow = {}
 ): Readable<boolean> {
