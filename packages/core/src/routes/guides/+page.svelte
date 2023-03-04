@@ -3,5 +3,5 @@
 </script>
 
 <div>
-  <h1>Getting Started</h1>
+  <h1>Getting Starteds</h1>
 </div>
