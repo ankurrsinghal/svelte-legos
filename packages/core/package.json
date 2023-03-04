@@ -1,5 +1,5 @@
 {
-	"name": "svelte-use-core",
+	"name": "svelteable",
 	"version": "0.0.1",
 	"main": "./package/index.js",
 	"scripts": {
