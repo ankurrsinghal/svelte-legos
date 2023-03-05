@@ -1,0 +1,8 @@
+<script lang="ts">
+import { useWindowFocus } from '$lib/hooks/useWindowFocus';
+
+const isFocused = useWindowFocus();
+
+// $isFocused changes to true | false on focus | blur.
+  
+</script>

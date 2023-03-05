@@ -10,7 +10,7 @@ function isCurrentWindowFocused(window = defaultWindow): boolean {
 	return window.document.hasFocus();
 }
 
-export function useWindowFocus({ window = defaultWindow }: ConfigurableWindow): Readable<boolean> {
+export function useWindowFocus({ window = defaultWindow }: ConfigurableWindow = {}): Readable<boolean> {
 	const visibility = readable(isCurrentWindowFocused(), (set) => {
 		function handler() {
 			set(isCurrentWindowFocused());
