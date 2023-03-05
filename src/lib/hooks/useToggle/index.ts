@@ -7,11 +7,14 @@ export function useToggle(initialValue = false) {
 	const toggle = () => {
 		store.update((value) => !value);
 	};
+	const set = (value: boolean) => {
+		store.set(value);
+	}
 	const on = () => {
-		store.set(true);
+		set(true);
 	};
 	const off = () => {
-		store.set(false);
+		set(false);
 	};
 
 	return {

@@ -1,13 +1,8 @@
 <script lang="ts">
-import { useDocumentVisibility } from "$lib/hooks/useDocumentVisibility";
+import { useToggle } from "$lib/hooks/useToggle";
 
-const visibility = useDocumentVisibility();
+const { toggle, on, off, set, value } = useToggle();
 
-$: {
-  if ($visibility === 'hidden') {
-    // do something when window is not visible
-  } else {
-    // do something when window is visible again
-  }
-}
+// Use $value as true or false and
+// manipulate using toggle, on, off, set
 </script>

@@ -1,2 +1,3 @@
-export const SiteTitle = 'Collection of Svelte Composition Utilities';
-export const SiteDescription = 'SvelteUse is a collection of Svelte Composition Utilities';
+export const SiteName = 'SvelteLegos';
+export const SiteTitle = 'Collection of Essential Svelte Utilities';
+export const SiteDescription = 'SvelteLegos is a Collection of Essential Svelte Utilities';

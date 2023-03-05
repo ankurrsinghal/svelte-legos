@@ -1,13 +1,13 @@
 <script>
-	import { base } from '$app/paths';
+import { base } from '$app/paths';
 import Feature from './Feature.svelte';
-import { SiteDescription, SiteTitle } from './constants';
+import { SiteDescription, SiteName, SiteTitle } from './constants';
 </script>
 
 <svelte:head>
-	<title>SvelteUse • {SiteTitle}</title>
+	<title>{SiteName} • {SiteTitle}</title>
 
-	<meta name="twitter:title" content="SvelteUse" />
+	<meta name="twitter:title" content={SiteName} />
 	<meta name="twitter:description" content={SiteTitle} />
 	<meta name="description" content={SiteDescription} />
 </svelte:head>
@@ -15,7 +15,7 @@ import { SiteDescription, SiteTitle } from './constants';
 <section class="py-36 container mx-auto">
   <div class="max-w-xl space-y-4">
     <h1 class="text-7xl tracking-wider font-bold uppercase text-second">Svelte <b class="text-prime">Legos</b></h1>
-    <h3 class="text-3xl font-light text-text">Collection of Essential Svelte Utilities</h3>
+    <h3 class="text-3xl font-light text-text">{SiteTitle}</h3>
   </div>
   <div class="mt-12">
     <a href="{base}/guides" class="inline-block rounded-lg py-3 px-6 bg-prime text-white hover:underline">
