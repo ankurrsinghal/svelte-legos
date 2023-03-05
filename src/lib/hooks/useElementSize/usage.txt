@@ -5,7 +5,7 @@ let ref: HTMLElement | null = null;
 
 $: size = useElementSize(ref);
 
-// use $size.width/$size.height like this
+// use $size.width or $size.height like this
 
 </script>
 

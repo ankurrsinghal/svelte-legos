@@ -1,0 +1,7 @@
+<script lang="ts">
+import { useTimeoutFn } from '$lib/hooks/useTimeoutFn';
+
+const { isPending, start, stop } = useTimeoutFn(() => {
+    /* ... */
+}, 3000);
+</script>
