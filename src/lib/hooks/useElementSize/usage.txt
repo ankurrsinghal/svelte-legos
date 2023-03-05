@@ -1,13 +1,12 @@
 <script lang="ts">
-import { useDocumentVisibility } from "$lib/hooks/useDocumentVisibility";
+import { useElementSize } from "$lib/hooks/useElementSize";
 
-const visibility = useDocumentVisibility();
+let ref: HTMLElement | null = null;
 
-$: {
-  if ($visibility === 'hidden') {
-    // do something when window is not visible
-  } else {
-    // do something when window is visible again
-  }
-}
+$: size = useElementSize(ref);
+
+// use $size.width/$size.height like this
+
 </script>
+
+<div bind:this={ref} />

@@ -14,8 +14,8 @@ export function noop() {
 	// noop
 }
 
-export function writableToReadable<T>(store: Writable<T>): Readable<T> {
-	return { subscribe: store.subscribe };
+export function writableToReadable<T>({ subscribe }: Writable<T>): Readable<T> {
+	return { subscribe: subscribe };
 }
 
 export function isReadable<T>(ref: T | Readable<T>): boolean {

@@ -15,7 +15,6 @@ export async function load({ route }: any) {
     meta = JSON.parse(fs.readFileSync(`./src/lib/hooks/${hookName}/meta.json`).toString());
     code = fs.readFileSync(`./src/lib/hooks/${hookName}/usage.txt`).toString();
   } catch(e) {}
-  console.log("code", code)
   return {
     hookName,
     meta,
