@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../../../favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="content-security-policy" content="">
+		<link href="../../../_app/immutable/assets/_layout.68b6acbf.css" rel="stylesheet">
+		<link rel="preload" as="script" crossorigin="anonymous" href="../../../_app/immutable/entry/start.59d36ffb.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="../../../_app/immutable/chunks/index.5fa4193b.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="../../../_app/immutable/chunks/singletons.b242394f.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="../../../_app/immutable/chunks/index.09e37ac8.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="../../../_app/immutable/chunks/paths.7e0f4e11.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="../../../_app/immutable/entry/app.ac692bfa.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="../../../_app/immutable/entry/_layout.svelte.5e9108a6.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="../../../_app/immutable/entry/_layout.ts.464e3015.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="../../../_app/immutable/chunks/_layout.79cb23d1.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="../../../_app/immutable/entry/guides-layout.svelte.9bb46c5c.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="../../../_app/immutable/entry/guides-hooks-layout.svelte.11066ce5.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="../../../_app/immutable/entry/guides-hooks-useAudio-page.svelte.e9435d19.mjs"><!-- HEAD_svelte-4ylx25_START --><style>:root {
+			--code-bg: var(--back-light);
+			--code-base: hsl(45, 7%, 35%);
+			--code-comment: hsl(0, 0%, 41%);
+			--code-keyword: hsl(204, 88%, 35%);
+			--code-function: hsl(19, 67%, 44%);
+			--code-string: hsl(41, 37%, 38%);
+			--code-number: hsl(120, 100%, 25%);
+			--code-template-string: hsl(2, 80%, 47%);
+			--code-tags: var(--code-function);
+			--code-important: var(--code-string);
+		}
+
+		pre {
+			tab-size: 2;
+			-moz-tab-size: 2;
+		}
+
+		.code-block pre {
+			background-color: var(--code-bg);
+			color: var(--code-base);
+			border-radius: 0.5rem;
+			padding: 1rem;
+			margin: 0 0 1rem;
+			font-size: 14px;
+		}
+
+		.code-block pre code,
+		.token {
+			color: var(--code-base);
+		}
+
+		.token.tag,
+		.token.attr-value .attr-equals {
+			color: var(--code-function);
+		}
+
+		.token.string,
+		.token.interpolation-punctuation,
+		.token.attr-value,
+		.token.inserted {
+			color: var(--code-string);
+		}
+
+		.token.builtin,
+		.token.function {
+			color: var(--code-function);
+		}
+
+		.token.keyword,
+		.token.boolean {
+			color: var(--code-keyword);
+		}
+
+		.token.comment {
+			color: var(--code-comment);
+		}
+
+		.token.deleted {
+			color: #fc9b9b;
+		}
+
+		.token.template-string .interpolation-punctuation,
+		.token.template-string .string {
+			color: var(--code-template-string);
+		}
+	</style><!-- HEAD_svelte-4ylx25_END -->
+	</head>
+	<body>
+		<div>
+
+
+<div class="bg-gray-50"><section class="fixed top-0 h-16 w-screen after:absolute after:-bottom-1 after:h-1 after:w-full after:bg-gradient-to-b after:from-gray-100 after:via-gray-50 after:to-transparent z-10 bg-white"><nav class="container flex items-center justify-between h-full m-auto"><a href="/" class="flex items-center space-x-2"><span class="text-xl font-bold">SvelteUse</span></a>
+    <div><input class="border-black" type="text"></div>
+    <ul class="flex space-x-10"><li><a class="font-extralight" href="/guides">Guides</a></li>
+      <li><a class="font-extralight" href="#">Github</a></li>
+  
+      <li><a class="font-extralight" href="#">Twitter</a></li></ul></nav></section>
+  <main class="pt-16 container m-auto">
+
+<div><section class="fixed top-0 w-80 h-screen pt-16 flex flex-col border-r border-black"><ul class="space-y-3 mt-8"><li><a href="/guides/hooks/useAudio" class="hover:underline">useAudio</a>
+				</li><li><a href="/guides/hooks/useCounter" class="hover:underline">useCounter</a>
+				</li><li><a href="/guides/hooks/useDocumentVisibility" class="hover:underline">useDocumentVisibility</a>
+				</li><li><a href="/guides/hooks/useElementSize" class="hover:underline">useElementSize</a>
+				</li><li><a href="/guides/hooks/useElementVisibility" class="hover:underline">useElementVisibility</a>
+				</li><li><a href="/guides/hooks/useIntervalFn" class="hover:underline">useIntervalFn</a>
+				</li><li><a href="/guides/hooks/useMouse" class="hover:underline">useMouse</a>
+				</li><li><a href="/guides/hooks/useNow" class="hover:underline">useNow</a>
+				</li><li><a href="/guides/hooks/useResizeObserver" class="hover:underline">useResizeObserver</a>
+				</li><li><a href="/guides/hooks/useTimeout" class="hover:underline">useTimeout</a>
+				</li><li><a href="/guides/hooks/useTimeoutFn" class="hover:underline">useTimeoutFn</a>
+				</li><li><a href="/guides/hooks/useToggle" class="hover:underline">useToggle</a>
+				</li><li><a href="/guides/hooks/useWindowFocus" class="hover:underline">useWindowFocus</a>
+				</li><li><a href="/guides/hooks/useWindowScroll" class="hover:underline">useWindowScroll</a>
+				</li><li><a href="/guides/hooks/useWindowSize" class="hover:underline">useWindowSize</a>
+				</li></ul></section>
+	<section class="pl-80" id="main-container"><div class="p-8"><div><h1 class="text-4xl font-bold">useAudio</h1>
+    <p class="mt-4">undefined</p></div>
+  <div class="my-10"><h1 class="text-2xl">Demo</h1>
+    <div><h1>useAudio</h1></div></div>
+  <div class="my-10"><h1 class="text-2xl">Usage</h1>
+    </div></div></section></div></main></div>
+
+
+			
+			<script>
+				{
+					__sveltekit_5gwjfe = {
+						env: {},
+						assets: new URL("../../..", location.href).pathname.replace(/^\/$/, ''),
+						element: document.currentScript.parentElement
+					};
+
+					const data = [null,{"type":"data","data":{hooks:["useAudio","useCounter","useDocumentVisibility","useElementSize","useElementVisibility","useIntervalFn","useMouse","useNow","useResizeObserver","useTimeout","useTimeoutFn","useToggle","useWindowFocus","useWindowScroll","useWindowSize"]},"uses":{}},{"type":"data","data":{hookName:"useAudio",meta:{},code:void 0},"uses":{"route":1}},null];
+
+					Promise.all([
+						import("../../../_app/immutable/entry/start.59d36ffb.mjs"),
+						import("../../../_app/immutable/entry/app.ac692bfa.mjs")
+					]).then(([kit, app]) => {
+						kit.start(app, __sveltekit_5gwjfe.element, {
+							node_ids: [0, 2, 3, 6],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
