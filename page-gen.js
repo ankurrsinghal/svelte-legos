@@ -27,11 +27,35 @@ function handleFileAdd(path) {
 	}
 }
 
+function hanldeRemove(path) {
+  try {
+		const dir = path.split(base)[1].trim();
+		const dest = './src/routes/guides/hooks' + dir;
+		fs.unlinkSync(dest);
+	} catch (e) {
+		console.log(e.message);
+	}
+}
+
+function handleFileRemove(path) {
+	try {
+		let dir = path.split(base)[1].trim();
+		let hookName = dir.split('/')[1];
+		const dest = './src/routes/guides/hooks' + '/' + hookName + '/+page.svelte';
+		if (path.endsWith('.svelte')) {
+			fs.unlinkSync(dest);
+		}
+	} catch (e) {
+		console.log(e.message);
+	}
+}
+
 watcher
   .on('addDir', handleDirAdd)
   .on('add', handleFileAdd)
   .on('change', handleFileAdd)
-.on('unlink', function(path) {console.log('File', path, 'has been removed');})
+  .on('unlinkDir', hanldeRemove)
+.on('unlink', handleFileRemove)
 .on('error', function(error) {console.error('Error happened', error);})
 
 const watcher2 = chokidar.watch(

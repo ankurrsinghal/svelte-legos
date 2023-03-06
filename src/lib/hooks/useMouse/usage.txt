@@ -1,0 +1,8 @@
+<script lang="ts">
+import { useMouse } from '$lib/hooks/useMouse';
+
+const position = useMouse();
+
+// $position gives the
+// Position { x: number, y: number } of the mouse
+</script>
