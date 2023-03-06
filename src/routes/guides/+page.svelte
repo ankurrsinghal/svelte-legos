@@ -11,7 +11,7 @@
 
   <div class="mt-16">
     <h1 class="text-2xl">Installation</h1>
-    <p class="mt-8 bg-slate-100 p-4 rounded-md border border-black">
+    <p class="mt-8 bg-slate-100 p-4 rounded-md border border-black font-mono">
       npm i svelte-legos
     </p>
   </div>

@@ -1,0 +1,12 @@
+<script lang="ts">
+import { useRafFn } from "$lib";
+
+let counter = 0;
+
+function handler() {
+  counter += 1;
+}
+
+const { pause, resume } = useRafFn(handler);
+
+</script>

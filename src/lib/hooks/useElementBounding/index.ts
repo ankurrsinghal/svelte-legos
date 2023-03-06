@@ -1,5 +1,4 @@
-import { defaultWindow, writableToReadable } from "$lib/shared";
-import type { Size } from "$lib/shared/utils/types";
+import { writableToReadable } from "$lib/shared";
 import { writable, type Readable } from "svelte/store";
 import { useResizeObserver } from "../useResizeObserver";
 

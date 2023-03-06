@@ -1,16 +1,21 @@
 <script lang="ts">
-import { useElementBounding } from "$lib";
-import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
+  import { useElementBounding } from "$lib";
+  import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 
-let ref: HTMLElement | null = null;
+  let ref: HTMLElement | null = null;
 
-let rect = null;
-$: ref !== null && (rect = useElementBounding(ref));
-$: stringify = JSON.stringify($rect, null, 4);
+  let rect = null;
+  $: ref !== null && (rect = useElementBounding(ref));
+  $: stringify = JSON.stringify($rect, null, 4);
 </script>
 
 <DemoContainer>
-  <textarea bind:this={ref} class="p-2 resize min-h-[250px] min-w-[250px]">
+  <div class="p-4">
+    <textarea
+      bind:this={ref}
+      class="p-2 resize min-h-[250px] min-w-[250px] border border-slate-400 rounded-md"
+    >
 {stringify}
-  </textarea>
+    </textarea>
+  </div>
 </DemoContainer>

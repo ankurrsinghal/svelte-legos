@@ -13,3 +13,5 @@ export { useWindowScroll } from "./hooks/useWindowScroll";
 export { useWindowSize } from "./hooks/useWindowSize";
 export { useActiveElement } from "./hooks/useActiveElement";
 export { useElementBounding } from "./hooks/useElementBounding";
+export { useInterval } from "./hooks/useInterval";
+export { useRafFn } from "./hooks/useRafFn";
