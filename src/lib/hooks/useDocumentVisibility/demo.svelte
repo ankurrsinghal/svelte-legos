@@ -1,8 +1,8 @@
 <script lang="ts">
-import { useDocumentVisibility } from '$lib/hooks/useDocumentVisibility';
+import { useDocumentVisibility } from '$lib';
 import { useTimeoutFn } from '$lib/hooks/useTimeoutFn';
 import DemoContainer from '$lib/shared/components/DemoContainer.svelte';
-  import Text from '$lib/shared/components/Text.svelte';
+import Text from '$lib/shared/components/Text.svelte';
 
 const visibility = useDocumentVisibility();
 const startMessage = '💡 Minimize the page or switch tab then return';

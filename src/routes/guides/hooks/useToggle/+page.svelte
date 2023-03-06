@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useToggle } from "$lib/hooks/useToggle";
+import { useToggle } from "$lib";
 import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 import PrimaryButton from "$lib/shared/components/PrimaryButton.svelte";
 

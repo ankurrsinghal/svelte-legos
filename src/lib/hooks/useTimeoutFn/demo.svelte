@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useTimeoutFn } from '$lib/hooks/useTimeoutFn';
+import { useTimeoutFn } from '$lib';
 import DemoContainer from '$lib/shared/components/DemoContainer.svelte';
 import PrimaryButton from '$lib/shared/components/PrimaryButton.svelte';
 

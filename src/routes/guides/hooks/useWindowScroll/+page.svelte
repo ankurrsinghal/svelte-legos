@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { useWindowScroll } from '$lib/hooks/useWindowScroll';
+  import { useWindowScroll } from '$lib';
 	import DemoContainer from '$lib/shared/components/DemoContainer.svelte';
 
   const position = useWindowScroll();

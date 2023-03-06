@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useMouse } from '$lib/hooks/useMouse';
+import { useMouse } from '$lib';
 import DemoContainer from '$lib/shared/components/DemoContainer.svelte';
 const position = useMouse();
 </script>

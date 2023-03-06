@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useWindowSize } from '$lib/hooks/useWindowSize';
+import { useWindowSize } from '$lib';
 import DemoContainer from '$lib/shared/components/DemoContainer.svelte';
 
 const size = useWindowSize();

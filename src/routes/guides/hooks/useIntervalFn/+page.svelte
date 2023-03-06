@@ -1,6 +1,6 @@
 <script lang="ts">
 import { writable } from "svelte/store";
-import { useIntervalFn } from "$lib/hooks/useIntervalFn";
+import { useIntervalFn } from "$lib";
 import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 import PrimaryButton from "$lib/shared/components/PrimaryButton.svelte";
 const greetings = [

@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useTimeout } from '$lib/hooks/useTimeout';
+import { useTimeout } from '$lib';
 import DemoContainer from '$lib/shared/components/DemoContainer.svelte';
 import PrimaryButton from '$lib/shared/components/PrimaryButton.svelte';
 

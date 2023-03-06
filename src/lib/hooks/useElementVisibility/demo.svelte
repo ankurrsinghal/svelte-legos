@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useElementVisibility } from "$lib/hooks/useElementVisibility";
+import { useElementVisibility } from "$lib";
 import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 
 let ref: HTMLElement | null = null;

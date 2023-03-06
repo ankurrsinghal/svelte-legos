@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useResizeObserver } from "$lib/hooks/useResizeObserver";
+import { useResizeObserver } from "$lib";
 import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 
 let ref: HTMLElement | null = null;

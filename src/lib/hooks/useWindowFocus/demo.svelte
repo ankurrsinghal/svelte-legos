@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useWindowFocus } from '$lib/hooks/useWindowFocus';
+import { useWindowFocus } from '$lib';
 import DemoContainer from '$lib/shared/components/DemoContainer.svelte';
   import Text from '$lib/shared/components/Text.svelte';
 

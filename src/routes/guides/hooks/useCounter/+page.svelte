@@ -1,6 +1,6 @@
 <script lang="ts">
-import { useCounter } from "$lib/hooks/useCounter";
-	import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
+import { useCounter } from "$lib";
+import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 import PrimaryButton from "$lib/shared/components/PrimaryButton.svelte";
 
 const { counter, inc, dec, set, reset } = useCounter();
