@@ -10,7 +10,12 @@ const config = {
 
 	kit: {
 		adapter: adapterStatic()
-	}
+	},
+	vite: {
+		ssr: {
+		  noExternal: ['prismjs', 'prism-svelte'],
+		},
+	  },
 };
 
 export default config;

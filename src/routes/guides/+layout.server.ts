@@ -1,5 +1,4 @@
 import fs from 'fs';
-import 'prism-svelte';
 
 const baseDir = './src';
 const hooksDir = baseDir + '/lib/hooks';

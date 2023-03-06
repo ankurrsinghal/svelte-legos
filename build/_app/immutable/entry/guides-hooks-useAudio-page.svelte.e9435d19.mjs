@@ -1,1 +1,0 @@
-import{S as i,i as l,s as c,k as d,q as u,l as h,m,r as p,h as o,b as _,C as f,D as n}from"../chunks/index.5fa4193b.mjs";function x(r){let e,s;return{c(){e=d("h1"),s=u("useAudio")},l(t){e=h(t,"H1",{});var a=m(e);s=p(a,"useAudio"),a.forEach(o)},m(t,a){_(t,e,a),f(e,s)},p:n,i:n,o:n,d(t){t&&o(e)}}}class q extends i{constructor(e){super(),l(this,e,null,x,c,{})}}export{q as default};

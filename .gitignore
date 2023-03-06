@@ -19,3 +19,5 @@ vite.config.js.timestamp-*
 .test-tmp
 symlink-from
 deploy.sh
+build
+package

@@ -1,7 +1,9 @@
 import Prism from 'prismjs';
-import 'prism-svelte';
+import '../../prism-svelte';
 import fs from 'fs';
 export const prerender = true;
+
+
 
 const REPO_BASE_URL = 'https://github.com/ankurrsinghal/svelte-legos/tree/master/src';
 const REPO_HOOKS_URL = REPO_BASE_URL + '/lib/hooks';
