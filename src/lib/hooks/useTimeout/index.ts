@@ -1,5 +1,5 @@
 import type { Fn, Stoppable } from '$lib/shared/utils/types';
-import { useTimeoutFn, type UseTimeoutFnOptions } from '$lib/useTimeoutFn';
+import { useTimeoutFn, type UseTimeoutFnOptions } from '$lib/hooks/useTimeoutFn';
 import { noop } from 'svelte/internal';
 import { derived, type Readable } from 'svelte/store';
 
