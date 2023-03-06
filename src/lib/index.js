@@ -11,3 +11,5 @@ export { useToggle } from "./hooks/useToggle";
 export { useWindowFocus } from "./hooks/useWindowFocus";
 export { useWindowScroll } from "./hooks/useWindowScroll";
 export { useWindowSize } from "./hooks/useWindowSize";
+export { useActiveElement } from "./hooks/useActiveElement";
+export { useElementBounding } from "./hooks/useElementBounding";

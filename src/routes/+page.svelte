@@ -19,7 +19,7 @@ import { SiteDescription, SiteName, SiteTitle } from './constants';
       <h3 class="text-xl lg:text-3xl font-light text-text">{SiteTitle}</h3>
     </div>
     <div class="mt-6 lg:mt-12">
-      <a href="{base}/guides" class="inline-block rounded-lg py-3 px-6 bg-prime text-white hover:underline">
+      <a href="{base}/guides" class="inline-block rounded-lg py-2 px-4 text-sm lg:text-base lg:py-3 lg:px-6 bg-prime text-white hover:underline">
         Get Started
       </a>
     </div>
