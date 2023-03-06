@@ -12,5 +12,5 @@
   <p class="mb-4">
     Resize the box to see changes
   </p>
-  <textarea bind:this={ref} bind:value={stringify} class="resize p-4 min-w-[320px] min-h-[100px] rounded-md" />
+  <textarea bind:this={ref} bind:value={stringify} class="resize p-4 min-w-[100%] min-h-[100px] lg:min-w-[320px] lg:min-h-[100px] rounded-md" />
 </DemoContainer>

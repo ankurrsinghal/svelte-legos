@@ -1,28 +1,8 @@
 <script lang="ts">
   import { useWindowScroll } from '$lib/hooks/useWindowScroll';
 	import DemoContainer from '$lib/shared/components/DemoContainer.svelte';
-	import { onDestroy, onMount } from 'svelte';
+
   const position = useWindowScroll();
-
-  onMount(() => {
-    if (typeof window === "object") {
-      const mainContainer = window.document.getElementById('main-container');
-      if (mainContainer) {
-        mainContainer.style.setProperty('width', '10000px');
-        mainContainer.style.setProperty('height', '10000px');
-      }
-    }
-  })
-
-  onDestroy(() => {
-    if (typeof window === "object") {
-      const mainContainer = window.document.getElementById('main-container');
-      if (mainContainer) {
-        mainContainer.style.setProperty('width', 'initial');
-        mainContainer.style.setProperty('height', 'initial');
-      }
-    }
-  })
 </script>
 
 <div class="scroll-container">

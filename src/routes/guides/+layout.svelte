@@ -75,7 +75,7 @@
 </svelte:head>
 
 <div>
-	<section class="fixed top-0 w-80 h-screen pt-16 pl-20 flex flex-col border-r border-black bg-slate-100">
+	<!-- <section class="fixed hidden top-0 w-80 h-screen pt-16 pl-20 border-r border-black flex flex-col bg-slate-100">
 		<ul class="space-y-3 mt-8">
 			{#each data.hooks as hook}
 				<li>
@@ -83,8 +83,17 @@
 				</li>
 			{/each}
 		</ul>
-	</section>
-	<section class="pl-80" id="main-container">
+	</section> -->
+	<section class="lg:pl-80" id="main-container">
 		<slot />
+	</section>
+	<section class="flex flex-col bg-slate-100 p-8 lg:p-10 lg:fixed lg:top-0 lg:w-80 lg:h-screen lg:pt-16 lg:pl-20 lg:border-r lg:border-black">
+		<ul class="space-y-3 lg:mt-8">
+			{#each data.hooks as hook}
+				<li>
+					<a href={'/guides/hooks/' + hook} class="hover:underline">{hook}</a>
+				</li>
+			{/each}
+		</ul>
 	</section>
 </div>

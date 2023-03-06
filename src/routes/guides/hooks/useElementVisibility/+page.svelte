@@ -1,31 +1,10 @@
 <script lang="ts">
 import { useElementVisibility } from "$lib/hooks/useElementVisibility";
 import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
-import { onDestroy, onMount } from 'svelte';
 
 let ref: HTMLElement | null = null;
 
 $: isVisible = useElementVisibility(ref);
-
-onMount(() => {
-  if (typeof window === "object") {
-    const mainContainer = window.document.getElementById('main-container');
-    if (mainContainer) {
-      mainContainer.style.setProperty('width', '10000px');
-      mainContainer.style.setProperty('height', '10000px');
-    }
-  }
-})
-
-onDestroy(() => {
-  if (typeof window === "object") {
-    const mainContainer = window.document.getElementById('main-container');
-    if (mainContainer) {
-      mainContainer.style.setProperty('height', 'initial');
-      mainContainer.style.setProperty('height', 'initial');
-    }
-  }
-})
 </script>
 
 <div class="inline-block">

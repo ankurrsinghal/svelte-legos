@@ -2,6 +2,7 @@
   export let disabled: boolean = false;
 
   const classNames = `
+    inline-block
     text-sm
     bg-prime
     text-white

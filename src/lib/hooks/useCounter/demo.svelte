@@ -8,7 +8,7 @@ const { counter, inc, dec, set, reset } = useCounter();
 
 <DemoContainer>
   <div>Counter: {$counter}</div>
-  <div class="mt-6 space-x-4">
+  <div class="mt-6 flex flex-col items-start space-y-2">
     <PrimaryButton on:click={() => inc()}>Increment</PrimaryButton>
     <PrimaryButton on:click={() => dec()}>Decrement</PrimaryButton>
     <PrimaryButton on:click={() => inc(5)}>Increment (+5)</PrimaryButton>
