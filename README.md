@@ -20,6 +20,12 @@ import { useCounter } from "$lib";
 
 const { counter, inc, dec, set, reset } = useCounter();
 </script>
+
+<button on:click={() => inc()}>Increment</button>
+
+{counter}
+
+<button on:click={() => dec()}>Decrement</button>
 ```
 
 ```svelte
