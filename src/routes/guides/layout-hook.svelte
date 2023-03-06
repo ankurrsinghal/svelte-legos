@@ -20,7 +20,7 @@
   <div class="my-20">
     <h1 class="text-xl lg:text-2xl">Usage</h1>
     {#if data.code}
-      <div class="p-4 text-sm overflow-auto">
+      <div class="mt-4 p-4 text-sm overflow-auto border border-slate-600 rounded-md bg-slate-100">
         <pre>
           <code>
 {@html data.code}
