@@ -1,3 +1,5 @@
+import { defaultWindow } from '$lib/shared';
+import type { ConfigurableWindow } from '$lib/shared/utils/types';
 import { readable } from 'svelte/store';
 
 function getCurrentWindowDimenstions() {
@@ -14,16 +16,16 @@ function getCurrentWindowDimenstions() {
 	}
 }
 
-export function useWindowSize() {
+export function useWindowSize({ window = defaultWindow }: ConfigurableWindow = {}) {
 	const size = readable(getCurrentWindowDimenstions(), (set) => {
 		function handler() {
 			set(getCurrentWindowDimenstions());
 		}
-
-		window.addEventListener('resize', handler);
+    
+		window?.addEventListener('resize', handler);
 
 		return () => {
-			window.removeEventListener('resize', handler);
+			window?.removeEventListener('resize', handler);
 		};
 	});
 

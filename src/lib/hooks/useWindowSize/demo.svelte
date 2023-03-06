@@ -11,6 +11,6 @@ const size = useWindowSize();
   </div>
   <br />
   <div>
-    Try resizing <span class="font-mono">(Cmd + (-/+))</span>
+    Try resizing the window <span class="font-mono">(Cmd + (-/+))</span>
   </div>
 </DemoContainer>
