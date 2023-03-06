@@ -1,39 +1,48 @@
-<script setup lang="ts">
-	import { writable } from 'svelte/store';
-	import { useIntervalFn } from '$lib/hooks/useIntervalFn';
-	const greetings = [
-		'Hello',
-		'Hi',
-		'Yo!',
-		'Hey',
-		'Hola',
-		'こんにちは',
-		'Bonjour',
-		'Salut!',
-		'你好',
-		'Привет'
-	];
-	let word = 'Hello';
-	let interval = writable(500);
+<script lang="ts">
+import { writable } from "svelte/store";
+import { useIntervalFn } from "$lib/hooks/useIntervalFn";
+import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
+import PrimaryButton from "$lib/shared/components/PrimaryButton.svelte";
+const greetings = [
+	"Hello",
+	"Hi",
+	"Yo!",
+	"Hey",
+	"Hola",
+	"こんにちは",
+	"Bonjour",
+	"Salut!",
+	"你好",
+	"Привет",
+];
+let word = "Hello";
+let interval = writable(500);
 
-  const { pause, resume, isActive, changeIntervalTime } = useIntervalFn(handler, interval)
+const { pause, resume, isActive, changeIntervalTime } = useIntervalFn(
+	handler,
+	interval
+);
 
-  function handler() {
-    word = greetings[Math.floor(Math.random() * greetings.length)];
-  }
-
-  // $: changeIntervalTime(interval)
+function handler() {
+	word = greetings[Math.floor(Math.random() * greetings.length)];
+}
 </script>
 
-<div>
-	<p>{word} {$interval}</p>
-	<p>
-		interval:
-		<input bind:value={$interval} type="number" placeholder="interval" />
-	</p>
-	{#if $isActive}
-		<button class="orange" on:click={pause}> Pause </button>
-	{:else}
-		<button on:click={resume}> Resume </button>
-	{/if}
-</div>
+<DemoContainer>
+  <div class="mb-4">
+    <p class="text-xl">{word}</p>
+  </div>
+  <div class="mb-4">
+    <p class="mb-2">Interval:</p>
+    <p>
+      <input class="p-2 rounded-md" bind:value={$interval} type="number" placeholder="interval" />
+    </p>
+  </div>
+  <div>
+    {#if $isActive}
+      <PrimaryButton on:click={pause}>Pause</PrimaryButton>
+    {:else}
+      <PrimaryButton on:click={resume}>Resume</PrimaryButton>
+    {/if}
+  </div>
+</DemoContainer>

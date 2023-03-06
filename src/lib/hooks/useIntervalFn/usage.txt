@@ -1,0 +1,7 @@
+<script lang="ts">
+import { useIntervalFn } from "$lib/hooks/useIntervalFn";
+
+const { pause, resume, isActive, changeIntervalTime } = useIntervalFn(() => {
+  /* your function */
+}, 2000);
+</script>

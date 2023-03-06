@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let disabled: boolean;
+  export let disabled: boolean = false;
 
   const classNames = `
     text-sm
