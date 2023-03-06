@@ -1,8 +1,7 @@
-<p align="center">
 # Svelte Legos
-<br>
 Collection of essential Svelte Composition Utilities
-</p>
+<br>
+<br>
 
 ## 🚀 Features
 
