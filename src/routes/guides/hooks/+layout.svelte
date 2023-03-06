@@ -4,7 +4,7 @@
   export let data: PageData;
 </script>
 
-<div class="p-8 pb-20">
+<div id="legos-main-container">
   <div>
     <h1 class="text-2xl lg:text-4xl font-bold">{data.hookName}</h1>
     <p class="mt-4">
