@@ -12,7 +12,8 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"watch:docs": "node page-gen.js",
-		"start:dev": "concurrently --kill-others \"npm run watch:docs\" \"npm run dev\""
+		"start:dev": "concurrently --kill-others \"npm run watch:docs\" \"npm run dev\"",
+		"build:docs": "vite build"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0",

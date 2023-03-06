@@ -1,38 +1,52 @@
-# create-svelte
+<p align="center">
+# Svelte Legos
+<br>
+Collection of essential Svelte Composition Utilities
+</p>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## 🚀 Features
 
-## Creating a project
+- 🎪 [**Interactive docs & demos**](https://svelte-legos.singhalankur.com)
+- ⚡ **Fully tree shakeable**: Only take what you want, [bundle size]
+- 🦾 **Type Strong**: Written in [TypeScript](https://www.typescriptlang.org/), with [TS Docs](https://github.com/microsoft/tsdoc)
+- 🔋 **SSR Friendly**
+- 🌎 **No bundler required**: Usable via CDN
+- 🔩 **Flexible**: Configurable event filters and targets
 
-If you're seeing this, you've probably already done this step. Congrats!
+## 🦄 Usage
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+```svelte
+<script lang="ts">
+import { useCounter } from "$lib";
 
-# create a new project in my-app
-npm create svelte@latest my-app
+const { counter, inc, dec, set, reset } = useCounter();
+</script>
 ```
 
-## Developing
+```svelte
+<script lang="ts">
+import { useWindowSize } from "$lib";
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+const size = useWindowSize();
+</script>
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+<div>{$size.width}</div>
+<div>{$size.height}</div>
 ```
 
-## Building
+Refer to [functions list](https://svelte-legos.singhalankur.com/guides) or [documentations](https://svelte-legos.singhalankur.com) for more details.
 
-To create a production version of your app:
+## 📦 Install
 
 ```bash
-npm run build
+npm i svelte-legos
 ```
+## 🌸 Thanks
 
-You can preview the production build with `npm run preview`.
+This project is heavily inspired by the following awesome projects.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- [vueuse/vueuse](https://github.com/vueuse/vueuse)
+- [streamich/react-use](https://github.com/streamich/react-use)
+- [u3u/vue-hooks](https://github.com/u3u/vue-hooks)
+- [logaretm/vue-use-web](https://github.com/logaretm/vue-use-web)
+- [kripod/react-hooks](https://github.com/kripod/react-hooks)
