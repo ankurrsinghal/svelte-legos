@@ -1,24 +1,40 @@
-import type { Size } from '$lib/shared/utils/types';
-import { useResizeObserver } from '$lib/useResizeObserver';
-import { readable, type Readable } from 'svelte/store';
+import { defaultWindow, tryOnDestroy, writableToReadable } from "$lib/shared";
+import type { ConfigurableWindow } from "$lib/shared/utils/types";
+import { writable, type Readable } from "svelte/store";
 
-function getElementSize(rect: DOMRect): Size {
-	return {
-		width: rect.width,
-		height: rect.height
-	};
-}
+export function useElementVisibility(
+  target: Element | null,
+  { window = defaultWindow }: ConfigurableWindow = {}
+): Readable<boolean> {
+  const store = writable(false);
+  
+  if (target !== null) {
+    function check() {
+      if (!window) return;
+      if (target === null) return;
+  
+      const document = window.document;
+      const rect = target.getBoundingClientRect();
+  
+      const test = (
+        rect.top <=
+          (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.left <=
+          (window.innerWidth || document.documentElement.clientWidth) &&
+        rect.bottom >= 0 &&
+        rect.right >= 0
+      );
+      store.set(test);
+    }
+  
+    window?.addEventListener('scroll', check, { capture: false, passive: true });
 
-export function useElementSize(target: Element): Readable<Size> {
-	const size = readable(getElementSize(target.getBoundingClientRect()), (set) => {
-		function handler([entry]: ResizeObserverEntry[]) {
-			set(getElementSize(entry.contentRect));
-		}
+    check();
+  
+    tryOnDestroy(() => {
+      window?.removeEventListener('scroll', check);
+    });
+  }
 
-		const { stop } = useResizeObserver(target, handler);
-
-		return stop();
-	});
-
-	return size;
+  return writableToReadable(store);
 }

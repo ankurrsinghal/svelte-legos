@@ -1,0 +1,9 @@
+<script lang="ts">
+import { useElementVisibility } from "$lib/hooks/useElementVisibility";
+
+let ref: HTMLElement | null = null;
+
+$: isVisible = useElementVisibility(ref);
+
+// use reactive boolean property as $isVisible
+</script>
