@@ -16,7 +16,7 @@ Collection of essential Svelte Composition Utilities
 
 ```svelte
 <script lang="ts">
-import { useCounter } from "$lib";
+import { useCounter } from "svelte-legos";
 
 const { counter, inc, dec, set, reset } = useCounter();
 </script>
@@ -30,7 +30,7 @@ const { counter, inc, dec, set, reset } = useCounter();
 
 ```svelte
 <script lang="ts">
-import { useWindowSize } from "$lib";
+import { useWindowSize } from "svelte-legos";
 
 const size = useWindowSize();
 </script>

@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useElementVisibility } from "$lib/hooks/useElementVisibility";
+import { useElementVisibility } from "svelte-legos";
 
 let ref: HTMLElement | null = null;
 

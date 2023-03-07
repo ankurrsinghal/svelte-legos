@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useWindowFocus } from '$lib/hooks/useWindowFocus';
+import { useWindowFocus } from 'svelte-legos';
 
 const isFocused = useWindowFocus();
 

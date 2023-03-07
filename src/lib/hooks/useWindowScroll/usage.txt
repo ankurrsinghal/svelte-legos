@@ -1,5 +1,5 @@
 <script>
-import { useWindowScroll } from 'svelte-use';
+import { useWindowScroll } from 'svelte-legos';
 
 const position = useWindowScroll()
 </script>

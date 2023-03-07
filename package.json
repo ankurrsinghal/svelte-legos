@@ -2,6 +2,14 @@
 	"name": "svelte-legos",
 	"version": "0.0.1",
 	"main": "./package/index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ankurrsinghal/svelte-legos.git"
+	},
+	"bugs": {
+		"url": "https://github.com/ankurrsinghal/svelte-legos/issues"
+	},
+	"homepage": "https://svelte-legos.singhalankur.com/",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",

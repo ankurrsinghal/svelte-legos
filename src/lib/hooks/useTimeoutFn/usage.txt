@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useTimeoutFn } from '$lib/hooks/useTimeoutFn';
+import { useTimeoutFn } from 'svelte-legos';
 
 const { isPending, start, stop } = useTimeoutFn(() => {
     /* ... */
