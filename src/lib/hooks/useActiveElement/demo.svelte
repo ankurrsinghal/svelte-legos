@@ -12,7 +12,7 @@ $: id = $activeElement?.id || 'null';
   <Text>
     Select the inputs below to see the changes
   </Text>
-  <div class="space-x-2 my-4 flex flex-col lg:flex-row">
+  <div class="space-y-2 my-4 flex flex-col">
     {#each Array(4).fill(0) as el, index}
       <div>
         <input placeholder={`Input with id ${"input-" + (index + 1)}`} class="py-1 px-2 text-sm rounded-md border border-slate-500" id={"input-" + (index + 1)} />
