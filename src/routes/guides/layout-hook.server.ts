@@ -6,7 +6,7 @@ export const prerender = true;
 
 
 const REPO_BASE_URL = 'https://github.com/ankurrsinghal/svelte-legos/tree/master/src';
-const REPO_HOOKS_URL = REPO_BASE_URL + '/lib/hooks';
+const REPO_HOOKS_URL = (itemType: string) => REPO_BASE_URL + '/lib/' + itemType;
 
 function last<T>(arr: T[]) {
   return arr[arr.length - 1];
@@ -29,7 +29,7 @@ export async function load({ route }: any) {
     hookName,
     meta,
     code: code && Prism.highlight(code, Prism.languages.svelte, 'svelte'),
-    sourceCodeURL: REPO_HOOKS_URL + `/${hookName}/index.ts`,
-    demoCodeURL: REPO_HOOKS_URL + `/${hookName}/demo.svelte`,
+    sourceCodeURL: REPO_HOOKS_URL(itemType.toLowerCase()) + `/${hookName}/index.ts`,
+    demoCodeURL: REPO_HOOKS_URL(itemType.toLowerCase()) + `/${hookName}/demo.svelte`,
   }
 }
