@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useRafFn } from "$lib";
+import { useRafFn } from "svelte-legos";
 
 let counter = 0;
 

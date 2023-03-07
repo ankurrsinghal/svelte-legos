@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useCounter } from "$lib/hooks/useCounter";
+import { useCounter } from "svelte-legos";
 
 const { counter, inc, dec, set, reset } = useCounter();
 </script>

@@ -1,5 +1,5 @@
 <script>
-import { useWindowSize } from 'svelte-use';
+import { useWindowSize } from 'svelte-legos';
 
 const size = useWindowSize()
 </script>
