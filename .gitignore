@@ -21,3 +21,5 @@ symlink-from
 deploy.sh
 build
 package
+src/routes/guides/hooks
+src/routes/guides/actions

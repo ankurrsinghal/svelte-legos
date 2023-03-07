@@ -23,6 +23,7 @@
 		lg:z-0
 		lg:p-0
 		lg:pt-16
+    overflow-auto
 		${isMenuOpened ? "visible" : "hidden"}
 	`;
 
@@ -84,7 +85,9 @@
     }
 
     .token.keyword,
-    .token.boolean {
+    .token.boolean,
+    .token.attr-name,
+    .token.namespace {
       color: var(--code-keyword);
     }
 
@@ -136,8 +139,15 @@
       <li>
         <a href="/guides/" class="hover:underline">Getting Started</a>
       </li>
+      <li class="py-2"></li>
+      <li class="text-sm">Actions:</li>
+      {#each data.actions as action}
+        <li on:click={handleClick} aria-hidden="true">
+          <a href={"/guides/actions/" + action} class="hover:underline">{action}</a>
+        </li>
+      {/each}
 			<li class="py-2"></li>
-      <li class="text-sm">Legos:</li>
+      <li class="text-sm">Hooks:</li>
       {#each data.hooks as hook}
         <li on:click={handleClick} aria-hidden="true">
           <a href={"/guides/hooks/" + hook} class="hover:underline">{hook}</a>

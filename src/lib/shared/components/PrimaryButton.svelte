@@ -1,24 +1,14 @@
 <script lang="ts">
-  export let disabled: boolean = false;
+import type { HTMLButtonAttributes } from 'svelte/elements'
+import { PrimaryButtonClassName } from '../tailwind';
 
-  const classNames = `
-    inline-block
-    text-sm
-    bg-prime
-    text-white
-    px-4
-    py-2
-    rounded-md
-    disabled:bg-slate-300
-  `;
+interface $$Props extends HTMLButtonAttributes {}
 </script>
 
 <button
-  disabled={disabled}
-  class={classNames
-    .split("\n")
-    .map((c) => c.trim())
-    .filter(Boolean)
-    .join(" ")}
-  on:click><slot /></button
->
+  {...$$props}
+  on:click
+  class={PrimaryButtonClassName}
+  >
+  <slot />
+</button>

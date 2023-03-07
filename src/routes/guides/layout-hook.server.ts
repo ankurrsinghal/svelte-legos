@@ -12,13 +12,18 @@ function last<T>(arr: T[]) {
   return arr[arr.length - 1];
 }
 
+function typeOfObject(path: string) {
+  return path.split('/')[2];
+}
+
 export async function load({ route }: any) {
+  const itemType = typeOfObject(route.id);
   const hookName = last(route.id.split('/'));
   let code = undefined;
   let meta = {};
   try {
-    meta = JSON.parse(fs.readFileSync(`./src/lib/hooks/${hookName}/meta.json`).toString());
-    code = fs.readFileSync(`./src/lib/hooks/${hookName}/usage.txt`).toString();
+    meta = JSON.parse(fs.readFileSync(`./src/lib/${itemType.toLowerCase()}/${hookName}/meta.json`).toString());
+    code = fs.readFileSync(`./src/lib/${itemType.toLowerCase()}/${hookName}/usage.txt`).toString();
   } catch(e) {}
   return {
     hookName,
