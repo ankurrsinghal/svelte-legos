@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useActiveElement } from '$lib';
+import { useActiveElement } from 'svelte-legos';
 
 const activeElement = useActiveElement();
 

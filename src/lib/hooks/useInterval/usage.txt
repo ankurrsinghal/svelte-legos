@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useInterval } from "$lib";
+import { useInterval } from "svelte-legos";
 
 const counter = useInterval(200);
 

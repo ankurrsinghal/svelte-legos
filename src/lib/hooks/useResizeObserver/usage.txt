@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useResizeObserver } from "$lib/hooks/useResizeObserver";
+import { useResizeObserver } from "svelte-legos";
 
 let ref: HTMLElement | null = null;
 
