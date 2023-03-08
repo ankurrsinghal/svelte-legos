@@ -1,6 +1,6 @@
 import { writableToReadable } from '$lib/shared';
 import { writable } from 'svelte/store';
-import { useEventListener } from '../useEventListener';
+import { useEventListener } from '$lib';
 
 export function useHover<T extends HTMLElement = HTMLElement>(ref: T | undefined | null) {
 	const store = writable(false);

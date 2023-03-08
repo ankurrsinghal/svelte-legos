@@ -1,26 +1,42 @@
 <script lang="ts">
-import { useActiveElement } from '$lib';
-import DemoContainer from '$lib/shared/components/DemoContainer.svelte';
-import Text from '$lib/shared/components/Text.svelte';
+  import { useEventListener } from "$lib";
+  import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
+  import Text from "$lib/shared/components/Text.svelte";
+  import { PrimaryButtonClassName } from "$lib/shared/tailwind";
+  import { onMount } from "svelte";
 
-const activeElement = useActiveElement();
+  let buttonRef: HTMLButtonElement;
+  let documentRef: Document;
 
-$: id = $activeElement?.id || 'null';
+  const onScroll = (event: Event) => {
+    console.log("window scrolled!", event);
+  };
+
+  const onClick = (event: Event) => {
+    console.log("button clicked!", event);
+  };
+
+  const onVisibilityChange = (event: Event) => {
+    console.log("doc visibility changed!", {
+      isVisible: !document.hidden,
+      event,
+    });
+  };
+
+  onMount(() => {
+    // example with window based event
+    useEventListener("scroll", onScroll);
+
+    // example with document based event
+    useEventListener("visibilitychange", onVisibilityChange, documentRef);
+
+    useEventListener("click", onClick, buttonRef);
+  });
 </script>
 
 <DemoContainer>
-  <Text>
-    Select the inputs below to see the changes
-  </Text>
-  <div class="space-y-2 my-4 flex flex-col">
-    {#each Array(4).fill(0) as el, index}
-      <div>
-        <input placeholder={`Input with id ${"input-" + (index + 1)}`} class="py-1 px-2 text-sm rounded-md border border-slate-500" id={"input-" + (index + 1)} />
-      </div>
-    {/each}
-  </div>
-
-  <Text>
-    Current active element id: <span>{id}</span>
-  </Text>
+  <p class="mb-4">
+    Check console for logs.
+  </p>
+  <button class={PrimaryButtonClassName} bind:this={buttonRef}>Click me</button>
 </DemoContainer>

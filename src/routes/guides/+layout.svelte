@@ -22,7 +22,7 @@
 		lg:block
 		lg:z-0
 		lg:p-0
-		lg:pt-16
+		lg:py-16
     overflow-auto
 		${isMenuOpened ? "visible" : "hidden"}
 	`;
