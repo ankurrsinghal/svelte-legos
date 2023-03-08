@@ -1,3 +1,3 @@
 {
-  "description": "On click outside action."   
+  "description": "Simple way to handle hover action. Uses useHover internally."   
 }

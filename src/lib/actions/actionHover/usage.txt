@@ -1,14 +1,12 @@
-<script>
-import { actionClickOutside } from "svelte-legos";
+<script lang="ts">
+import { actionHover } from "svelte-legos";
 
-let hidden = false;
-
-function handleClickOutside() {
-  hidden = !hidden;
+function handleHover(e: CustomEvent<{ hover: boolean }>) {
+  alert(`Box hovered: ${e.detail.hover}`);
 }
 </script>
 
-<Modal
-  use:actionClickOutside
-  on:clickoutside={handleClickOutside}
+<Box
+  use:actionHover
+  on:hover={handleHover}
 />

@@ -1,12 +1,17 @@
 import { tryOnDestroy } from "$lib/shared";
 
+interface UseEventListenerReturnType {
+  start: () => void;
+  stop: () => void;
+}
+
 // MediaQueryList Event based useEventListener interface
 export function useEventListener<K extends keyof MediaQueryListEventMap>(
   eventName: K,
   handler: (event: MediaQueryListEventMap[K]) => void,
   element: MediaQueryList,
   options?: boolean | AddEventListenerOptions,
-): void
+): UseEventListenerReturnType
 
 // Window Event based useEventListener interface
 export function useEventListener<K extends keyof WindowEventMap>(
@@ -14,7 +19,7 @@ export function useEventListener<K extends keyof WindowEventMap>(
   handler: (event: WindowEventMap[K]) => void,
   element?: undefined,
   options?: boolean | AddEventListenerOptions,
-): void
+): UseEventListenerReturnType
 
 // Element Event based useEventListener interface
 export function useEventListener<
@@ -25,7 +30,7 @@ export function useEventListener<
   handler: (event: HTMLElementEventMap[K]) => void,
   element: T,
   options?: boolean | AddEventListenerOptions,
-): void
+): UseEventListenerReturnType
 
 // Document Event based useEventListener interface
 export function useEventListener<K extends keyof DocumentEventMap>(
@@ -33,7 +38,7 @@ export function useEventListener<K extends keyof DocumentEventMap>(
   handler: (event: DocumentEventMap[K]) => void,
   element: Document,
   options?: boolean | AddEventListenerOptions,
-): void
+): UseEventListenerReturnType
 
 export function useEventListener<
   KW extends keyof WindowEventMap,
@@ -52,17 +57,24 @@ export function useEventListener<
   element?: T,
   options?: boolean | AddEventListenerOptions,
 ) {
-  // Define the listening target
-  const targetElement: T | Window = element ?? window;
-
-  if (!(targetElement && targetElement.addEventListener)) return;
-
   // Create event listener that calls handler function stored in ref
   const listener: typeof handler = event => handler(event);
 
-  targetElement.addEventListener(eventName, listener, options);
+  function start() {
+    const targetElement: T | Window = element ?? window;
+    if (!(targetElement && targetElement.addEventListener)) return;
+    targetElement && targetElement.addEventListener(eventName, listener, options);
+  }
 
-  tryOnDestroy(() => {
+  function stop() {
+    const targetElement: T | Window = element ?? window;
+    if (!(targetElement && targetElement.addEventListener)) return;
     targetElement.removeEventListener(eventName, listener, options)
-  });
+  }
+
+  start();
+
+  tryOnDestroy(stop);
+
+  return { start, stop };
 }

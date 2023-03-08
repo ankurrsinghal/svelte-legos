@@ -1,15 +1,31 @@
-export function actionClickOutside<T extends Element>(node: T) {
-  const handleClick = (event: MouseEvent) => {
-    if (event.target !== null && !node.contains(event.target as Node)) {
-      node.dispatchEvent(new CustomEvent("clickoutside"));
-    }
-  };
+import { useHover } from "$lib";
+import type { Unsubscriber } from "svelte/store";
 
-  document.addEventListener("click", handleClick, true);
+function CreateHoverEvent(hover: boolean) {
+  return new CustomEvent("hover", { detail: { hover } });
+}
+
+export function actionHover<T extends HTMLElement>(node: T) {
+  const hover = useHover(node);
+
+  let unsub: Unsubscriber | null = null;
+
+  function stop() {
+    if (unsub !== null) {
+      unsub();
+    }
+  }
+
+  function start() {
+    stop();
+    unsub = hover.subscribe((hover) => {
+      node.dispatchEvent(CreateHoverEvent(hover));
+    });
+  }
+
+  start();
 
   return {
-    destroy() {
-      document.removeEventListener("click", handleClick, true);
-    },
+    destroy: stop,
   };
 }

@@ -20,3 +20,4 @@ export { useEventListener } from "./hooks/useEventListener";
 
 export { actionClickOutside } from './actions/actionClickOutside';
 export { actionLongPress } from './actions/actionLongPress';
+export { actionHover } from './actions/actionHover';
