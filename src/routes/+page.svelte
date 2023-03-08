@@ -56,4 +56,10 @@ import { SiteDescription, SiteName, SiteTitle } from './constants';
       description="Documentation of functions also come with interactive demos!"
     />
   </section>
+
+  <div class="fixed text-center right-0 left-0 bg-prime z-10 bottom-0 text-white p-4 font-bold">
+    <a class="hover:underline" href="https://github.com/ankurrsinghal/svelte-legos" target="_blank" rel="noreferrer">
+      Work In Progress! 🚜. Current status 25/200 utilities.
+    </a>
+  </div>
 </section>
