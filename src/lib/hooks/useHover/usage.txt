@@ -1,0 +1,13 @@
+<script lang="ts">
+import { useHover } from "svelte-legos";
+
+let ref: HTMLDivElement | null = null;
+
+$: isHover = useHover(ref);
+
+// $isHover will be true/false
+// whenever mouse enters/leaves the
+// Box
+</script>
+
+<Box bind:this={ref}></Box>

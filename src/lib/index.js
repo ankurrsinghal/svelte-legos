@@ -15,6 +15,7 @@ export { useActiveElement } from "./hooks/useActiveElement";
 export { useElementBounding } from "./hooks/useElementBounding";
 export { useInterval } from "./hooks/useInterval";
 export { useRafFn } from "./hooks/useRafFn";
+export { useHover } from "./hooks/useHover";
 
 export { actionClickOutside } from './actions/actionClickOutside';
 export { actionLongPress } from './actions/actionLongPress';
