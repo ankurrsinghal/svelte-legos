@@ -1,0 +1,7 @@
+<script>
+  import { actionTooltip } from "$lib";
+</script>
+
+<div use:actionTooltip={"Tooltip Content"}>
+  Hover me
+</div>

@@ -137,7 +137,7 @@
     <div class="fixed top-0 bottom-0 bg-black right-0" />
     <ul class="space-y-3 lg:mt-8">
       <li>
-        <a href="/guides/" class="hover:underline">Getting Started</a>
+        <a href="/guides/" class="hover:underline">Getting Started ({data.actions.length + data.hooks.length})</a>
       </li>
       <li class="py-2"></li>
       <li class="text-sm">Actions:</li>

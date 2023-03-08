@@ -1,0 +1,3 @@
+{
+  "description": "React UI sensor hook that uses Javascript/Typescript instead of CSS to figure out if the mouse element is in the hover element. So, you can separate the logic from the user interface (UI)."
+}

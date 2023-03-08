@@ -17,8 +17,10 @@ export { useInterval } from "./hooks/useInterval";
 export { useRafFn } from "./hooks/useRafFn";
 export { useHover } from "./hooks/useHover";
 export { useEventListener } from "./hooks/useEventListener";
+export { useReadable } from "./hooks/useReadable";
 
 export { actionClickOutside } from './actions/actionClickOutside';
 export { actionLongPress } from './actions/actionLongPress';
 export { actionHover } from './actions/actionHover';
 export { actionTextareaAutosize } from './actions/actionTextareaAutosize';
+export { actionTooltip } from './actions/actionTooltip';
