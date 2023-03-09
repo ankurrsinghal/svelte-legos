@@ -1,0 +1,5 @@
+<script>
+import { actionResizable } from "svelte-legos";
+</script>
+
+<Box use:actionResizable />
