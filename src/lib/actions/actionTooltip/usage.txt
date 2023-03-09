@@ -1,7 +1,11 @@
 <script>
-  import { actionTooltip } from "$lib";
+import { actionTooltip } from "$lib";
 </script>
 
 <div use:actionTooltip={"Tooltip Content"}>
-  Hover me
+  Default Options
+</div>
+
+<div use:actionTooltip={{ content: "Tooltip Content", placement: "center" }}>
+  With Options
 </div>

@@ -24,3 +24,4 @@ export { actionLongPress } from './actions/actionLongPress';
 export { actionHover } from './actions/actionHover';
 export { actionTextareaAutosize } from './actions/actionTextareaAutosize';
 export { actionTooltip } from './actions/actionTooltip';
+export { actionSortableTable } from './actions/actionSortableTable';
