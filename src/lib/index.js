@@ -25,3 +25,4 @@ export { actionHover } from './actions/actionHover';
 export { actionTextareaAutosize } from './actions/actionTextareaAutosize';
 export { actionTooltip } from './actions/actionTooltip';
 export { actionSortableTable } from './actions/actionSortableTable';
+export { actionDraggable } from './actions/actionDraggable';
