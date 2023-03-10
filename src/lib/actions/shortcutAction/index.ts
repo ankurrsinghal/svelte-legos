@@ -33,16 +33,22 @@ export function shortcutAction<T extends HTMLElement>(
   node: T,
   params: Partial<ShortActionParams>
 ) {
-  const start = () => {
+  let stop: () => void;
+
+  const destroy = () => {
+    stop && stop();
+  };
+
+  const update = (params: Partial<ShortActionParams>) => {
+    destroy();
     function hanlder(event: KeyboardEvent) {
-      console.log(event.code);
       const definedKeys = Keys.filter(
         (key) => !isUndefined(params[key as keyof ShortActionParams])
       );
       const undefinedKeys = Keys.filter((key) =>
         isUndefined(params[key as keyof ShortActionParams])
       );
-
+  
       function check(key: keyof ShortActionParams) {
         return (
           params[key] ===
@@ -53,7 +59,7 @@ export function shortcutAction<T extends HTMLElement>(
           ]
         );
       }
-
+  
       if (
         definedKeys.every(check) &&
         !undefinedKeys.some(
@@ -64,15 +70,13 @@ export function shortcutAction<T extends HTMLElement>(
         params.cb ? params.cb() : node.click();
       }
     }
-
-    eventListenerStore("keydown", hanlder);
+    ({ stop } = eventListenerStore("keydown", hanlder));
   };
 
-  const destroy = () => {};
-
-  start();
+  update(params);
 
   return {
+    update,
     destroy,
   };
 }

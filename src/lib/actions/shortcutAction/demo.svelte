@@ -1,7 +1,6 @@
 <script>
   import { shortcutAction } from "$lib";
   import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
-  import Text from "$lib/shared/components/Text.svelte";
   import { PrimaryButtonClassName } from "$lib/shared/tailwind";
 
   let timesClicked = 0;
