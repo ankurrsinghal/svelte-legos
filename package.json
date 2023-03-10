@@ -20,7 +20,8 @@
 		"format": "prettier --plugin-search-dir . --write .",
 		"watch:docs": "node page-gen.js",
 		"start:dev": "concurrently --kill-others \"npm run watch:docs\" \"npm run dev\"",
-		"build:docs": "vite build"
+		"build:docs": "vite build",
+		"deploy:docs": "npm run build:docs && ./deploy.sh"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0",
