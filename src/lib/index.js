@@ -27,3 +27,4 @@ export { tooltipAction } from './actions/tooltipAction';
 export { sortableTableAction } from './actions/sortableTableAction';
 export { draggableAction } from './actions/draggableAction';
 export { resizableAction } from './actions/resizableAction';
+export { shortcutAction } from './actions/shortcutAction';
