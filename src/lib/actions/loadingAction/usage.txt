@@ -1,0 +1,10 @@
+<script>
+import { loadingAction } from "svelte-legos";
+
+let loading = false;
+</script>
+
+
+<div use:loadingAction={loading}>
+  Content
+</div>

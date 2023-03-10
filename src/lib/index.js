@@ -29,3 +29,4 @@ export { draggableAction } from './actions/draggableAction';
 export { resizableAction } from './actions/resizableAction';
 export { shortcutAction } from './actions/shortcutAction';
 export { notifyAction } from './actions/notifyAction';
+export { loadingAction } from './actions/loadingAction';
