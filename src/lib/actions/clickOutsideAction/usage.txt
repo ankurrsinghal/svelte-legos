@@ -8,7 +8,8 @@ function handleClickOutside() {
 }
 </script>
 
-<Modal
+<div
+  class="modal"
   use:clickOutsideAction
   on:clickoutside={handleClickOutside}
 />

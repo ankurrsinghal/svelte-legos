@@ -2,4 +2,4 @@
 import { resizableAction } from "svelte-legos";
 </script>
 
-<Box use:resizableAction />
+<div class="box" use:resizableAction />

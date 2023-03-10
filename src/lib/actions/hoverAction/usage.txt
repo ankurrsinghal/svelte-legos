@@ -6,7 +6,8 @@ function handleHover(e: CustomEvent<{ hover: boolean }>) {
 }
 </script>
 
-<Box
+<div
+  class="box"
   use:hoverAction
   on:hover={handleHover}
 />
