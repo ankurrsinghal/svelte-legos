@@ -1,8 +1,0 @@
-<script>
-import { useWindowSize } from 'svelte-legos';
-
-const size = useWindowSize()
-</script>
-
-<div>Width: {$size.width}</div>
-<div>Height: {$size.height}</div>

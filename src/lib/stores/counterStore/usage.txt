@@ -1,0 +1,5 @@
+<script lang="ts">
+import { counterStore } from "svelte-legos";
+
+const { counter, inc, dec, set, reset } = counterStore();
+</script>

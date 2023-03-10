@@ -1,7 +1,0 @@
-<script lang="ts">
-import { useInterval } from "svelte-legos";
-
-const counter = useInterval(200);
-
-// $counter will increase by 1 every 200 ms
-</script>

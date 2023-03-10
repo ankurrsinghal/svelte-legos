@@ -1,0 +1,8 @@
+<script>
+import { windowScrollStore } from 'svelte-legos';
+
+const position = windowScrollStore()
+</script>
+
+<div>X: {$position.x}</div>
+<div>Y: {$position.y}</div>

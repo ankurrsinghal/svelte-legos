@@ -1,0 +1,13 @@
+<script lang="ts">
+import { documentVisibilityStore } from "svelte-legos";
+
+const visibility = documentVisibilityStore();
+
+$: {
+  if ($visibility === 'hidden') {
+    // do something when window is not visible
+  } else {
+    // do something when window is visible again
+  }
+}
+</script>

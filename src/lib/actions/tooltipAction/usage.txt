@@ -1,0 +1,11 @@
+<script>
+import { tooltipAction } from "svelte-legos";
+</script>
+
+<div use:tooltipAction={"Tooltip Content"}>
+  Default Options
+</div>
+
+<div use:tooltipAction={{ content: "Tooltip Content", placement: "center" }}>
+  With Options
+</div>

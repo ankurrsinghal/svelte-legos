@@ -1,0 +1,12 @@
+<script lang="ts">
+import { rafFnStore } from "svelte-legos";
+
+let counter = 0;
+
+function handler() {
+  counter += 1;
+}
+
+const { pause, resume } = rafFnStore(handler);
+
+</script>

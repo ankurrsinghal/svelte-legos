@@ -1,7 +1,0 @@
-<script lang="ts">
-import { useIntervalFn } from "svelte-legos";
-
-const { pause, resume, isActive, changeIntervalTime } = useIntervalFn(() => {
-  /* your function */
-}, 2000);
-</script>

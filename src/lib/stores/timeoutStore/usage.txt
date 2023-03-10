@@ -1,0 +1,12 @@
+<script lang="ts">
+import { timeoutStore } from 'svelte-legos';
+
+const ready = timeoutStore(2000);
+
+// use boolean as $ready
+
+
+// or use it with controls
+const { ready, start, stop } = timeoutStore(2000, { controls: true });
+
+</script>

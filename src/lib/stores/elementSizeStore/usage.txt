@@ -1,0 +1,12 @@
+<script lang="ts">
+import { elementSizeStore } from "svelte-legos";
+
+let ref: HTMLElement | null = null;
+
+$: size = elementSizeStore(ref);
+
+// use $size.width or $size.height like this
+
+</script>
+
+<div bind:this={ref} />

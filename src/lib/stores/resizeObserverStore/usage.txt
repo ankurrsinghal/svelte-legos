@@ -1,0 +1,17 @@
+<script lang="ts">
+import { resizeObserverStore } from "svelte-legos";
+
+let ref: HTMLElement | null = null;
+
+let width = 0;
+let height = 0;
+
+function handler([entry]: ResizeObserverEntry[]) {
+  width = entry.contentRect.width;
+  height = entry.contentRect.height;
+}
+
+$: ref && resizeObserverStore(ref, handler);
+
+// use width and height
+</script>

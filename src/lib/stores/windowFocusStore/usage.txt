@@ -1,0 +1,8 @@
+<script lang="ts">
+import { windowFocusStore } from 'svelte-legos';
+
+const isFocused = windowFocusStore();
+
+// $isFocused changes to true | false on focus | blur.
+  
+</script>

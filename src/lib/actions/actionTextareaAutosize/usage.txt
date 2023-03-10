@@ -1,5 +1,0 @@
-<script>
-  import { actionTextareaAutosize } from "svelte-legos";
-</script>
-
-<textarea use:actionTextareaAutosize />

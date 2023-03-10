@@ -1,0 +1,7 @@
+<script lang="ts">
+import { intervalStore } from "svelte-legos";
+
+const counter = intervalStore(200);
+
+// $counter will increase by 1 every 200 ms
+</script>

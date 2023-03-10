@@ -1,0 +1,14 @@
+<script>
+import { clickOutsideAction } from "svelte-legos";
+
+let hidden = false;
+
+function handleClickOutside() {
+  hidden = !hidden;
+}
+</script>
+
+<Modal
+  use:clickOutsideAction
+  on:clickoutside={handleClickOutside}
+/>

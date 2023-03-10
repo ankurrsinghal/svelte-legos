@@ -1,0 +1,12 @@
+<script lang="ts">
+import { hoverAction } from "svelte-legos";
+
+function handleHover(e: CustomEvent<{ hover: boolean }>) {
+  alert(`Box hovered: ${e.detail.hover}`);
+}
+</script>
+
+<Box
+  use:hoverAction
+  on:hover={handleHover}
+/>

@@ -1,0 +1,7 @@
+<script lang="ts">
+import { intervalFnStore } from "svelte-legos";
+
+const { pause, resume, isActive, changeIntervalTime } = intervalFnStore(() => {
+  /* your function */
+}, 2000);
+</script>

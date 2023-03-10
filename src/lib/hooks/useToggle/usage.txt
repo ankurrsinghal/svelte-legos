@@ -1,8 +1,0 @@
-<script lang="ts">
-import { useToggle } from "svelte-legos";
-
-const { toggle, on, off, set, value } = useToggle();
-
-// Use $value as true or false and
-// manipulate using toggle, on, off, set
-</script>

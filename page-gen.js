@@ -1,11 +1,11 @@
 import chokidar from 'chokidar';
 import fs from 'fs';
 
-const base = 'src/lib/hooks';
+const base = 'src/lib/stores';
 const watcher = chokidar.watch('./' + base, { ignored: /^\./, persistent: true });
 
 try {
-  fs.mkdirSync('./src/routes/guides/hooks');
+  fs.mkdirSync('./src/routes/guides/stores');
 } catch(e) {
   console.log(e.message);
 }
@@ -13,7 +13,7 @@ try {
 function handleDirAdd(path) {
 	try {
 		const dir = path.split(base)[1].trim();
-		const dest = './src/routes/guides/hooks' + dir;
+		const dest = './src/routes/guides/stores' + dir;
 		fs.mkdirSync(dest);
 	} catch (e) {
 		console.log(e.message);
@@ -24,7 +24,7 @@ function handleFileAdd(path) {
 	try {
 		let dir = path.split(base)[1].trim();
 		let hookName = dir.split('/')[1];
-		const dest = './src/routes/guides/hooks' + '/' + hookName + '/+page.svelte';
+		const dest = './src/routes/guides/stores' + '/' + hookName + '/+page.svelte';
 		if (path.endsWith('.svelte')) {
 			fs.copyFileSync(path, dest);
 		}
@@ -36,7 +36,7 @@ function handleFileAdd(path) {
 function hanldeRemove(path) {
   try {
 		const dir = path.split(base)[1].trim();
-		const dest = './src/routes/guides/hooks' + dir;
+		const dest = './src/routes/guides/stores' + dir;
 		fs.unlinkSync(dest);
 	} catch (e) {
 		console.log(e.message);
@@ -47,7 +47,7 @@ function handleFileRemove(path) {
 	try {
 		let dir = path.split(base)[1].trim();
 		let hookName = dir.split('/')[1];
-		const dest = './src/routes/guides/hooks' + '/' + hookName + '/+page.svelte';
+		const dest = './src/routes/guides/stores' + '/' + hookName + '/+page.svelte';
 		if (path.endsWith('.svelte')) {
 			fs.unlinkSync(dest);
 		}
@@ -71,9 +71,9 @@ const watcher2 = chokidar.watch(
 
 function handleTemplates(path) {
   if (path.endsWith('svelte')) {
-    fs.copyFileSync(path, './src/routes/guides/hooks/' + '+layout.svelte');
+    fs.copyFileSync(path, './src/routes/guides/stores/' + '+layout.svelte');
   } else {
-    fs.copyFileSync(path, './src/routes/guides/hooks/' + '+layout.server.ts');
+    fs.copyFileSync(path, './src/routes/guides/stores/' + '+layout.server.ts');
   }
 }
 

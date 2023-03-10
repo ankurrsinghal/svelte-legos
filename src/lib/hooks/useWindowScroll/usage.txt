@@ -1,8 +1,0 @@
-<script>
-import { useWindowScroll } from 'svelte-legos';
-
-const position = useWindowScroll()
-</script>
-
-<div>X: {$position.x}</div>
-<div>Y: {$position.y}</div>

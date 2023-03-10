@@ -1,0 +1,16 @@
+<script>
+
+import { longPressAction } from "svelte-legos";
+
+let pressed = false;
+let duration = 2000;
+
+</script>
+
+
+<button
+  use:longPressAction={duration}
+  on:longpress={() => (pressed = true)}
+>
+  press and hold
+</button>

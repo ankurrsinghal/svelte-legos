@@ -1,0 +1,14 @@
+<script lang="ts">
+import { elementBoundingStore } from 'svelte-legos';
+
+let el = null;
+let rect = null;
+
+$: el && (rect = elementBoundingStore(el));
+$: {
+  const { x, y, top, right, bottom, left, width, height } = rect
+}
+
+</script>
+
+<div bind:this={el} />

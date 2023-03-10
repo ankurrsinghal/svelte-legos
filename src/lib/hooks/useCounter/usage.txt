@@ -1,5 +1,0 @@
-<script lang="ts">
-import { useCounter } from "svelte-legos";
-
-const { counter, inc, dec, set, reset } = useCounter();
-</script>

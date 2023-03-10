@@ -1,0 +1,9 @@
+<script lang="ts">
+import { elementVisibilityStore } from "svelte-legos";
+
+let ref: HTMLElement | null = null;
+
+$: isVisible = elementVisibilityStore(ref);
+
+// use reactive boolean property as $isVisible
+</script>
