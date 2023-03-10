@@ -1,0 +1,12 @@
+<script>
+import { notifyAction } from "svelte-legos";
+</script>
+
+<button
+  use:notifyAction={{
+    title: "Title",
+    description: "You can put your little description here.",
+  }}
+>
+  Notify
+</button>

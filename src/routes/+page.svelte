@@ -1,16 +1,8 @@
 <script>
 import { base } from '$app/paths';
 import Feature from './Feature.svelte';
-import { SiteDescription, SiteName, SiteTitle } from './constants';
+import { SiteTitle } from './constants';
 </script>
-
-<svelte:head>
-	<title>{SiteName} • {SiteTitle}</title>
-
-	<meta name="twitter:title" content={SiteName} />
-	<meta name="twitter:description" content={SiteTitle} />
-	<meta name="description" content={SiteDescription} />
-</svelte:head>
 
 <section class="py:20 lg:py-36 container mx-auto p-8">
   <div>
