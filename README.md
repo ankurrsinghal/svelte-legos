@@ -16,9 +16,9 @@ Collection of essential Svelte Composition Utilities
 
 ```svelte
 <script lang="ts">
-import { useCounter } from "svelte-legos";
+import { counterStore } from "svelte-legos";
 
-const { counter, inc, dec, set, reset } = useCounter();
+const { counter, inc, dec, set, reset } = counterStore();
 </script>
 
 <button on:click={() => inc()}>Increment</button>
@@ -30,13 +30,20 @@ const { counter, inc, dec, set, reset } = useCounter();
 
 ```svelte
 <script lang="ts">
-import { useWindowSize } from "svelte-legos";
+import { clickOutsideAction } from "svelte-legos";
 
-const size = useWindowSize();
+let hidden = false;
+
+function handleClickOutside() {
+  hidden = !hidden;
+}
 </script>
 
-<div>{$size.width}</div>
-<div>{$size.height}</div>
+<div
+  class="modal"
+  use:clickOutsideAction
+  on:clickoutside={handleClickOutside}
+/>
 ```
 
 Refer to [functions list](https://svelte-legos.singhalankur.com/guides) or [documentations](https://svelte-legos.singhalankur.com) for more details.
