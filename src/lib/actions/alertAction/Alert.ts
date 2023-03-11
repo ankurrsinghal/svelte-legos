@@ -20,12 +20,10 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
       right: 0;
       bottom: 0;
       background-color: rgba(0, 0, 0, 0.5);
-      pointer-events: none;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 100000;
-      pointer-events: none;
       box-shadow: 0px 0px 12px rgba(0, 0, 0, .12);
     `;
     container.setAttribute("style", containerStyles);
@@ -42,7 +40,6 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
       padding: 12px 16px;
       border-radius: 8px;
       background-color: white;
-      pointer-events: all;
       display: flex;
       flex-direction: column;
     `;
