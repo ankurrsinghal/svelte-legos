@@ -18,7 +18,6 @@ export function loadingAction<T extends HTMLElement>(
   let restoreNode = () => {};
 
   const update = (params: boolean | LoadingActionParams) => {
-    console.log(params);
     if (!params) {
       if (loader) {
         loader.unmount();

@@ -1,0 +1,11 @@
+<script>
+import { messageAction } from "svelte-legos";
+</script>
+
+<button
+  use:messageAction={{
+    message: "Here is your message!",
+  }}
+>
+  Show Message
+</button>
