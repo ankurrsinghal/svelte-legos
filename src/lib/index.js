@@ -31,3 +31,4 @@ export { shortcutAction } from './actions/shortcutAction';
 export { notifyAction } from './actions/notifyAction';
 export { loadingAction } from './actions/loadingAction';
 export { messageAction } from './actions/messageAction';
+export { alertAction } from './actions/alertAction';
