@@ -1,6 +1,6 @@
 import { writableToReadable } from "$lib/shared";
 import { writable, type Readable } from "svelte/store";
-import { resizeObserverStore } from "$lib";
+import { resizeObserverStore } from "../resizeObserverStore";
 
 function getBounding(target: Element) {
   return target.getBoundingClientRect();

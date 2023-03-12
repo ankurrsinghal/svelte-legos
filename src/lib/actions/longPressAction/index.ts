@@ -1,4 +1,4 @@
-import { timeoutFnStore } from "$lib";
+import { timeoutFnStore } from "$lib/stores/timeoutFnStore";
 
 export function longPressAction<T extends Element>(node: T, duration = 500) {
   function handleTimeout() {

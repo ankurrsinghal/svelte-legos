@@ -1,7 +1,7 @@
 import { writableToReadable } from "$lib/shared";
 import type { Size } from "$lib/shared/utils/types";
 import { writable } from "svelte/store";
-import { resizeObserverStore } from "$lib";
+import { resizeObserverStore } from "../resizeObserverStore";
 
 /**
  * Reactive size of an HTML element.

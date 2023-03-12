@@ -1,4 +1,4 @@
-import { eventListenerStore } from "$lib";
+import { eventListenerStore } from "$lib/stores/eventListenerStore";
 import ProxyTextareaElement from "./core";
 
 export function textareaAutosizeAction(node: HTMLTextAreaElement) {

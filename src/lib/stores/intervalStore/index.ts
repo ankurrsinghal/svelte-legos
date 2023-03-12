@@ -1,5 +1,5 @@
 import { readable, type Readable } from 'svelte/store';
-import { intervalFnStore } from '$lib';
+import { intervalFnStore } from '../intervalFnStore';
 
 /**
  * Wrapper for `setInterval` with controls.

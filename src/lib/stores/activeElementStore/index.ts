@@ -1,5 +1,5 @@
-import { defaultWindow } from "$lib/shared";
 import type { ConfigurableWindow } from "$lib/shared/utils/types";
+import { defaultWindow } from "$lib/shared";
 import { readable, type Readable } from "svelte/store";
 
 function getCurrentActiveElement(window = defaultWindow): Element | null {

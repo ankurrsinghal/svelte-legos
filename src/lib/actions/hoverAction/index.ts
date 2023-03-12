@@ -1,4 +1,4 @@
-import { hoverStore } from "$lib";
+import { hoverStore } from "$lib/stores/hoverStore";
 import type { Unsubscriber } from "svelte/store";
 
 function CreateHoverEvent(hover: boolean) {

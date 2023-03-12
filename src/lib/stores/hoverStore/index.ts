@@ -1,5 +1,6 @@
-import { eventListenerStore, toggleStore } from "$lib";
 import type { Readable } from "svelte/store";
+import { eventListenerStore } from "../eventListenerStore";
+import { toggleStore } from "../toggleStore";
 
 export function hoverStore<T extends HTMLElement = HTMLElement>(
   ref: T | undefined | null
