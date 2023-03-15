@@ -1,0 +1,18 @@
+<script>
+import { clickToCopyAction } from "svelte-legos";
+
+function handleCopyDone() {
+  console.log("Copy done");
+}
+
+let text = 'Text to copy';
+</script>
+
+<input bind:value={text} />
+
+<button
+  use:clickToCopyAction={text}
+  on:copy-done={handleCopyDone}
+>
+  Click to copy
+</button>

@@ -1,6 +1,6 @@
 {
 	"name": "svelte-legos",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"main": "./package/index.js",
 	"repository": {
 		"type": "git",
@@ -56,7 +56,10 @@
 	"exports": {
 		".": {
 			"types": "./package/index.d.ts",
-			"svelte": "./package/index.js"
+			"svelte": "./package/index.js",
+			"import": "./package/index.js",
+			"require": "./package/index.js"
+
 		}
 	},
 	"files": [
