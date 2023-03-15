@@ -33,3 +33,4 @@ export { loadingAction } from './actions/loadingAction';
 export { messageAction } from './actions/messageAction';
 export { alertAction } from './actions/alertAction';
 export { clickToCopyAction } from './actions/clickToCopyAction';
+export { lazyLoadImageAction } from './actions/lazyLoadImageAction';

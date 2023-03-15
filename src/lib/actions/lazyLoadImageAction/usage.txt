@@ -1,0 +1,5 @@
+<script>
+import { lazyLoadImageAction } from "svelte-legos";
+</script>
+
+<img use:lazyLoadImageAction data-src="https://source.unsplash.com/8n7ipHhI8CI" />

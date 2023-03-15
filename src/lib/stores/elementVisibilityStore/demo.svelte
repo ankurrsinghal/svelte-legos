@@ -4,41 +4,21 @@ import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 
 let ref: HTMLElement | null = null;
 
-$: isVisible = elementVisibilityStore(ref);
-
-// onMount(() => {
-//   if (typeof window === "object") {
-//     const mainContainer = window.document.getElementById('legos-main-container');
-//     if (mainContainer) {
-//       mainContainer.style.setProperty('width', '2000px');
-//       mainContainer.style.setProperty('height', '2000px');
-//     }
-//   }
-// })
-
-// onDestroy(() => {
-//   if (typeof window === "object") {
-//     const mainContainer = window.document.getElementById('legos-main-container');
-//     if (mainContainer) {
-//       mainContainer.style.setProperty('height', 'initial');
-//       mainContainer.style.setProperty('height', 'initial');
-//     }
-//   }
-// })
+$: ({ isVisible } = elementVisibilityStore(ref));
 </script>
 
-<div class="inline-block relative">
+<div class="relative">
   <DemoContainer>
-    <div class="mb-4">
+    <div bind:this={ref} class="max-w-100 p-4 z-20 relative area bg-white dark:bg-gray-800 shadow-lg z-60 rounded-md">
+      Target Element (scroll down)
+    </div>
+    <div class="mt-4 h-[1000px]">
       <p>
-        Scroll the window in vertical and horizontal directions and watch element status in the bottom right corner.
+        Scroll the window and watch element status in the bottom right corner.
       </p>
       <p>
         Info on the right bottom corner
       </p>
-    </div>
-    <div bind:this={ref} class="max-w-100 p-4 z-20 relative area bg-white dark:bg-gray-800 shadow-lg z-60 rounded-md">
-      Target Element (scroll down)
     </div>
   </DemoContainer>
   <div class="fixed bottom-3 right-3 shadow-lg">
