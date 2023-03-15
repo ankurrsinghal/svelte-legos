@@ -1,0 +1,19 @@
+<script lang="ts">
+import { networkStore } from 'svelte-legos';
+
+const networkState = networkStore();
+
+// $networkState has these properties
+
+// isSupported: boolean
+// isOnline: boolean
+// offlineAt: number | undefined
+// onlineAt: number | undefined
+// downlink: number | undefined
+// downlinkMax: number | undefined
+// effectiveType: NetworkEffectiveType | undefined
+// rtt: number | undefined
+// saveData: boolean | undefined
+// type: NetworkType
+
+</script>

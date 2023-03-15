@@ -1,7 +1,10 @@
-<script>
+<script lang="ts">
+import type { PageData } from "./$types";
 import { base } from '$app/paths';
 import Feature from './Feature.svelte';
 import { SiteTitle } from './constants';
+
+export let data: PageData;
 </script>
 
 <section class="py:20 lg:py-36 container mx-auto p-8">
@@ -51,7 +54,7 @@ import { SiteTitle } from './constants';
 
   <div class="fixed text-center right-0 left-0 bg-prime z-10 bottom-0 text-white p-4 font-bold">
     <a class="hover:underline" href="https://github.com/ankurrsinghal/svelte-legos" target="_blank" rel="noreferrer">
-      Work In Progress! 🚜. Current status 25/200 utilities.
+      Work In Progress! 🚜. Current status {data.utilsLength} utilities.
     </a>
   </div>
 </section>
