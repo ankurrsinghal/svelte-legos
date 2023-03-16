@@ -1,0 +1,11 @@
+<script lang="ts">
+import { memoryStore } from 'svelte-legos';
+
+const memoryStore = memoryStore();
+
+// $memoryStore has these properties
+
+// isSupported: boolean
+// memory: { jsHeapSizeLimit: number, totalJSHeapSize: number, usedJSHeapSize: number } in bytes
+
+</script>
