@@ -38,3 +38,4 @@ export { alertAction } from './actions/alertAction';
 export { clickToCopyAction } from './actions/clickToCopyAction';
 export { lazyLoadImageAction } from './actions/lazyLoadImageAction';
 export { documentTitleAction } from './actions/documentTitleAction';
+export { fullScreenAction } from './actions/fullScreenAction';

@@ -1,0 +1,19 @@
+<script>
+  import { fullScreenAction } from "svelte-legos";
+  let ref;
+</script>
+
+<video
+  bind:this={ref}
+  controls
+/>
+
+<button class={PrimaryButtonClassName} use:fullScreenAction={ref}>
+  Go Fullscreen
+</button>
+
+<!-- or if you don't pass ref it will fullscreen window -->
+
+<button class={PrimaryButtonClassName} use:fullScreenAction>
+  Go Fullscreen
+</button>

@@ -1,0 +1,3 @@
+{
+  "description": "An action to make elements like video or window full screen on click of the element action binded to. It adds methods to present a specific Element (and its descendants) in full-screen mode, and to exit full-screen mode once it is no longer needed. This makes it possible to present desired content—such as an online game—using the user's entire screen, removing all browser user interface elements and other applications from the screen until full-screen mode is shut off."   
+}
