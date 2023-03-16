@@ -8,12 +8,12 @@
   controls
 />
 
-<button class={PrimaryButtonClassName} use:fullScreenAction={ref}>
+<button use:fullScreenAction={ref}>
   Go Fullscreen
 </button>
 
 <!-- or if you don't pass ref it will fullscreen window -->
 
-<button class={PrimaryButtonClassName} use:fullScreenAction>
+<button use:fullScreenAction>
   Go Fullscreen
 </button>
