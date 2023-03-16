@@ -1,0 +1,5 @@
+<script>
+  import { documentTitleAction } from "svelte-legos";
+</script>
+
+<input use:documentTitleAction />
