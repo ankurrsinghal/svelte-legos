@@ -18,8 +18,13 @@
         controls
       />
     </div>
-    <button class={PrimaryButtonClassName} use:fullScreenAction={ref}>
-      Go Fullscreen
-    </button>
+    <div class="space-x-4">
+      <button class={PrimaryButtonClassName} use:fullScreenAction={ref}>
+        Fullscreen Video
+      </button>
+      <button class={PrimaryButtonClassName} use:fullScreenAction>
+        Fullscreen Window
+      </button>
+    </div>  
   </div>
 </DemoContainer>

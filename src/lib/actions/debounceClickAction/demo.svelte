@@ -1,12 +1,13 @@
-<script>
-  import { longPressAction, messagesStore, timeoutFnStore } from "$lib";
+<script lang="ts">
+  import { debounceClickAction, messagesStore } from "$lib";
   import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
   import { PrimaryButtonClassName } from "$lib/shared/tailwind";
 
-  let duration = 2000;
-  function handleLongPress() {
-    messagesStore('Pressed!');
+  function onClick() {
+    messagesStore('Clicked!');
   }
+
+  let duration = 1000;
 </script>
 
 <DemoContainer>
@@ -18,10 +19,9 @@
   <div class="my-4">
     <button
       class={PrimaryButtonClassName}
-      use:longPressAction={duration}
-      on:longpress={handleLongPress}
+      use:debounceClickAction={{ duration, onClick }}
     >
-      press and hold
+      Click will fire after {duration}ms
     </button>
   </div>
 </DemoContainer>

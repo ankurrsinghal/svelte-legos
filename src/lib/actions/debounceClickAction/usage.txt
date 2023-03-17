@@ -1,0 +1,15 @@
+<script lang="ts">
+  import { debounceClickAction } from "svelte-legos";
+
+  function onClick() {
+    // main click
+  }
+
+  let duration = 300; // in milliseconds
+</script>
+
+<button
+  use:debounceClickAction={{ duration, onClick }}
+>
+  Debounce Click
+</button>

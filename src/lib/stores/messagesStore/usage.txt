@@ -1,0 +1,13 @@
+<script>
+import { messagesStore } from "svelte-legos";
+
+function handleClick() {
+  messagesStore("Here is your message");
+}
+</script>
+
+<button
+  on:click={handleClick}
+>
+  Show Message
+</button>

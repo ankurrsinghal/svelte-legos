@@ -1,5 +1,5 @@
 import { eventListenerStore } from "$lib/stores/eventListenerStore";
-import MessageManager from "./MessageManager";
+import { messagesStore } from "$lib/stores/messagesStore";
 
 interface MessageActionParams {
   message: string;
@@ -18,7 +18,7 @@ export function messageAction<T extends HTMLElement>(
   const update = (params: MessageActionParams) => {
     destroy();
     function handleClick() {
-      MessageManager.getInstance().createMessage(params.message);
+      messagesStore(params.message);
     }
 
     ({ stop } = eventListenerStore("click", handleClick, node));

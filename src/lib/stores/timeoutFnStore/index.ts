@@ -35,13 +35,13 @@ export function timeoutFnStore(
     }
   }
 
-  function start() {
+  function start(...args: any) {
     stop();
     set(true);
     timerId = setTimeout(() => {
       set(false);
       timerId = null;
-      fn();
+      fn(...args);
     }, interval);
   }
 
