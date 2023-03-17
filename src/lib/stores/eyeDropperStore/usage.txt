@@ -1,0 +1,11 @@
+<script lang="ts">
+import { eyeDropperStore } from 'svelte-legos';
+
+const { open, color } = eyeDropperStore('black');
+</script>
+
+<button on:click={open}>
+    Open EyeDropper
+</button>
+
+<div style:background={$color}></div>

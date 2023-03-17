@@ -18,6 +18,6 @@
   </button>
 
   <div class="mt-4 w-60 h-20 rounded-md flex items-center justify-center p-4 text-sm bg-slate-400" style:background={color}>
-    <span class="font-mon">background: var(--bg)</span>
+    Color will appear here.
   </div>
 </DemoContainer>

@@ -22,6 +22,7 @@ export { networkStore } from "./stores/networkStore";
 export { onlineStore } from "./stores/onlineStore";
 export { memoryStore } from "./stores/memoryStore";
 export { cssVarStore } from "./stores/cssVarStore";
+export { eyeDropperStore } from "./stores/eyeDropperStore";
 
 export { clickOutsideAction } from './actions/clickOutsideAction';
 export { longPressAction } from './actions/longPressAction';

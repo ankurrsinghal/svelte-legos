@@ -34,8 +34,7 @@ export function eyeDropperAction<T extends HTMLElement>(
 
   const update = () => {
     destroy();
-    const isSupported = () =>
-      typeof window !== "undefined" && "EyeDropper" in window;
+    const isSupported = typeof window !== "undefined" && "EyeDropper" in window;
 
     async function handleClick() {
       if (!isSupported) {
