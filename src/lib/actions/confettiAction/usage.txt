@@ -3,8 +3,13 @@ import { confettiAction } from "svelte-legos";
 </script>
 
 <button
-  class={PrimaryButtonClassName}
   use:confettiAction
 >
-  Fire
+  Confetti
+</button>
+
+<button
+  use:confettiAction={{ type: 'school-pride' }}
+>
+  School Pride
 </button>

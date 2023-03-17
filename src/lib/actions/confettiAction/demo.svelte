@@ -5,12 +5,19 @@ import { PrimaryButtonClassName } from "$lib/shared/tailwind";
 </script>
 
 <DemoContainer>
-  <div>
+  <div class="flex flex-col items-start space-y-4">
     <button
       class={PrimaryButtonClassName}
       use:confettiAction
     >
-      Fire
+      Confetti
+    </button>
+
+    <button
+      class={PrimaryButtonClassName}
+      use:confettiAction={{ type: 'school-pride' }}
+    >
+      School Pride
     </button>
   </div>
 </DemoContainer>
