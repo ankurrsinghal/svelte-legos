@@ -1,0 +1,11 @@
+<script>
+import { cssVarStore } from 'svelte-legos'
+
+const bg = cssVarStore('--bg', { initialValue: 'gray' })
+const primary = cssVarStore('--primary', { initialValue: 'red' })
+const secondary = cssVarStore('--secondary', { initialValue: 'black' })
+</script>
+
+<input bind:value={$bg} />
+<input bind:value={$primary} />
+<input bind:value={$secondary} />
