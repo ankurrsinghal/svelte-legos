@@ -1,0 +1,10 @@
+<script>
+import { confettiAction } from "svelte-legos";
+</script>
+
+<button
+  class={PrimaryButtonClassName}
+  use:confettiAction
+>
+  Fire
+</button>
