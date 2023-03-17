@@ -1,0 +1,15 @@
+<script>
+  import { eyeDropperAction } from "svelte-legos";
+  let color = '';
+</script>
+
+<button
+  use:eyeDropperAction={{
+    onDone: (value) => (color = value),
+    onError: console.log
+  }}
+>
+  Open EyeDropper
+</button>
+
+<div style:background={color} class="box"></div>
