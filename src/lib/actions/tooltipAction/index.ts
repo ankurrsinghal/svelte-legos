@@ -40,7 +40,7 @@ class Tooltip<T extends HTMLElement> {
     this.__container.textContent = this.contents;
 
     this.mount();
-    this.position();
+    this.position(window, this.anchorRect);
     if (this.__displayPointer) this.addPointer();
   }
 
@@ -48,7 +48,7 @@ class Tooltip<T extends HTMLElement> {
     document.body.appendChild(this.__container);
   }
 
-  private position() {
+  public position(window: Window, anchorRect: DOMRect) {
     let top, left;
 
     const rect = this.__container.getBoundingClientRect();
@@ -60,9 +60,10 @@ class Tooltip<T extends HTMLElement> {
       height: anchorHeight,
       width: anchorWidth,
       left: anchorLeft,
-    } = this.anchorRect;
+    } = anchorRect;
 
     const { scrollY, scrollX } = window;
+
 
     if (this.__placement === "center") {
       top = anchorTop + scrollY - height - 10 - (this.__displayPointer ? Tooltip.POINTER_SIZE : 0);
@@ -126,6 +127,11 @@ export function tooltipAction<T extends HTMLElement>(
   options: string | ActionTooltipOptions
 ) {
   let tooltip: Tooltip<T>;
+  function positionTooltip() {
+    tooltip.position(window, node.getBoundingClientRect());
+  }
+  window.addEventListener("resize",positionTooltip);
+
   if (typeof options === "string") {
     tooltip = new Tooltip(options, node, "center");
   } else {
@@ -139,6 +145,7 @@ export function tooltipAction<T extends HTMLElement>(
 
   return {
     destroy() {
+      window.removeEventListener("resize",positionTooltip);
       tooltip.unmount();
       unsub();
     },
