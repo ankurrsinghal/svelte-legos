@@ -139,7 +139,7 @@
     <div class="fixed top-0 bottom-0 bg-black right-0" />
     <ul class="space-y-3 lg:mt-8">
       <li>
-        <a href="/guides/" class="hover:underline {!currentPath && $page.route.id === "/guides" ? "font-bold" : ""}">
+        <a href="/guides/" class="hover:underline {!currentPath && $page.route.id === "/guides" ? "font-bold underline" : ""}">
           Getting Started ({data.actions.length + data.stores.length})
         </a>
       </li>
@@ -147,14 +147,14 @@
       <li class="text-sm">Actions:</li>
       {#each data.actions as action}
         <li on:click={handleClick} aria-hidden="true">
-          <a href={"/guides/actions/" + action} class="hover:underline {action === currentPath ? "font-bold" : ""}">{action}</a>
+          <a href={"/guides/actions/" + action} class="hover:underline {action === currentPath ? "font-bold underline" : ""}">{action}</a>
         </li>
       {/each}
 			<li class="py-2"></li>
       <li class="text-sm">Stores:</li>
       {#each data.stores as store}
         <li on:click={handleClick} aria-hidden="true">
-          <a href={"/guides/stores/" + store} class="hover:underline {store === currentPath ? "font-bold" : ""}">{store}</a>
+          <a href={"/guides/stores/" + store} class="hover:underline {store === currentPath ? "font-bold underline" : ""}">{store}</a>
         </li>
       {/each}
     </ul>
