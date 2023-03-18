@@ -1,0 +1,12 @@
+<script>
+import { scrollToBottomAction } from "svelte-legos";
+
+// messages data
+let messages = [];
+</script>
+
+<div use:scrollToBottomAction>
+  {#each messages as message}
+    <!-- // message component -->
+  {/each}
+</div>
