@@ -12,10 +12,10 @@ import type { Writable } from 'svelte/store';
  */
 export function intervalFnStore(
 	fn: Fn,
-	interval: number | Readable<number> | undefined
+	interval?: number | Readable<number>
 ): Pausable {
 
-  if (interval === undefined) {
+  if (!interval) {
     interval = 1000;
   }
 
@@ -36,9 +36,7 @@ export function intervalFnStore(
 	}
 
 	function resume() {
-    const intervalValue = unwrapReadable(interval);
-
-    isSafeIntegerThrowable(intervalValue);
+    const intervalValue = unwrapReadable(interval) ?? 0;
 
 		isActiveWritable.set(true);
 		clean();

@@ -4,6 +4,7 @@ dist
 test-results/
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 vite.config.js.timestamp-*
 /packages/create-svelte/template/CHANGELOG.md
 /packages/package/test/**/package
@@ -17,6 +18,7 @@ vite.config.js.timestamp-*
 .turbo
 .vercel
 .test-tmp
+.vscode
 symlink-from
 deploy.sh
 build
