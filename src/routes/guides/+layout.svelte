@@ -27,8 +27,7 @@
 		${isMenuOpened ? "visible" : "hidden"}
 	`;
 
-  function handleClick(e: MouseEvent) {
-    e.stopPropagation();
+  function handleClick() {
     isMenuOpened = !isMenuOpened;
   }
 </script>
