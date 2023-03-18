@@ -53,6 +53,11 @@ Refer to [functions list](https://svelte-legos.singhalankur.com/guides) or [docu
 ```bash
 npm i svelte-legos
 ```
+
+## Local setup
+```bash
+npm run start:dev
+```
 ## 🌸 Thanks
 
 This project is heavily inspired by the following awesome projects.
