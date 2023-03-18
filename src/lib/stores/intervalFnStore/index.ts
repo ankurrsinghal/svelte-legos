@@ -14,9 +14,10 @@ export function intervalFnStore(
 	fn: Fn,
 	interval?: number | Readable<number>
 ): Pausable {
+	const defaultInterval = 1000;
 
   if (!interval) {
-    interval = 1000;
+    interval = defaultInterval;
   }
 
 	const isActiveWritable = writable(false);
@@ -36,7 +37,7 @@ export function intervalFnStore(
 	}
 
 	function resume() {
-    const intervalValue = unwrapReadable(interval) ?? 0;
+    const intervalValue = unwrapReadable(interval) ?? defaultInterval;
 
 		isActiveWritable.set(true);
 		clean();
