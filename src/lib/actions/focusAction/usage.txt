@@ -1,0 +1,11 @@
+<script>
+  import { focusAction } from "svelte-legos";
+  let isFocused = true;
+</script>
+
+<input use:focusAction={isFocused} />
+<button
+  on:click={() => (isFocused = !isFocused)}
+>
+  Toggle Focus
+</button>

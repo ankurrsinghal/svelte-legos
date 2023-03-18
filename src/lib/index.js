@@ -45,3 +45,4 @@ export { fullScreenAction } from './actions/fullScreenAction';
 export { eyeDropperAction } from './actions/eyeDropperAction';
 export { debounceClickAction } from './actions/debounceClickAction';
 export { confettiAction } from './actions/confettiAction';
+export { focusAction } from './actions/focusAction';
