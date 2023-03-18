@@ -1,5 +1,5 @@
 <script lang="ts">
-import { scrollToBottomAction, shortcutAction } from "$lib";
+import { scrollToBottomAction, hotKeyAction } from "$lib";
 import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 
 let messages: string[] = Array(10).fill(0).map((_, i) => new Date().toDateString());
@@ -26,7 +26,7 @@ function addMessage() {
     <input
       placeholder="Enter message and press enter"
       bind:value={currentMessage}
-      use:shortcutAction={{ code: 'Enter', cb: addMessage }}
+      use:hotKeyAction={{ code: 'Enter', cb: addMessage }}
       class="px-2 py-1 border border-black rounded-md text-md min-w-[250px]"
     />
   </div>

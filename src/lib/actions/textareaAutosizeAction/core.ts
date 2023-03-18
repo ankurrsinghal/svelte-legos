@@ -202,6 +202,8 @@ class ProxyTextareaElement {
     this._element?.removeEventListener('pointerdown', this.__onpointerdown);
     this._element?.removeEventListener('pointermove', this.__onpointermove);
     this._element?.removeEventListener('pointerup', this.__onpointerup);
+    ProxyTextareaElement._proxyTextareaElement?.remove();
+    ProxyTextareaElement._proxyTextareaElement = undefined;
   }
 };
 

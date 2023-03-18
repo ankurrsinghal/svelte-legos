@@ -1,5 +1,5 @@
 <script>
-  import { shortcutAction } from "$lib";
+  import { hotKeyAction } from "$lib";
   import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
   import { PrimaryButtonClassName } from "$lib/shared/tailwind";
 
@@ -11,7 +11,7 @@
   <div class="flex items-center">
     <button
       class={PrimaryButtonClassName}
-      use:shortcutAction={{ shift: true, code: 'Digit1' }}
+      use:hotKeyAction={{ shift: true, code: 'Digit1' }}
       on:click={() => timesClicked++}
     >
       Triggers a click on Shift + 1
@@ -23,7 +23,7 @@
   <div class="flex items-center mt-4">
     <div
       class="inline-block text-sm px-4 py-2 rounded-md border border-black"
-      use:shortcutAction={{ shift: true, meta: true, code: 'KeyX', cb: () => timesClickedCallback++ }}
+      use:hotKeyAction={{ shift: true, meta: true, code: 'KeyX', cb: () => timesClickedCallback++ }}
       aria-hidden="true"
     >
       Triggers a callback on Shift + Cmd + X

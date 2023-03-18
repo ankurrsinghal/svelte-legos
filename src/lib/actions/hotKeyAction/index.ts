@@ -29,7 +29,7 @@ const KeysToEventMap: Record<ShortActionParamsWithoutCB, keyof KeyboardEvent> =
     code: "code",
   };
 
-export function shortcutAction<T extends HTMLElement>(
+export function hotKeyAction<T extends HTMLElement>(
   node: T,
   params: Partial<ShortActionParams>
 ) {

@@ -1,12 +1,12 @@
 <script>
-  import { shortcutAction } from "svelte-legos";
+  import { hotKeyAction } from "svelte-legos";
 
   let timesClicked = 0;
   let timesClickedCallback = 0;
 </script>
 
 <button
-  use:shortcutAction={{ shift: true, code: 'Digit1' }}
+  use:hotKeyAction={{ shift: true, code: 'Digit1' }}
   on:click={() => timesClicked++}
 >
   Triggers a click on Shift + 1
@@ -16,7 +16,7 @@
 </p>
 
 <div
-  use:shortcutAction={{ shift: true, meta: true, code: 'KeyX', cb: () => timesClickedCallback++ }}
+  use:hotKeyAction={{ shift: true, meta: true, code: 'KeyX', cb: () => timesClickedCallback++ }}
 >
   Triggers a callback on Shift + Cmd + X
 </div>

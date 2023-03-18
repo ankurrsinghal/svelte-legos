@@ -33,7 +33,7 @@ export { tooltipAction } from './actions/tooltipAction';
 export { sortableTableAction } from './actions/sortableTableAction';
 export { draggableAction } from './actions/draggableAction';
 export { resizableAction } from './actions/resizableAction';
-export { shortcutAction } from './actions/shortcutAction';
+export { hotKeyAction } from './actions/hotKeyAction';
 export { notifyAction } from './actions/notifyAction';
 export { loadingAction } from './actions/loadingAction';
 export { messageAction } from './actions/messageAction';
