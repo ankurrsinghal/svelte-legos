@@ -6,7 +6,7 @@
 <button
   use:eyeDropperAction={{
     onDone: (value) => (color = value),
-    onError: console.log
+    onError: (e) => console.error(e)
   }}
 >
   Open EyeDropper

@@ -91,7 +91,6 @@ export function networkStore(options: ConfigurableWindow = {}): Readable<Network
 
   if (window) {
     eventListenerStore('offline', () => {
-      console.log("eventListenerStore offline");
       store.update(state => ({
         ...state,
         isOnline: false,

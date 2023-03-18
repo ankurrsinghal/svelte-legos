@@ -23,7 +23,6 @@ export function longPressAction<T extends Element>(node: T, duration = 500) {
       changeDuration(newDuration);
     },
     destroy() {
-      console.log("destroy");
       stop();
       node.removeEventListener("mousedown", handleMousedown);
       node.removeEventListener("mouseup", handleMouseup);

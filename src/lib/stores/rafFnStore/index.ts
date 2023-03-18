@@ -29,7 +29,6 @@ export function rafFnStore(
   }
 
   function loop() {
-    console.log("looping");
     if (timerId) {
       fn();
       timerId = window?.requestAnimationFrame(loop);
