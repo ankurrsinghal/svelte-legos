@@ -6,7 +6,7 @@
 
   let isMenuOpened = false;
 
-  const currentPath = 'hello';
+  $: currentPath = $page.data.hookName;
   
   $: sidebarClassNames = `
 		flex
