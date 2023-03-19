@@ -26,7 +26,7 @@ export function scrollToBottomAction<T extends HTMLElement>(
     };
 
     const mutationObserver = new MutationObserver(mutationCallback);
-    mutationObserver.observe(node, { childList: true });
+    mutationObserver.observe(node, { childList: true, subtree: true });
 
     if (immediate) mutationCallback();
   };
