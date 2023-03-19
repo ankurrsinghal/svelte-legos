@@ -1,27 +1,26 @@
-const blocks = '(if|else if|await|then|catch|each|html|debug)';
+const blocks = "(if|else if|await|then|catch|each|html|debug)";
 
-Prism.languages.svelte = Prism.languages.extend('markup', {
+Prism.languages.svelte = Prism.languages.extend("markup", {
 	each: {
 		pattern: new RegExp(
-			'{[#/]each' +
-				'(?:(?:\\{(?:(?:\\{(?:[^{}])*\\})|(?:[^{}]))*\\})|(?:[^{}]))*}'
+			"{[#/]each" + "(?:(?:\\{(?:(?:\\{(?:[^{}])*\\})|(?:[^{}]))*\\})|(?:[^{}]))*}"
 		),
 		inside: {
-			'language-javascript': [
+			"language-javascript": [
 				{
 					pattern: /(as[\s\S]*)\([\s\S]*\)(?=\s*\})/,
 					lookbehind: true,
-					inside: Prism.languages['javascript'],
+					inside: Prism.languages["javascript"],
 				},
 				{
 					pattern: /(as[\s]*)[\s\S]*(?=\s*)/,
 					lookbehind: true,
-					inside: Prism.languages['javascript'],
+					inside: Prism.languages["javascript"],
 				},
 				{
 					pattern: /(#each[\s]*)[\s\S]*(?=as)/,
 					lookbehind: true,
-					inside: Prism.languages['javascript'],
+					inside: Prism.languages["javascript"],
 				},
 			],
 			keyword: /[#/]each|as/,
@@ -30,21 +29,20 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 	},
 	block: {
 		pattern: new RegExp(
-			'{[#:/@]/s' +
-				blocks +
-				'(?:(?:\\{(?:(?:\\{(?:[^{}])*\\})|(?:[^{}]))*\\})|(?:[^{}]))*}'
+			"{[#:/@]/s" + blocks + "(?:(?:\\{(?:(?:\\{(?:[^{}])*\\})|(?:[^{}]))*\\})|(?:[^{}]))*}"
 		),
 		inside: {
 			punctuation: /^{|}$/,
-			keyword: [new RegExp('[#:/@]' + blocks + '( )*'), /as/, /then/],
-			'language-javascript': {
+			keyword: [new RegExp("[#:/@]" + blocks + "( )*"), /as/, /then/],
+			"language-javascript": {
 				pattern: /[\s\S]*/,
-				inside: Prism.languages['javascript'],
+				inside: Prism.languages["javascript"],
 			},
 		},
 	},
 	tag: {
-		pattern: /<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?:"[^"]*"|'[^']*'|{[\s\S]+?}(?=[\s/>])))|(?=[\s/>])))+)?\s*\/?>/i,
+		pattern:
+			/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?:"[^"]*"|'[^']*'|{[\s\S]+?}(?=[\s/>])))|(?=[\s/>])))+)?\s*\/?>/i,
 		greedy: true,
 		inside: {
 			tag: {
@@ -54,11 +52,11 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 					namespace: /^[^\s>\/:]+:/,
 				},
 			},
-			'language-javascript': {
+			"language-javascript": {
 				pattern: /\{(?:(?:\{(?:(?:\{(?:[^{}])*\})|(?:[^{}]))*\})|(?:[^{}]))*\}/,
-				inside: Prism.languages['javascript'],
+				inside: Prism.languages["javascript"],
 			},
-			'attr-value': {
+			"attr-value": {
 				pattern: /=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/i,
 				inside: {
 					punctuation: [
@@ -68,14 +66,14 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 							lookbehind: true,
 						},
 					],
-					'language-javascript': {
+					"language-javascript": {
 						pattern: /{[\s\S]+}/,
-						inside: Prism.languages['javascript'],
+						inside: Prism.languages["javascript"],
 					},
 				},
 			},
 			punctuation: /\/?>/,
-			'attr-name': {
+			"attr-name": {
 				pattern: /[^\s>\/]+/,
 				inside: {
 					namespace: /^[^\s>\/:]+:/,
@@ -83,39 +81,39 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 			},
 		},
 	},
-	'language-javascript': {
+	"language-javascript": {
 		pattern: /\{(?:(?:\{(?:(?:\{(?:[^{}])*\})|(?:[^{}]))*\})|(?:[^{}]))*\}/,
 		lookbehind: true,
-		inside: Prism.languages['javascript'],
+		inside: Prism.languages["javascript"],
 	},
 });
 
-Prism.languages.svelte['tag'].inside['attr-value'].inside['entity'] =
-	Prism.languages.svelte['entity'];
+Prism.languages.svelte["tag"].inside["attr-value"].inside["entity"] =
+	Prism.languages.svelte["entity"];
 
-Prism.hooks.add('wrap', env => {
-	if (env.type === 'entity') {
-		env.attributes['title'] = env.content.replace(/&amp;/, '&');
+Prism.hooks.add("wrap", (env) => {
+	if (env.type === "entity") {
+		env.attributes["title"] = env.content.replace(/&amp;/, "&");
 	}
 });
 
-Object.defineProperty(Prism.languages.svelte.tag, 'addInlined', {
+Object.defineProperty(Prism.languages.svelte.tag, "addInlined", {
 	value: function addInlined(tagName, lang) {
 		const includedCdataInside = {};
-		includedCdataInside['language-' + lang] = {
+		includedCdataInside["language-" + lang] = {
 			pattern: /(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,
 			lookbehind: true,
 			inside: Prism.languages[lang],
 		};
-		includedCdataInside['cdata'] = /^<!\[CDATA\[|\]\]>$/i;
+		includedCdataInside["cdata"] = /^<!\[CDATA\[|\]\]>$/i;
 
 		const inside = {
-			'included-cdata': {
+			"included-cdata": {
 				pattern: /<!\[CDATA\[[\s\S]*?\]\]>/i,
 				inside: includedCdataInside,
 			},
 		};
-		inside['language-' + lang] = {
+		inside["language-" + lang] = {
 			pattern: /[\s\S]+/,
 			inside: Prism.languages[lang],
 		};
@@ -127,16 +125,16 @@ Object.defineProperty(Prism.languages.svelte.tag, 'addInlined', {
 					/__/g,
 					tagName
 				),
-				'i'
+				"i"
 			),
 			lookbehind: true,
 			greedy: true,
 			inside,
 		};
 
-		Prism.languages.insertBefore('svelte', 'cdata', def);
+		Prism.languages.insertBefore("svelte", "cdata", def);
 	},
 });
 
-Prism.languages.svelte.tag.addInlined('style', 'css');
-Prism.languages.svelte.tag.addInlined('script', 'javascript');
+Prism.languages.svelte.tag.addInlined("style", "css");
+Prism.languages.svelte.tag.addInlined("script", "javascript");

@@ -1,7 +1,4 @@
-import {
-  defaultWindow,
-  tryOnDestroy,
-} from "$lib/shared";
+import { defaultWindow, tryOnDestroy } from "$lib/shared";
 import type { ConfigurableWindow, Fn, Pausable } from "$lib/shared/utils/types";
 
 /**
@@ -11,40 +8,37 @@ import type { ConfigurableWindow, Fn, Pausable } from "$lib/shared/utils/types";
  * @param interval
  * @param options
  */
-export function rafFnStore(
-  fn: Fn,
-  { window = defaultWindow }: ConfigurableWindow = {}
-) {
-  let timerId: ReturnType<typeof requestAnimationFrame> | undefined = undefined;
+export function rafFnStore(fn: Fn, { window = defaultWindow }: ConfigurableWindow = {}) {
+	let timerId: ReturnType<typeof requestAnimationFrame> | undefined = undefined;
 
-  function clean() {
-    if (timerId) {
-      window?.cancelAnimationFrame(timerId);
-      timerId = undefined;
-    }
-  }
+	function clean() {
+		if (timerId) {
+			window?.cancelAnimationFrame(timerId);
+			timerId = undefined;
+		}
+	}
 
-  function pause() {
-    clean();
-  }
+	function pause() {
+		clean();
+	}
 
-  function loop() {
-    if (timerId) {
-      fn();
-      timerId = window?.requestAnimationFrame(loop);
-    }
-  }
+	function loop() {
+		if (timerId) {
+			fn();
+			timerId = window?.requestAnimationFrame(loop);
+		}
+	}
 
-  function resume() {
-    clean();
-    timerId = window?.requestAnimationFrame(loop);
-  }
+	function resume() {
+		clean();
+		timerId = window?.requestAnimationFrame(loop);
+	}
 
-  tryOnDestroy(pause);
-  resume();
+	tryOnDestroy(pause);
+	resume();
 
-  return {
-    resume,
-    pause,
-  };
+	return {
+		resume,
+		pause,
+	};
 }

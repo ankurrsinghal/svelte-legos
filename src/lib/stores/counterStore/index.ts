@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 
 export interface UseCounterOptions {
 	min?: number;
@@ -28,6 +28,6 @@ export function counterStore(initialValue = 0, options: UseCounterOptions = {}) 
 		inc,
 		dec,
 		set,
-		reset
+		reset,
 	};
 }

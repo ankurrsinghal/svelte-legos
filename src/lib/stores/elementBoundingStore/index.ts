@@ -3,7 +3,7 @@ import { writable, type Readable } from "svelte/store";
 import { resizeObserverStore } from "../resizeObserverStore";
 
 function getBounding(target: Element) {
-  return target.getBoundingClientRect();
+	return target.getBoundingClientRect();
 }
 
 /**
@@ -13,16 +13,11 @@ function getBounding(target: Element) {
  * @param callback
  * @param options
  */
-export function elementBoundingStore<T extends Element>(
-  target: T,
-): Readable<DOMRect> {
-  const size = writable<DOMRect>(getBounding(target));
-  resizeObserverStore(
-    target,
-    () => {
-      size.set(getBounding(target));
-    },
-  )
+export function elementBoundingStore<T extends Element>(target: T): Readable<DOMRect> {
+	const size = writable<DOMRect>(getBounding(target));
+	resizeObserverStore(target, () => {
+		size.set(getBounding(target));
+	});
 
-  return writableToReadable(size);
+	return writableToReadable(size);
 }

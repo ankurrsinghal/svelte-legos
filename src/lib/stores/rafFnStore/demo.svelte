@@ -6,18 +6,18 @@ import PrimaryButton from "$lib/shared/components/PrimaryButton.svelte";
 let counter = 0;
 
 function handler() {
-  counter += 1;
+	counter += 1;
 }
 
 const { pause, resume } = rafFnStore(handler);
 </script>
 
 <DemoContainer>
-  <div class="mb-4">
-    {counter}
-  </div>
-  <div class="space-x-4">
-    <PrimaryButton on:click={pause}>Pause</PrimaryButton>
-    <PrimaryButton on:click={resume}>Resume</PrimaryButton>
-  </div>
+	<div class="mb-4">
+		{counter}
+	</div>
+	<div class="space-x-4">
+		<PrimaryButton on:click={pause}>Pause</PrimaryButton>
+		<PrimaryButton on:click={resume}>Resume</PrimaryButton>
+	</div>
 </DemoContainer>

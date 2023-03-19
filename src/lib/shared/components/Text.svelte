@@ -1,3 +1,3 @@
 <p class="text-sm lg:text-base">
-  <slot />
+	<slot />
 </p>

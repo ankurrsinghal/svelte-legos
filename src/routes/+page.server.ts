@@ -1,13 +1,13 @@
-import fs from 'fs';
+import fs from "fs";
 
-const baseDir = './src';
-const storesDir = baseDir + '/lib/stores';
-const actionsDir = baseDir + '/lib/actions';
+const baseDir = "./src";
+const storesDir = baseDir + "/lib/stores";
+const actionsDir = baseDir + "/lib/actions";
 
 export async function load() {
 	const stores = fs.readdirSync(storesDir);
 	const actions = fs.readdirSync(actionsDir);
 	return {
-		utilsLength: stores.length + actions.length
+		utilsLength: stores.length + actions.length,
 	};
 }

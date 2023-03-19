@@ -1,28 +1,26 @@
 import { eventListenerStore } from "$lib/stores/eventListenerStore";
 
-export function documentTitleAction(
-  node: HTMLInputElement | HTMLTextAreaElement
-) {
-  let stop: () => void;
+export function documentTitleAction(node: HTMLInputElement | HTMLTextAreaElement) {
+	let stop: () => void;
 
-  const destroy = () => {
-    stop && stop();
-  };
+	const destroy = () => {
+		stop && stop();
+	};
 
-  const update = () => {
-    destroy();
-    
-    function handler() {
-      document.title = node.value;
-    }
+	const update = () => {
+		destroy();
 
-    ({ stop } = eventListenerStore("input", handler, node));
-  };
+		function handler() {
+			document.title = node.value;
+		}
 
-  update();
+		({ stop } = eventListenerStore("input", handler, node));
+	};
 
-  return {
-    update,
-    destroy,
-  };
+	update();
+
+	return {
+		update,
+		destroy,
+	};
 }

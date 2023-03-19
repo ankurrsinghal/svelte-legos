@@ -2,37 +2,36 @@ import { eventListenerStore } from "$lib/stores/eventListenerStore";
 import ProxyTextareaElement from "./core";
 
 export function textareaAutosizeAction(node: HTMLTextAreaElement) {
-  
-  function init() {
-    const isTextarea = node instanceof HTMLTextAreaElement;
-    if (!isTextarea) return;
+	function init() {
+		const isTextarea = node instanceof HTMLTextAreaElement;
+		if (!isTextarea) return;
 
-    const proxy = new ProxyTextareaElement();
+		const proxy = new ProxyTextareaElement();
 
-    proxy.start(node);
+		proxy.start(node);
 
-    function handleChange() {
-      proxy.onUpdateText(node.value);
-    }
+		function handleChange() {
+			proxy.onUpdateText(node.value);
+		}
 
-    const { stop } = eventListenerStore('input', handleChange, node);
+		const { stop } = eventListenerStore("input", handleChange, node);
 
-    function cleanUp() {
-      proxy.cleanUp();
-      stop();
-    }
+		function cleanUp() {
+			proxy.cleanUp();
+			stop();
+		}
 
-    // initialize
-    handleChange();
+		// initialize
+		handleChange();
 
-    return cleanUp;
-  }
+		return cleanUp;
+	}
 
-  const stop = init();
+	const stop = init();
 
-  return {
-    destroy() {
-      stop && stop();
-    },
-  };
+	return {
+		destroy() {
+			stop && stop();
+		},
+	};
 }
