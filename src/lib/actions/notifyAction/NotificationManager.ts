@@ -1,4 +1,4 @@
-import Notification from "./Notification";
+import Notification, { type NotificationType } from "./Notification";
 
 export default class NotificationManager {
 	private static __instance: NotificationManager;
@@ -24,11 +24,23 @@ export default class NotificationManager {
 		document.body.appendChild(this.__container);
 	}
 
-	createNotification(title: string, description?: string) {
+	createNotification(
+		title: string,
+		description?: string,
+		type?: NotificationType,
+		duration?: number | undefined
+	) {
 		this.createContainer();
-		const notification = new Notification(title, description, () => {
-			this.checkAndUnmount();
-		});
+		const notification = new Notification(
+			title,
+			description,
+			() => {
+				this.checkAndUnmount();
+			},
+			type,
+			duration
+		);
+
 		notification.mount(this.__container!);
 		requestAnimationFrame(() => {
 			notification.show();
