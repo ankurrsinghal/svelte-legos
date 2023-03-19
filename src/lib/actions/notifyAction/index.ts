@@ -1,9 +1,12 @@
 import { eventListenerStore } from "$lib/stores/eventListenerStore";
+import type { NotificationType } from "./Notification";
 import NotificationManager from "./NotificationManager";
 
 interface NotifyActionParams {
   title: string;
   description?: string;
+  type?: NotificationType | undefined;
+  duration?: number | undefined;
 }
 
 export function notifyAction<T extends HTMLElement>(
@@ -21,7 +24,9 @@ export function notifyAction<T extends HTMLElement>(
     function handleClick() {
       NotificationManager.getInstance().createNotification(
         params.title,
-        params.description
+        params.description,
+        params.type,
+        params.duration
       );
     }
 
