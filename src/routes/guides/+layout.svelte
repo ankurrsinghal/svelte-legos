@@ -6,29 +6,29 @@ export let data: LayoutData;
 
 let isMenuOpened = false;
 
-const currentPath = "hello";
+$: currentPath = $page.data.hookName;
 
 $: sidebarClassNames = `
-		flex
-		flex-col
-		bg-slate-100
-		lg:bg-gray-50
-		p-10
-		fixed
-		top-0
-		h-screen
-		border-r
-		border-black
-		z-10
-		w-full
-		max-w-[300px]
-		lg:block
-		lg:z-0
-		lg:p-0
-		lg:py-16
-    overflow-auto
-		${isMenuOpened ? "visible" : "hidden"}
-	`;
+	flex
+	flex-col
+	bg-slate-100
+	lg:bg-gray-50
+	p-10
+	fixed
+	top-0
+	h-screen
+	border-r
+	border-black
+	z-10
+	w-full
+	max-w-[300px]
+	lg:block
+	lg:z-0
+	lg:p-0
+	lg:py-16
+	overflow-auto
+	${isMenuOpened ? "visible" : "hidden"}
+`;
 
 function handleClick() {
 	isMenuOpened = !isMenuOpened;
