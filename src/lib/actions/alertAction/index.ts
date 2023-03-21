@@ -2,46 +2,48 @@ import { eventListenerStore } from "$lib/stores/eventListenerStore";
 import Alert from "./Alert";
 
 interface LoadingActionParams {
-  title: string;
-  description: string;
-  onClose?: () => void;
-  onOk?: () => void;
+	title: string;
+	description: string;
+	onClose?: () => void;
+	onOk?: () => void;
 }
 
-export function alertAction<T extends HTMLElement>(
-  node: T,
-  params: LoadingActionParams,
-) {
-  let stop: () => void;
+export function alertAction<T extends HTMLElement>(node: T, params: LoadingActionParams) {
+	let stop: () => void;
 
-  const destroy = () => {
-    stop && stop();
-  };
+	const destroy = () => {
+		stop && stop();
+	};
 
-  let alert: Alert | undefined;
+	let alert: Alert | undefined;
 
-  const update = ({ title, description, onClose, onOk }: LoadingActionParams) => {
-    destroy();
+	const update = ({ title, description, onClose, onOk }: LoadingActionParams) => {
+		destroy();
 
-    function handleClick() {
-      alert = new Alert(title, description, () => {
-        onClose && onClose();
-        alert?.unmount();
-      }, () => {
-        onOk && onOk();
-        alert?.unmount();
-      });
+		function handleClick() {
+			alert = new Alert(
+				title,
+				description,
+				() => {
+					onClose && onClose();
+					alert?.unmount();
+				},
+				() => {
+					onOk && onOk();
+					alert?.unmount();
+				}
+			);
 
-      alert.mount();
-    }
+			alert.mount();
+		}
 
-    ({ stop } = eventListenerStore("click", handleClick, node));
-  };
+		({ stop } = eventListenerStore("click", handleClick, node));
+	};
 
-  update(params);
+	update(params);
 
-  return {
-    update,
-    destroy,
-  };
+	return {
+		update,
+		destroy,
+	};
 }

@@ -1,24 +1,24 @@
 export function focusAction<T extends HTMLElement>(node: T, value = true) {
-  let stop: () => void;
+	let stop: () => void;
 
-  const destroy = () => {
-    stop && stop();
-  };
+	const destroy = () => {
+		stop && stop();
+	};
 
-  const update = (value: boolean) => {
-    destroy();
+	const update = (value: boolean) => {
+		destroy();
 
-    if (value) {
-      node.focus();
-    } else {
-      node.blur();
-    }
-  };
+		if (value) {
+			node.focus();
+		} else {
+			node.blur();
+		}
+	};
 
-  update(value);
+	update(value);
 
-  return {
-    update,
-    destroy,
-  };
+	return {
+		update,
+		destroy,
+	};
 }

@@ -1,9 +1,9 @@
 export default class Loader<T extends HTMLElement = HTMLElement> {
-  private __loader: HTMLDivElement;
+	private __loader: HTMLDivElement;
 
-  constructor() {
-    const loader = document.createElement("div");
-    const loaderStyles = `
+	constructor() {
+		const loader = document.createElement("div");
+		const loaderStyles = `
         position: absolute;
         top: 0;
         left: 0;
@@ -16,15 +16,15 @@ export default class Loader<T extends HTMLElement = HTMLElement> {
         align-items: center;
         justify-content: center;
       `;
-    loader.setAttribute("style", loaderStyles);
+		loader.setAttribute("style", loaderStyles);
 
-    this.__loader = loader;
+		this.__loader = loader;
 
-    this.addIcon();
-  }
+		this.addIcon();
+	}
 
-  private addIcon() {
-    const styles = `
+	private addIcon() {
+		const styles = `
         .loader,
         .loader:after {
           border-radius: 50%;
@@ -68,21 +68,21 @@ export default class Loader<T extends HTMLElement = HTMLElement> {
         }
       `;
 
-    const style = document.createElement("style");
-    style.innerHTML = styles;
-    this.__loader.appendChild(style);
+		const style = document.createElement("style");
+		style.innerHTML = styles;
+		this.__loader.appendChild(style);
 
-    const icon = document.createElement("div");
-    icon.className = "loader";
+		const icon = document.createElement("div");
+		icon.className = "loader";
 
-    this.__loader.appendChild(icon);
-  }
+		this.__loader.appendChild(icon);
+	}
 
-  mount(container: T) {
-    container.appendChild(this.__loader);
-  }
+	mount(container: T) {
+		container.appendChild(this.__loader);
+	}
 
-  unmount() {
-    this.__loader.remove();
-  }
+	unmount() {
+		this.__loader.remove();
+	}
 }

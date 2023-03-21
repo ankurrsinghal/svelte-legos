@@ -18,10 +18,7 @@ const greetings = [
 let word = "Hello";
 let interval = writable(500);
 
-const { pause, resume, isActive, changeIntervalTime } = intervalFnStore(
-	handler,
-	interval
-);
+const { pause, resume, isActive, changeIntervalTime } = intervalFnStore(handler, interval);
 
 function handler() {
 	word = greetings[Math.floor(Math.random() * greetings.length)];
@@ -29,20 +26,20 @@ function handler() {
 </script>
 
 <DemoContainer>
-  <div class="mb-4">
-    <p class="text-xl">{word}</p>
-  </div>
-  <div class="mb-4">
-    <p class="mb-2">Interval:</p>
-    <p>
-      <input class="p-2 rounded-md" bind:value={$interval} type="number" placeholder="interval" />
-    </p>
-  </div>
-  <div>
-    {#if $isActive}
-      <PrimaryButton on:click={pause}>Pause</PrimaryButton>
-    {:else}
-      <PrimaryButton on:click={resume}>Resume</PrimaryButton>
-    {/if}
-  </div>
+	<div class="mb-4">
+		<p class="text-xl">{word}</p>
+	</div>
+	<div class="mb-4">
+		<p class="mb-2">Interval:</p>
+		<p>
+			<input class="p-2 rounded-md" bind:value={$interval} type="number" placeholder="interval" />
+		</p>
+	</div>
+	<div>
+		{#if $isActive}
+			<PrimaryButton on:click={pause}>Pause</PrimaryButton>
+		{:else}
+			<PrimaryButton on:click={resume}>Resume</PrimaryButton>
+		{/if}
+	</div>
 </DemoContainer>

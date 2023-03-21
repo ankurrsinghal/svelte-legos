@@ -1,7 +1,13 @@
-import { isReadable, isSafeIntegerThrowable, tryOnDestroy, unwrapReadable, writableToReadable } from '$lib/shared';
-import type { Fn, Pausable } from '$lib/shared/utils/types';
-import { writable, type Readable } from 'svelte/store';
-import type { Writable } from 'svelte/store';
+import {
+	isReadable,
+	isSafeIntegerThrowable,
+	tryOnDestroy,
+	unwrapReadable,
+	writableToReadable,
+} from "$lib/shared";
+import type { Fn, Pausable } from "$lib/shared/utils/types";
+import { writable, type Readable } from "svelte/store";
+import type { Writable } from "svelte/store";
 
 /**
  * Wrapper for `setInterval` with controls.
@@ -10,14 +16,10 @@ import type { Writable } from 'svelte/store';
  * @param interval
  * @param options
  */
-export function intervalFnStore(
-	fn: Fn,
-	interval?: number | Readable<number>
-): Pausable {
-
-  if (interval === undefined) {
-    interval = 1000;
-  }
+export function intervalFnStore(fn: Fn, interval?: number | Readable<number>): Pausable {
+	if (interval === undefined) {
+		interval = 1000;
+	}
 
 	const isActiveWritable = writable(false);
 
@@ -36,8 +38,8 @@ export function intervalFnStore(
 	}
 
 	function resume() {
-    const intervalValue = unwrapReadable(interval);
-    if (!intervalValue || !Number.isInteger(intervalValue) || intervalValue <= 0) return;
+		const intervalValue = unwrapReadable(interval);
+		if (!intervalValue || !Number.isInteger(intervalValue) || intervalValue <= 0) return;
 
 		isActiveWritable.set(true);
 		clean();
@@ -56,8 +58,8 @@ export function intervalFnStore(
 
 		tryOnDestroy(unsub);
 	} else {
-    resume();
-  }
+		resume();
+	}
 
 	tryOnDestroy(pause);
 
@@ -65,6 +67,6 @@ export function intervalFnStore(
 		isActive: writableToReadable(isActiveWritable),
 		resume,
 		pause,
-		changeIntervalTime
+		changeIntervalTime,
 	};
 }

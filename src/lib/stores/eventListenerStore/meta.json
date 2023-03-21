@@ -1,3 +1,3 @@
 {
-  "description": "Use EventListener with simplicity. Supports Window, Element and Document and custom events with almost the same parameters as the native addEventListener options. See examples below."
+	"description": "Use EventListener with simplicity. Supports Window, Element and Document and custom events with almost the same parameters as the native addEventListener options. See examples below."
 }

@@ -1,9 +1,9 @@
 export const buildClassName = (className: string) => {
-  return className
-    .split("\n")
-    .map((c) => c.trim())
-    .filter(Boolean)
-    .join(" ");
+	return className
+		.split("\n")
+		.map((c) => c.trim())
+		.filter(Boolean)
+		.join(" ");
 };
 
 export const PrimaryButtonClassNames = `
@@ -16,6 +16,5 @@ export const PrimaryButtonClassNames = `
     rounded-md
     disabled:bg-slate-300
   `;
-
 
 export const PrimaryButtonClassName = buildClassName(PrimaryButtonClassNames);

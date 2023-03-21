@@ -7,7 +7,7 @@ const counter = intervalStore(200);
 </script>
 
 <DemoContainer>
-  <Text>
-    {$counter}
-  </Text>
+	<Text>
+		{$counter}
+	</Text>
 </DemoContainer>

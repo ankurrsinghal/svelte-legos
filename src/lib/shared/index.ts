@@ -1,5 +1,5 @@
-import { get_current_component, onDestroy } from 'svelte/internal';
-import { get, type Readable, type Writable } from 'svelte/store';
+import { get_current_component, onDestroy } from "svelte/internal";
+import { get, type Readable, type Writable } from "svelte/store";
 
 export function tryOnDestroy(fn: () => void) {
 	try {
@@ -21,8 +21,8 @@ export function writableToReadable<T>({ subscribe }: Writable<T>): Readable<T> {
 export function isReadable<T>(ref: T | Readable<T>): boolean {
 	if (ref === null) return false;
 
-	if (typeof ref === 'object') {
-		return 'subscribe' in ref;
+	if (typeof ref === "object") {
+		return "subscribe" in ref;
 	}
 
 	return false;
@@ -38,10 +38,10 @@ export function unwrapReadable<T>(ref: T | Readable<T>) {
 
 export function isSafeIntegerThrowable(int: unknown) {
 	if (!Number.isSafeInteger(int)) {
-		throw new Error('Interval is not a safe integer');
+		throw new Error("Interval is not a safe integer");
 	}
 }
 
-export const isClient = typeof window !== 'undefined';
+export const isClient = typeof window !== "undefined";
 export const defaultWindow = isClient ? window : undefined;
 export const defaultDocument = isClient ? window.document : undefined;

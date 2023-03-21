@@ -1,5 +1,5 @@
-import { readable, type Readable } from 'svelte/store';
-import { intervalFnStore } from '../intervalFnStore';
+import { readable, type Readable } from "svelte/store";
+import { intervalFnStore } from "../intervalFnStore";
 
 /**
  * Wrapper for `setInterval` with controls.
@@ -8,25 +8,23 @@ import { intervalFnStore } from '../intervalFnStore';
  * @param interval
  * @param options
  */
-export function intervalStore(
-	interval: number | Readable<number> | undefined
-): Readable<number> {
-  if (interval === undefined) {
-    interval = 1000;
-  }
+export function intervalStore(interval: number | Readable<number> | undefined): Readable<number> {
+	if (interval === undefined) {
+		interval = 1000;
+	}
 
-  let value = 0;
+	let value = 0;
 
-  const counter = readable(value, set => {
-    function handler() {
-      value++;
-      set(value);
-    }
+	const counter = readable(value, (set) => {
+		function handler() {
+			value++;
+			set(value);
+		}
 
-    const { pause } = intervalFnStore(handler, interval);
+		const { pause } = intervalFnStore(handler, interval);
 
-    return pause;
-  });
+		return pause;
+	});
 
 	return counter;
 }

@@ -1,5 +1,5 @@
-import { writableToReadable } from '$lib/shared';
-import { writable } from 'svelte/store';
+import { writableToReadable } from "$lib/shared";
+import { writable } from "svelte/store";
 
 export function toggleStore(initialValue = false) {
 	const store = writable(initialValue);
@@ -9,7 +9,7 @@ export function toggleStore(initialValue = false) {
 	};
 	const set = (value: boolean) => {
 		store.set(value);
-	}
+	};
 	const on = () => {
 		set(true);
 	};
@@ -21,6 +21,6 @@ export function toggleStore(initialValue = false) {
 		value: writableToReadable(store),
 		toggle,
 		on,
-		off
+		off,
 	};
 }

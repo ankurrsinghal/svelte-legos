@@ -1,7 +1,7 @@
-import type { Fn, Stoppable } from '$lib/shared/utils/types';
-import { noop } from 'svelte/internal';
-import { derived, type Readable } from 'svelte/store';
-import { timeoutFnStore, type UseTimeoutFnOptions } from '../timeoutFnStore';
+import type { Fn, Stoppable } from "$lib/shared/utils/types";
+import { noop } from "svelte/internal";
+import { derived, type Readable } from "svelte/store";
+import { timeoutFnStore, type UseTimeoutFnOptions } from "../timeoutFnStore";
 
 export interface UseTimeoutOptions<Controls extends boolean> extends UseTimeoutFnOptions {
 	/**
@@ -40,7 +40,7 @@ export function timeoutStore(internal = 1000, options: UseTimeoutOptions<boolean
 	if (exposeControls) {
 		return {
 			ready,
-			...controls
+			...controls,
 		};
 	} else {
 		return ready;

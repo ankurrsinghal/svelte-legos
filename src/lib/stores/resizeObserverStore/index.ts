@@ -1,4 +1,4 @@
-import { tryOnDestroy } from '$lib/shared';
+import { tryOnDestroy } from "$lib/shared";
 
 export function resizeObserverStore(
 	target: Element,
@@ -28,6 +28,6 @@ export function resizeObserverStore(
 	connect();
 
 	return {
-		stop
+		stop,
 	};
 }

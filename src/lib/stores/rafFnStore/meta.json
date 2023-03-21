@@ -1,3 +1,3 @@
 {
-  "description": "Call function on every requestAnimationFrame. With controls of pausing and resuming."
+	"description": "Call function on every requestAnimationFrame. With controls of pausing and resuming."
 }

@@ -1,81 +1,81 @@
 export default class Message {
-  message: string;
-  onUnmount?: () => void;
+	message: string;
+	onUnmount?: () => void;
 
-  private __container: HTMLDivElement;
-  private __timer: ReturnType<typeof setTimeout> | undefined;
+	private __container: HTMLDivElement;
+	private __timer: ReturnType<typeof setTimeout> | undefined;
 
-  constructor(message: string, onUnmount?: () => void) {
-    this.message = message;
-    this.__container = document.createElement("div");
-    this.onUnmount = onUnmount;
-    this.init();
-  }
+	constructor(message: string, onUnmount?: () => void) {
+		this.message = message;
+		this.__container = document.createElement("div");
+		this.onUnmount = onUnmount;
+		this.init();
+	}
 
-  private init() {
-    this.addStyles();
-    this.addMessage();
+	private init() {
+		this.addStyles();
+		this.addMessage();
 
-    this.__timer = setTimeout(() => {
-      this.hide();
-    }, 4000);
-  }
+		this.__timer = setTimeout(() => {
+			this.hide();
+		}, 4000);
+	}
 
-  show() {
-    this.__container.style.setProperty("transform", "translateY(0)");
-    this.__container.style.setProperty("opacity", "1");
-  }
+	show() {
+		this.__container.style.setProperty("transform", "translateY(0)");
+		this.__container.style.setProperty("opacity", "1");
+	}
 
-  hide() {
-    const end = () => {
-      this.__container.removeEventListener("transitionend", end);
-      this.unmount();
-    };
-    requestAnimationFrame(() => {
-      this.__container.addEventListener("transitionend", end);
-      this.__container.style.setProperty("opacity", "0");
-      this.__container.style.setProperty("transform", "translateY(-100%)");
-    });
-  }
+	hide() {
+		const end = () => {
+			this.__container.removeEventListener("transitionend", end);
+			this.unmount();
+		};
+		requestAnimationFrame(() => {
+			this.__container.addEventListener("transitionend", end);
+			this.__container.style.setProperty("opacity", "0");
+			this.__container.style.setProperty("transform", "translateY(-100%)");
+		});
+	}
 
-  unmount() {
-    this.__container.remove();
-    if (this.onUnmount) this.onUnmount();
-  }
+	unmount() {
+		this.__container.remove();
+		if (this.onUnmount) this.onUnmount();
+	}
 
-  private addMessage() {
-    const message = document.createElement("h2");
-    const messageStyles = `
+	private addMessage() {
+		const message = document.createElement("h2");
+		const messageStyles = `
         font-size: 13px;
         color: #303133;
         margin: 0;
       `;
-    message.textContent = this.message;
-    message.setAttribute("style", messageStyles);
-    this.__container.appendChild(message);
+		message.textContent = this.message;
+		message.setAttribute("style", messageStyles);
+		this.__container.appendChild(message);
 
-    const closeBtn = document.createElement("div");
-    const closeBtnStyles = `
+		const closeBtn = document.createElement("div");
+		const closeBtnStyles = `
         cursor: pointer;
         font-size: 12px;
       `;
-    closeBtn.textContent = "╳";
-    closeBtn.setAttribute("style", closeBtnStyles);
+		closeBtn.textContent = "╳";
+		closeBtn.setAttribute("style", closeBtnStyles);
 
-    closeBtn.addEventListener("click", () => {
-      clearTimeout(this.__timer);
-      this.hide();
-    });
+		closeBtn.addEventListener("click", () => {
+			clearTimeout(this.__timer);
+			this.hide();
+		});
 
-    this.__container.appendChild(message);
-  }
+		this.__container.appendChild(message);
+	}
 
-  mount(container: HTMLDivElement) {
-    container.appendChild(this.__container);
-  }
+	mount(container: HTMLDivElement) {
+		container.appendChild(this.__container);
+	}
 
-  private addStyles() {
-    const styles = `
+	private addStyles() {
+		const styles = `
         width: 330px;
         padding: 12px;
         border-radius: 8px;
@@ -91,6 +91,6 @@ export default class Message {
         margin-bottom: 16px;
         opacity: 0;
       `;
-    this.__container.setAttribute("style", styles);
-  }
+		this.__container.setAttribute("style", styles);
+	}
 }
