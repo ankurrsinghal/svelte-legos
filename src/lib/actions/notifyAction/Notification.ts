@@ -1,15 +1,27 @@
+export type NotificationType = "success" | "error" | "info" | "warning";
+import { cross, error, info, success, warn } from "./icons/index";
 export default class Notification {
 	title: string;
 	description?: string;
+	type?: NotificationType | undefined;
+	duration?: number;
 	onUnmount?: () => void;
 
 	private __container: HTMLDivElement;
 	private __timer: ReturnType<typeof setTimeout> | undefined;
 
-	constructor(title: string, description?: string, onUnmount?: () => void) {
+	constructor(
+		title: string,
+		description?: string,
+		onUnmount?: () => void,
+		type?: NotificationType | undefined,
+		duration?: number | undefined
+	) {
 		this.title = title;
 		this.description = description;
 		this.__container = document.createElement("div");
+		this.type = type;
+		this.duration = duration ?? 4000;
 		this.onUnmount = onUnmount;
 		this.init();
 	}
@@ -21,7 +33,7 @@ export default class Notification {
 
 		this.__timer = setTimeout(() => {
 			this.hide();
-		}, 4000);
+		}, this.duration);
 	}
 
 	show() {
@@ -53,6 +65,35 @@ export default class Notification {
       `;
 		header.setAttribute("style", headerStyles);
 
+		const iconTextContainer = document.createElement("div");
+		const iconTextContainerStyles = `
+        display: flex;
+        align-items: center;
+      `;
+		iconTextContainer.setAttribute("style", iconTextContainerStyles);
+
+		const icon = document.createElement("img");
+		const iconStyles = `
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+      `;
+		switch (this.type) {
+			case "success":
+				icon.setAttribute("src", success);
+				break;
+			case "error":
+				icon.setAttribute("src", error);
+				break;
+			case "info":
+				icon.setAttribute("src", info);
+				break;
+			case "warning":
+				icon.setAttribute("src", warn);
+				break;
+		}
+		icon.setAttribute("style", iconStyles);
+
 		const title = document.createElement("h2");
 		const titleStyles = `
         font-weight: 700;
@@ -63,15 +104,21 @@ export default class Notification {
       `;
 		title.textContent = this.title;
 		title.setAttribute("style", titleStyles);
-		header.appendChild(title);
 
-		const closeBtn = document.createElement("div");
+		if (this.type) iconTextContainer.appendChild(icon);
+
+		iconTextContainer.appendChild(title);
+
+		header.appendChild(iconTextContainer);
+
+		const closeBtn = document.createElement("img");
 		const closeBtnStyles = `
         cursor: pointer;
-        font-size: 12px;
+        width: 16px;
       `;
-		closeBtn.textContent = "╳";
+
 		closeBtn.setAttribute("style", closeBtnStyles);
+		closeBtn.setAttribute("src", cross);
 
 		closeBtn.addEventListener("click", () => {
 			clearTimeout(this.__timer);
@@ -89,7 +136,7 @@ export default class Notification {
         margin-top: 16px;
         font-size: 13px;
       `;
-		description.textContent = this.description;
+		description.textContent = this.description ?? "";
 		description.setAttribute("style", descriptionStyles);
 		this.__container.appendChild(description);
 	}
