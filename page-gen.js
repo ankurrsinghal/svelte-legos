@@ -1,169 +1,90 @@
-import chokidar from 'chokidar';
-import fs from 'fs';
+import chokidar from "chokidar";
+import fs from "fs";
 
-const base = 'src/lib/stores';
-const watcher = chokidar.watch('./' + base, { ignored: /^\./, persistent: true });
+function watchDir(dirName) {
+	const base = `src/lib/${dirName}`;
+	const watcher = chokidar.watch("./" + base, { ignored: /^\./, persistent: true });
 
-try {
-  fs.mkdirSync('./src/routes/guides/stores');
-} catch(e) {
-  console.log(e.message);
-}
-
-function handleDirAdd(path) {
 	try {
-		const dir = path.split(base)[1].trim();
-		const dest = './src/routes/guides/stores' + dir;
-		fs.mkdirSync(dest);
+		fs.mkdirSync(`./src/routes/guides/${dirName}`);
 	} catch (e) {
 		console.log(e.message);
 	}
-}
 
-function handleFileAdd(path) {
-	try {
-		let dir = path.split(base)[1].trim();
-		let hookName = dir.split('/')[1];
-		const dest = './src/routes/guides/stores' + '/' + hookName + '/+page.svelte';
-		if (path.endsWith('.svelte')) {
-			fs.copyFileSync(path, dest);
+	function handleDirAdd(path) {
+		try {
+			const dir = path.split(base)[1].trim();
+			const dest = `./src/routes/guides/${dirName}` + dir;
+			fs.mkdirSync(dest);
+		} catch (e) {
+			console.log(e.message);
 		}
-	} catch (e) {
-		console.log(e.message);
 	}
-}
 
-function hanldeRemove(path) {
-  try {
-		const dir = path.split(base)[1].trim();
-		const dest = './src/routes/guides/stores' + dir;
-		fs.unlinkSync(dest);
-	} catch (e) {
-		console.log(e.message);
+	function handleFileAdd(path) {
+		try {
+			let dir = path.split(base)[1].trim();
+			let hookName = dir.split("/")[1];
+			const dest = `./src/routes/guides/${dirName}` + "/" + hookName + "/+page.svelte";
+			if (path.endsWith(".svelte")) {
+				fs.copyFileSync(path, dest);
+			}
+		} catch (e) {
+			console.log(e.message);
+		}
 	}
-}
 
-function handleFileRemove(path) {
-	try {
-		let dir = path.split(base)[1].trim();
-		let hookName = dir.split('/')[1];
-		const dest = './src/routes/guides/stores' + '/' + hookName + '/+page.svelte';
-		if (path.endsWith('.svelte')) {
+	function hanldeRemove(path) {
+		try {
+			const dir = path.split(base)[1].trim();
+			const dest = `./src/routes/guides/${dirName}` + dir;
 			fs.unlinkSync(dest);
+		} catch (e) {
+			console.log(e.message);
 		}
-	} catch (e) {
-		console.log(e.message);
 	}
-}
 
-watcher
-  .on('addDir', handleDirAdd)
-  .on('add', handleFileAdd)
-  .on('change', handleFileAdd)
-  .on('unlinkDir', hanldeRemove)
-.on('unlink', handleFileRemove)
-.on('error', function(error) {console.error('Error happened', error);})
-
-const watcher2 = chokidar.watch(
-	['./src/routes/guides/layout-hook.server.ts', './src/routes/guides/layout-hook.svelte'],
-	{ ignored: /^\./, persistent: true }
-);
-
-function handleTemplates(path) {
-  if (path.endsWith('svelte')) {
-    fs.copyFileSync(path, './src/routes/guides/stores/' + '+layout.svelte');
-  } else {
-    fs.copyFileSync(path, './src/routes/guides/stores/' + '+layout.server.ts');
-  }
-}
-
-watcher2
-  .on('add', handleTemplates)
-  .on('change', handleTemplates)
-
-
-
-
-/**
- * Actions
- */
-
-const actionsBase = 'src/lib/actions';
-const actionsWatcher = chokidar.watch('./' + actionsBase, { ignored: /^\./, persistent: true });
-
-try {
-  fs.mkdirSync('./src/routes/guides/actions');
-} catch(e) {
-  console.log(e.message);
-}
-
-function handleDirAddAction(path) {
-	try {
-		const dir = path.split(actionsBase)[1].trim();
-		const dest = './src/routes/guides/actions' + dir;
-		fs.mkdirSync(dest);
-	} catch (e) {
-		console.log(e.message);
-	}
-}
-
-function handleFileAddAction(path) {
-	try {
-		let dir = path.split(actionsBase)[1].trim();
-		let hookName = dir.split('/')[1];
-		const dest = './src/routes/guides/actions' + '/' + hookName + '/+page.svelte';
-		if (path.endsWith('.svelte')) {
-			fs.copyFileSync(path, dest);
+	function handleFileRemove(path) {
+		try {
+			let dir = path.split(base)[1].trim();
+			let hookName = dir.split("/")[1];
+			const dest = `./src/routes/guides/${dirName}` + "/" + hookName + "/+page.svelte";
+			if (path.endsWith(".svelte")) {
+				fs.unlinkSync(dest);
+			}
+		} catch (e) {
+			console.log(e.message);
 		}
-	} catch (e) {
-		console.log(e.message);
 	}
-}
 
-function hanldeRemoveAction(path) {
-  try {
-		const dir = path.split(actionsBase)[1].trim();
-		const dest = './src/routes/guides/actions' + dir;
-		fs.unlinkSync(dest);
-	} catch (e) {
-		console.log(e.message);
-	}
-}
+	watcher
+		.on("addDir", handleDirAdd)
+		.on("add", handleFileAdd)
+		.on("change", handleFileAdd)
+		.on("unlinkDir", hanldeRemove)
+		.on("unlink", handleFileRemove)
+		.on("error", function (error) {
+			console.error("Error happened", error);
+		});
 
-function handleFileRemoveAction(path) {
-	try {
-		let dir = path.split(actionsBase)[1].trim();
-		let hookName = dir.split('/')[1];
-		const dest = './src/routes/guides/actions' + '/' + hookName + '/+page.svelte';
-		if (path.endsWith('.svelte')) {
-			fs.unlinkSync(dest);
+	const watcher2 = chokidar.watch(
+		["./src/routes/guides/layout-hook.server.ts", "./src/routes/guides/layout-hook.svelte"],
+		{ ignored: /^\./, persistent: true }
+	);
+
+	function handleTemplates(path) {
+		if (path.endsWith("svelte")) {
+			fs.copyFileSync(path, `./src/routes/guides/${dirName}/` + "+layout.svelte");
+		} else {
+			fs.copyFileSync(path, `./src/routes/guides/${dirName}/` + "+layout.server.ts");
 		}
-	} catch (e) {
-		console.log(e.message);
 	}
+
+	watcher2.on("add", handleTemplates).on("change", handleTemplates);
 }
 
-actionsWatcher
-  .on('addDir', handleDirAddAction)
-  .on('add', handleFileAddAction)
-  .on('change', handleFileAddAction)
-  .on('unlinkDir', hanldeRemoveAction)
-.on('unlink', handleFileRemoveAction)
-.on('error', function(error) {console.error('Error happened', error);})
+// stores
+watchDir("stores");
 
-const actionwatcher2 = chokidar.watch(
-	['./src/routes/guides/layout-hook.server.ts', './src/routes/guides/layout-hook.svelte'],
-	{ ignored: /^\./, persistent: true }
-);
-
-function handleTemplatesAction(path) {
-  if (path.endsWith('svelte')) {
-    fs.copyFileSync(path, './src/routes/guides/actions/' + '+layout.svelte');
-  } else {
-    fs.copyFileSync(path, './src/routes/guides/actions/' + '+layout.server.ts');
-  }
-}
-
-actionwatcher2
-  .on('add', handleTemplatesAction)
-  .on('change', handleTemplatesAction)
+// actions
+watchDir("actions");
