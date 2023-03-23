@@ -1,0 +1,22 @@
+<script lang="ts">
+import { fetchWithTimeoutAndRetry } from "svelte-legos";
+
+function handleRetry() {
+	// handle retry if you want
+}
+
+function handleSendRequest() {
+	fetchWithTimeoutAndRetry("https://dog.ceo/api/breeds/image/random", {
+		retryCount, // defaults to 3
+		timeout, // defaults to 5000 ms
+		onRetry: handleRetry, // optional
+	})
+    .then(res => res.json())
+		.then(() => {
+			// your data
+		})
+		.catch((e) => {
+			// handle final error
+		});
+}
+</script>

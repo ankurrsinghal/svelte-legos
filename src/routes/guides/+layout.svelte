@@ -149,7 +149,7 @@ function handleClick() {
 						? 'font-bold underline'
 						: ''}"
 				>
-					Getting Started ({data.actions.length + data.stores.length})
+					Getting Started ({data.actions.length + data.stores.length + data.utilities.length})
 				</a>
 			</li>
 			<li class="py-2" />
@@ -170,6 +170,18 @@ function handleClick() {
 					<a
 						href={"/guides/stores/" + store}
 						class="hover:underline {store === currentPath ? 'font-bold underline' : ''}">{store}</a
+					>
+				</li>
+			{/each}
+
+			<li class="py-2" />
+			<li class="text-sm">Utilities:</li>
+			{#each data.utilities as utility}
+				<li on:click={handleClick} aria-hidden="true">
+					<a
+						href={"/guides/utilities/" + utility}
+						class="hover:underline {utility === currentPath ? 'font-bold underline' : ''}"
+						>{utility}</a
 					>
 				</li>
 			{/each}

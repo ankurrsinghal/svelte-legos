@@ -88,3 +88,6 @@ watchDir("stores");
 
 // actions
 watchDir("actions");
+
+// utilities
+watchDir("utilities");
