@@ -1,0 +1,13 @@
+<script>
+import { clickToShareAction } from "svelte-legos";
+
+let text = 'Text to share';
+let url = 'https://svelte-legos.singhalankur.com/';
+let title = 'svelte-legos';
+</script>
+
+<button
+  use:clickToShareAction={{text, url, title}}
+>
+  Click to share
+</button>
