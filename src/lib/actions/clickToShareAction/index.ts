@@ -1,10 +1,18 @@
 import { eventListenerStore } from "$lib/stores/eventListenerStore";
 
-interface ClickToShareActionParams {
+interface ClickToShareFilesActionParams {
 	text: string;
-	url: string;
 	title: string;
+	files: File[];
 }
+
+interface ClickToShareUrlActionParams {
+	text: string;
+	title: string;
+	url: string;
+}
+
+type ClickToShareActionParams = ClickToShareUrlActionParams | ClickToShareFilesActionParams;
 
 export function clickToShareAction<T extends HTMLElement>(
 	node: T,
@@ -21,7 +29,31 @@ export function clickToShareAction<T extends HTMLElement>(
 
 		async function handleClick() {
 			try {
-				await navigator.share({ text: params.text, url: params.url, title: params.title });
+				if ("canShare" in navigator) {
+					// if browser supports navigator.share
+					if ("url" in params) {
+						// if a url is shared
+						await navigator.share({
+							text: params.text,
+							title: params.title,
+							url: params.url,
+						});
+					} else {
+						// files are shared
+						if (navigator.canShare({ files: params.files })) {
+							// if browser supports sharing the files
+							await navigator.share({
+								text: params.text,
+								title: params.title,
+								files: params.files,
+							});
+						} else {
+							throw new Error("Your system does not support sharing these files.");
+						}
+					}
+				} else {
+					throw new Error("Your system does not support the Web Share API.");
+				}
 			} catch (error) {
 				node.dispatchEvent(new CustomEvent("share-error", { detail: { error } }));
 			}

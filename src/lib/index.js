@@ -39,6 +39,7 @@ export { loadingAction } from "./actions/loadingAction";
 export { messageAction } from "./actions/messageAction";
 export { alertAction } from "./actions/alertAction";
 export { clickToCopyAction } from "./actions/clickToCopyAction";
+export { clickToShareAction } from "./actions/clickToShareAction";
 export { lazyLoadImageAction } from "./actions/lazyLoadImageAction";
 export { documentTitleAction } from "./actions/documentTitleAction";
 export { fullScreenAction } from "./actions/fullScreenAction";
