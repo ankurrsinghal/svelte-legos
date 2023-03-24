@@ -31,12 +31,12 @@ function handleSendRequest() {
 	<p class="mb-4">Play with timeout value and you will see the retry behavior</p>
 	<div class="my-8">
 		<div class="flex items-center space-x-2">
-			<label>Retry Count:</label>
+			<label for="retry">Retry Count:</label>
 			<input type="range" bind:value={retryCount} min={3} step={1} max={10} />
 			<span>{retryCount}</span>
 		</div>
 		<div class="flex items-center space-x-2 mt-4">
-			<label>Timeout:</label>
+			<label for="timeout">Timeout:</label>
 			<input type="range" bind:value={timeout} min={100} step={10} max={1000} />
 			<span>{timeout}ms</span>
 		</div>

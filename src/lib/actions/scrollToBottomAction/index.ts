@@ -26,6 +26,10 @@ export function scrollToBottomAction<T extends HTMLElement>(node: T, immediate =
 		mutationObserver.observe(node, { childList: true, subtree: true });
 
 		if (immediate) mutationCallback();
+
+		stop = () => {
+			mutationObserver.disconnect();
+		};
 	};
 
 	update();
