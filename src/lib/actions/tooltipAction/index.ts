@@ -48,9 +48,7 @@ class Tooltip<T extends HTMLElement> {
 	public position(window: Window, anchorRect: DOMRect) {
 		let top, left;
 
-		const rect = this.__container.getBoundingClientRect();
-
-		const { height, width } = rect;
+		const { height, width } = anchorRect;
 
 		const {
 			top: anchorTop,
@@ -61,16 +59,18 @@ class Tooltip<T extends HTMLElement> {
 
 		const { scrollY, scrollX } = window;
 
+		console.log({ scrollX, scrollY, height, width });
+
 		if (this.__placement === "center") {
-			top = anchorTop + scrollY - height - 10 - (this.__displayPointer ? Tooltip.POINTER_SIZE : 0);
-			left = anchorLeft + scrollX + anchorWidth / 2 - width / 2;
+			top = anchorTop + scrollY - height - (this.__displayPointer ? Tooltip.POINTER_SIZE : 0);
+			left = anchorLeft + scrollX + anchorWidth / 4 - width / 2;
 		} else if (this.__placement === "left") {
-			top = anchorTop + scrollY - height - 10 - (this.__displayPointer ? Tooltip.POINTER_SIZE : 0);
+			top = anchorTop + scrollY - height - (this.__displayPointer ? Tooltip.POINTER_SIZE : 0);
 			left = anchorLeft + scrollX;
 		} else {
 			// right
-			top = anchorTop + scrollY - height - 10 - (this.__displayPointer ? Tooltip.POINTER_SIZE : 0);
-			left = anchorLeft + scrollX + anchorWidth - width;
+			top = anchorTop + scrollY - height - (this.__displayPointer ? Tooltip.POINTER_SIZE : 0);
+			left = anchorLeft + scrollX + anchorWidth / 2 - width;
 		}
 
 		this.__container.style.setProperty("top", top + "px");
@@ -78,11 +78,13 @@ class Tooltip<T extends HTMLElement> {
 	}
 
 	show() {
+		this.mount();
 		this.__container.style.setProperty("opacity", "1");
 		this.__container.style.setProperty("visibility", "visible");
 	}
 
 	hide() {
+		this.unmount();
 		this.__container.style.setProperty("opacity", "0");
 		this.__container.style.setProperty("visibility", "hidden");
 	}
@@ -146,9 +148,7 @@ export function tooltipAction<T extends HTMLElement>(
 	function stop() {
 		window.removeEventListener("resize", positionTooltip);
 		tooltip.unmount();
-
-		// TODO, breaking the subscriber stop call!
-		// unsub();
+		unsub();
 	}
 
 	return {
