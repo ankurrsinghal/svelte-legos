@@ -16,6 +16,7 @@ $: sidebarClassNames = `
 	p-10
 	fixed
 	top-0
+	left-0
 	h-screen
 	border-r
 	border-black
@@ -26,6 +27,7 @@ $: sidebarClassNames = `
 	lg:z-0
 	lg:p-0
 	lg:py-16
+	lg:left-auto
 	overflow-auto
 	${isMenuOpened ? "visible" : "hidden"}
 `;
