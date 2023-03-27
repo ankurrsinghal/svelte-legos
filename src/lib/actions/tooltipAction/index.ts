@@ -59,8 +59,6 @@ class Tooltip<T extends HTMLElement> {
 
 		const { scrollY, scrollX } = window;
 
-		console.log({ scrollX, scrollY, height, width });
-
 		if (this.__placement === "center") {
 			top = anchorTop + scrollY - height - (this.__displayPointer ? Tooltip.POINTER_SIZE : 0);
 			left = anchorLeft + scrollX + anchorWidth / 4 - width / 2;

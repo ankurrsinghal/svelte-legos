@@ -1,6 +1,6 @@
 {
 	"name": "svelte-legos",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"main": "./package/index.js",
 	"repository": {
 		"type": "git",

@@ -135,7 +135,6 @@ export function infiniteScrollAction<T extends HTMLElement>(
 
 	const update = (params: InfiniteScrollActionParams) => {
 		destroy();
-		console.log("Updated!", params);
 		const scrollEventTarget = getScrollEventTarget(node);
 		const scrollEventListener = throttle(
 			check.bind(null, { ...params, scrollEventTarget, element: node }),
@@ -155,6 +154,6 @@ export function infiniteScrollAction<T extends HTMLElement>(
 
 	return {
 		update,
-		destroy: () => {},
+		destroy,
 	};
 }
