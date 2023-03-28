@@ -1,23 +1,15 @@
 <script>
-import { alertAction } from "svelte-legos";
-
-function onClose() {
-  // handle on alert close
-}
-
-function onOk() {
-  // handle on ok click
-}
+import { slide } from "svelte-legos";
 
 </script>
 
-<button
-  use:alertAction={{
-    title: "Title",
-    description: "You can put your little description here.",
-    onClose,
-    onOk
-  }}
->
-  Notify
-</button>
+<div transition:slide />
+
+<!-- or with options -->
+
+<div transition:slide={{
+  delay // number
+  duration // number
+  easing // svelte/easing
+  direction // "top" | "top-right" | "right" | "bottom-right" | "bottom" | "bottom-left" | "left" | "top-left"
+}} />

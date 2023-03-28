@@ -1,0 +1,15 @@
+<script>
+import { roll } from "svelte-legos";
+
+</script>
+
+<div transition:roll />
+
+<!-- or with options -->
+
+<div transition:roll={{
+  delay // number
+  duration // number
+  easing // svelte/easing
+  direction // "top" | "right" | "bottom" | "left"
+}} />

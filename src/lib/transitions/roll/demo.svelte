@@ -1,11 +1,11 @@
 <script>
 import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
-import { slide } from "$lib";
+import { roll } from "$lib";
 import { PrimaryButtonClassName } from "$lib/shared/tailwind";
 
 let isVisible = true;
 let delay = 0;
-let duration = 300;
+let duration = 600;
 let direction = "top";
 </script>
 
@@ -28,10 +28,6 @@ let direction = "top";
 				<option>bottom</option>
 				<option>left</option>
 				<option>right</option>
-				<option>top-left</option>
-				<option>top-right</option>
-				<option>bottom-left</option>
-				<option>bottom-right</option>
 			</select>
 		</div>
 	</div>
@@ -43,7 +39,7 @@ let direction = "top";
 	<div class="w-28 h-28">
 		{#if isVisible}
 			<div
-				transition:slide={{ delay, duration, direction }}
+				transition:roll={{ delay, duration, direction }}
 				class="w-28 h-28 bg-prime text-sm text-white p-4 flex items-center justify-center"
 			/>
 		{/if}

@@ -8,7 +8,7 @@ interface SwirlParams {
 }
 
 export function swirl(node: HTMLElement, params: SwirlParams = {}): TransitionConfig {
-	const { delay = 0, duration = 600, easing = linear } = params;
+	const { delay = 0, duration = 300, easing = linear } = params;
 
 	return {
 		delay,

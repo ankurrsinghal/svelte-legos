@@ -51,5 +51,6 @@ export { infiniteScrollAction } from "./actions/infiniteScrollAction";
 
 export { fetchWithTimeoutAndRetry } from "./utilities/fetchWithTimeoutAndRetry";
 
-export { rotate } from "./transitions/rotate";
 export { swirl } from "./transitions/swirl";
+export { slide } from "./transitions/slide";
+export { roll } from "./transitions/roll";

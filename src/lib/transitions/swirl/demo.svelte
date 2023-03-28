@@ -5,7 +5,7 @@ import { PrimaryButtonClassName } from "$lib/shared/tailwind";
 
 let isVisible = true;
 let delay = 0;
-let duration = 600;
+let duration = 300;
 </script>
 
 <DemoContainer>
