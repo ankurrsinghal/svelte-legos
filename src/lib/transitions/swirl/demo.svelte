@@ -29,7 +29,7 @@ let duration = 300;
 	<div class="w-28 h-28">
 		{#if isVisible}
 			<div
-				transition:swirl={{ delay, duration }}
+				transition:swirl|local={{ delay, duration }}
 				class="w-28 h-28 bg-prime text-sm text-white p-4 flex items-center justify-center"
 			/>
 		{/if}

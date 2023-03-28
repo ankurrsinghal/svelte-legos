@@ -39,7 +39,7 @@ let direction = "top";
 	<div class="w-28 h-28">
 		{#if isVisible}
 			<div
-				transition:roll={{ delay, duration, direction }}
+				transition:roll|local={{ delay, duration, direction }}
 				class="w-28 h-28 bg-prime text-sm text-white p-4 flex items-center justify-center"
 			/>
 		{/if}
