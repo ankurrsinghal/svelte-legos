@@ -151,7 +151,10 @@ function handleClick() {
 						? 'font-bold underline'
 						: ''}"
 				>
-					Getting Started ({data.actions.length + data.stores.length + data.utilities.length})
+					Getting Started ({data.actions.length +
+						data.stores.length +
+						data.utilities.length +
+						data.transitions.length})
 				</a>
 			</li>
 			<li class="py-2" />

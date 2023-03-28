@@ -1,5 +1,4 @@
 import { hoverStore } from "$lib/stores/hoverStore";
-import { readableStore } from "$lib/stores/readableStore";
 
 type Placement = "center" | "left" | "right";
 class Tooltip<T extends HTMLElement> {
@@ -138,7 +137,7 @@ export function tooltipAction<T extends HTMLElement>(
 		tooltip = new Tooltip(options.content, node, options.placement, options.pointer);
 	}
 
-	const unsub = readableStore(hoverStore(node), (hover) => {
+	const unsub = hoverStore(node).subscribe((hover) => {
 		if (hover) tooltip.show();
 		else tooltip.hide();
 	});

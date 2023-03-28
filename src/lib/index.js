@@ -17,7 +17,6 @@ export { intervalStore } from "./stores/intervalStore";
 export { rafFnStore } from "./stores/rafFnStore";
 export { hoverStore } from "./stores/hoverStore";
 export { eventListenerStore } from "./stores/eventListenerStore";
-export { readableStore } from "./stores/readableStore";
 export { networkStore } from "./stores/networkStore";
 export { onlineStore } from "./stores/onlineStore";
 export { memoryStore } from "./stores/memoryStore";
