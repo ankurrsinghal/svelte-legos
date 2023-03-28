@@ -187,6 +187,18 @@ function handleClick() {
 					>
 				</li>
 			{/each}
+
+			<li class="py-2" />
+			<li class="text-sm">Transitions:</li>
+			{#each data.transitions as transition}
+				<li on:click={handleClick} aria-hidden="true">
+					<a
+						href={"/guides/transitions/" + transition}
+						class="hover:underline {transition === currentPath ? 'font-bold underline' : ''}"
+						>{transition}</a
+					>
+				</li>
+			{/each}
 		</ul>
 	</section>
 </div>

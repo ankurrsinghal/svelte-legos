@@ -50,3 +50,6 @@ export { scrollToBottomAction } from "./actions/scrollToBottomAction";
 export { infiniteScrollAction } from "./actions/infiniteScrollAction";
 
 export { fetchWithTimeoutAndRetry } from "./utilities/fetchWithTimeoutAndRetry";
+
+export { rotate } from "./transitions/rotate";
+export { swirl } from "./transitions/swirl";

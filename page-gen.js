@@ -91,3 +91,6 @@ watchDir("actions");
 
 // utilities
 watchDir("utilities");
+
+// transitions
+watchDir("transitions");

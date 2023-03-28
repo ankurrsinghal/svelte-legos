@@ -1,0 +1,23 @@
+<script>
+import { alertAction } from "svelte-legos";
+
+function onClose() {
+  // handle on alert close
+}
+
+function onOk() {
+  // handle on ok click
+}
+
+</script>
+
+<button
+  use:alertAction={{
+    title: "Title",
+    description: "You can put your little description here.",
+    onClose,
+    onOk
+  }}
+>
+  Notify
+</button>

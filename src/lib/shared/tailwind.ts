@@ -15,6 +15,7 @@ export const PrimaryButtonClassNames = `
     py-2
     rounded-md
     disabled:bg-slate-300
+    cursor-pointer
   `;
 
 export const PrimaryButtonClassName = buildClassName(PrimaryButtonClassNames);

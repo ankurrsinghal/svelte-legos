@@ -1,0 +1,14 @@
+<script>
+import { swirl } from "svelte-legos";
+
+</script>
+
+<div transition:swirl />
+
+<!-- or with options -->
+
+<div transition:swirl={{
+  delay // number
+  duration // number
+  easing // svelte/easing
+}} />
