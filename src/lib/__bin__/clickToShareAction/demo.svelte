@@ -1,5 +1,5 @@
 <script lang="ts">
-import { clickToShareAction } from "./index";
+import { clickToShareAction } from "$lib";
 import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 import { PrimaryButtonClassName } from "$lib/shared/tailwind";
 

@@ -1,10 +1,10 @@
 <script>
-import { clickToCopyAction } from "$lib";
+import { clickToCopyAction, messagesStore } from "$lib";
 import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 import { PrimaryButtonClassName } from "$lib/shared/tailwind";
 
 function handleCopyDone() {
-	console.log("Copy done");
+	messagesStore("Copied!");
 }
 
 let text = "Text to copy";
