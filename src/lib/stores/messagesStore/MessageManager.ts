@@ -1,4 +1,4 @@
-import Message from "./Message";
+import Message, { type MessageType } from "./Message";
 
 export default class MessageManager {
 	private static __instance: MessageManager;
@@ -12,7 +12,6 @@ export default class MessageManager {
 		const containerStyles = `
         padding-top: 16px;
         position: fixed;
-        width: 330px;
         pointer-events: none;
         top: 0;
         left: 50%;
@@ -25,9 +24,9 @@ export default class MessageManager {
 		document.body.appendChild(this.__container);
 	}
 
-	createMessage(message: string) {
+	createMessage(message: string, type?: MessageType) {
 		this.createContainer();
-		const notification = new Message(message, () => {
+		const notification = new Message(message, type, () => {
 			this.checkAndUnmount();
 		});
 		notification.mount(this.__container!);

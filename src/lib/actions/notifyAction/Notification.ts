@@ -1,5 +1,5 @@
 export type NotificationType = "success" | "error" | "info" | "warning";
-import { cross, error, info, success, warn } from "./icons/index";
+import { cross, error, info, success, warn } from "../../shared/icons";
 export default class Notification {
 	title: string;
 	description?: string;

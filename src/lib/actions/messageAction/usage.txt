@@ -5,6 +5,7 @@ import { messageAction } from "svelte-legos";
 <button
   use:messageAction={{
     message: "Here is your message!",
+    type: "success" | "warning" | "error" | "info" (default) // optional
   }}
 >
   Show Message

@@ -3,6 +3,10 @@ import { messagesStore } from "svelte-legos";
 
 function handleClick() {
   messagesStore("Here is your message");
+
+  // or send type as "success" | "warning" | "error" | "info" (default)
+
+  messagesStore("Here is your message", "success");
 }
 </script>
 

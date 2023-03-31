@@ -1,12 +1,17 @@
+import { cross, error, info, success, warn } from "../../shared/icons";
+
+export type MessageType = "success" | "error" | "info" | "warning";
 export default class Message {
 	message: string;
+	type: MessageType;
 	onUnmount?: () => void;
 
 	private __container: HTMLDivElement;
 	private __timer: ReturnType<typeof setTimeout> | undefined;
 
-	constructor(message: string, onUnmount?: () => void) {
+	constructor(message: string, type?: MessageType, onUnmount?: () => void) {
 		this.message = message;
+		this.type = type || "info";
 		this.__container = document.createElement("div");
 		this.onUnmount = onUnmount;
 		this.init();
@@ -46,13 +51,33 @@ export default class Message {
 	private addMessage() {
 		const message = document.createElement("h2");
 		const messageStyles = `
-        font-size: 13px;
-        color: #303133;
-        margin: 0;
-      `;
+      font-size: 13px;
+      margin: 0;
+    `;
 		message.textContent = this.message;
 		message.setAttribute("style", messageStyles);
-		this.__container.appendChild(message);
+
+		const icon = document.createElement("img");
+		const iconStyles = `
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    `;
+		switch (this.type) {
+			case "success":
+				icon.setAttribute("src", success);
+				break;
+			case "error":
+				icon.setAttribute("src", error);
+				break;
+			case "info":
+				icon.setAttribute("src", info);
+				break;
+			case "warning":
+				icon.setAttribute("src", warn);
+				break;
+		}
+		icon.setAttribute("style", iconStyles);
 
 		const closeBtn = document.createElement("div");
 		const closeBtnStyles = `
@@ -67,6 +92,7 @@ export default class Message {
 			this.hide();
 		});
 
+		this.__container.appendChild(icon);
 		this.__container.appendChild(message);
 	}
 
@@ -75,22 +101,52 @@ export default class Message {
 	}
 
 	private addStyles() {
+		let typeBasedStyles = "";
+
+		switch (this.type) {
+			case "success":
+				typeBasedStyles = `
+          color: #67c23a;
+          border-color: #e1f3d8;
+          background-color: #f0f9eb;
+        `;
+				break;
+			case "warning":
+				typeBasedStyles = `
+          color: #e6a23c;
+          border-color: #faecd8;
+          background-color: #fdf6ec;
+        `;
+				break;
+			case "error":
+				typeBasedStyles = `
+          color: #f56c6c;
+          border-color: #fde2e2;
+          background-color: #fef0f0;
+        `;
+				break;
+		}
+
 		const styles = `
-        width: 330px;
-        padding: 12px;
-        border-radius: 8px;
-        box-sizing: border-box;
-        border: 1px solid #ddd;
-        background-color: #eee;
-        transition: opacity .3s, transform .3s;
-        overflow-wrap: anywhere;
-        overflow: hidden;
-        z-index: 9999;
-        transform: translateY(-100%);
-        pointer-events: all;
-        margin-bottom: 16px;
-        opacity: 0;
-      `;
+      padding: 12px;
+      border-radius: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ebeef5;
+      background-color: #ffffff;
+      transition: opacity .3s, transform .3s;
+      overflow-wrap: anywhere;
+      overflow: hidden;
+      z-index: 9999;
+      transform: translateY(-100%);
+      pointer-events: all;
+      margin-bottom: 16px;
+      opacity: 0;
+      box-shadow: 0px 0px 12px rgba(0, 0, 0, .12);
+      display: flex;
+
+      ${typeBasedStyles}
+    `;
+
 		this.__container.setAttribute("style", styles);
 	}
 }

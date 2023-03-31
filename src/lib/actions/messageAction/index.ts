@@ -1,8 +1,10 @@
 import { eventListenerStore } from "$lib/stores/eventListenerStore";
 import { messagesStore } from "$lib/stores/messagesStore";
+import type { MessageType } from "$lib/stores/messagesStore/Message";
 
 interface MessageActionParams {
 	message: string;
+	type?: MessageType;
 }
 
 export function messageAction<T extends HTMLElement>(node: T, params: MessageActionParams) {
@@ -15,7 +17,7 @@ export function messageAction<T extends HTMLElement>(node: T, params: MessageAct
 	const update = (params: MessageActionParams) => {
 		destroy();
 		function handleClick() {
-			messagesStore(params.message);
+			messagesStore(params.message, params.type);
 		}
 
 		({ stop } = eventListenerStore("click", handleClick, node));
