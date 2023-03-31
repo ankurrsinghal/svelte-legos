@@ -1,5 +1,6 @@
 <script>
 import { base } from "$app/paths";
+import DiscordIcon from "./DiscordIcon.svelte";
 import GithubIcon from "./GithubIcon.svelte";
 import TwitterIcon from "./TwitterIcon.svelte";
 </script>
@@ -15,6 +16,14 @@ import TwitterIcon from "./TwitterIcon.svelte";
 		<ul class="flex space-x-8 lg:space-x-10">
 			<li>
 				<a class="font-extralight" href="{base}/guides">Guides</a>
+			</li>
+			<li>
+				<a
+					class="font-extralight w-6 h-6 flex items-center"
+					href="https://discord.gg/6bbNFhpg"
+					target="_blank"
+					rel="noreferrer"><DiscordIcon /></a
+				>
 			</li>
 			<li>
 				<a

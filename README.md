@@ -1,11 +1,12 @@
 # Svelte Legos
+
 Collection of essential Svelte Composition Utilities
 <br>
 <br>
 
 ## 🚀 Features
 
-- 🎪 [**Interactive docs & demos**](https://svelte-legos.singhalankur.com)
+- 🎪 [**Interactive docs & demos**](https://sveltelegos.com)
 - ⚡ **Fully tree shakeable**: Only take what you want, [bundle size]
 - 🦾 **Type Strong**: Written in [TypeScript](https://www.typescriptlang.org/), with [TS Docs](https://github.com/microsoft/tsdoc)
 - 🔋 **SSR Friendly**
@@ -35,18 +36,14 @@ import { clickOutsideAction } from "svelte-legos";
 let hidden = false;
 
 function handleClickOutside() {
-  hidden = !hidden;
+	hidden = !hidden;
 }
 </script>
 
-<div
-  class="modal"
-  use:clickOutsideAction
-  on:clickoutside={handleClickOutside}
-/>
+<div class="modal" use:clickOutsideAction on:clickoutside={handleClickOutside} />
 ```
 
-Refer to [functions list](https://svelte-legos.singhalankur.com/guides) or [documentations](https://svelte-legos.singhalankur.com) for more details.
+Refer to [functions list](https://sveltelegos.com/guides) or [documentations](https://sveltelegos.com) for more details.
 
 ## 📦 Install
 
@@ -55,9 +52,11 @@ npm i svelte-legos
 ```
 
 ## Local setup
+
 ```bash
 npm run start:dev
 ```
+
 ## 🌸 Thanks
 
 This project is heavily inspired by the following awesome projects.
