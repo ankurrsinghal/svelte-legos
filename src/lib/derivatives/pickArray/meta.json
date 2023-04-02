@@ -1,0 +1,3 @@
+{
+	"description": "A helpful utility to pick data from a store of list of objects by keys. If only one key is specified the derivative will be the array of values of that key else the derivative will an array of partial records of the keys mapped to store's list of values."
+}
