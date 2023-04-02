@@ -151,10 +151,7 @@ function handleClick() {
 						? 'font-bold underline'
 						: ''}"
 				>
-					Getting Started ({data.actions.length +
-						data.stores.length +
-						data.utilities.length +
-						data.transitions.length})
+					Getting Started ({data.totalUtilsLength})
 				</a>
 			</li>
 			<li class="py-2" />
@@ -199,6 +196,18 @@ function handleClick() {
 						href={"/guides/transitions/" + transition}
 						class="hover:underline {transition === currentPath ? 'font-bold underline' : ''}"
 						>{transition}</a
+					>
+				</li>
+			{/each}
+
+			<li class="py-2" />
+			<li class="text-sm">Middlewares:</li>
+			{#each data.middlewares as middleware}
+				<li on:click={handleClick} aria-hidden="true">
+					<a
+						href={"/guides/middlewares/" + middleware}
+						class="hover:underline {middleware === currentPath ? 'font-bold underline' : ''}"
+						>{middleware}</a
 					>
 				</li>
 			{/each}

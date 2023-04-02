@@ -14,8 +14,9 @@ export const PrimaryButtonClassNames = `
     px-4
     py-2
     rounded-md
-    disabled:bg-slate-300
     cursor-pointer
+    disabled:bg-slate-300
+    disabled:pointer-events-none
   `;
 
 export const PrimaryButtonClassName = buildClassName(PrimaryButtonClassNames);

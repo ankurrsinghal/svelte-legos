@@ -94,3 +94,6 @@ watchDir("utilities");
 
 // transitions
 watchDir("transitions");
+
+// middlewares
+watchDir("middlewares");

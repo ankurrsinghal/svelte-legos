@@ -28,3 +28,4 @@ src/routes/guides/stores
 src/routes/guides/actions
 src/routes/guides/utilities
 src/routes/guides/transitions
+src/routes/guides/middlewares

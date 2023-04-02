@@ -1,0 +1,13 @@
+<script lang="ts">
+import { history } from "svelte-legos";
+import { writable } from "svelte/store";
+
+const counter = history(writable(0));
+</script>
+
+<button on:click={counter.history.undo}>Undo</button>
+<button on:click={counter.history.redo}>Redo</button>
+
+{$counter}
+
+<button on:click={() => $counter++}>Increment</button>

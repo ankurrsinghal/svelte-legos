@@ -2,6 +2,7 @@ export const CHECK_INTERVAL = 50;
 export const DEFAULT_DELAY = 200;
 export const DEFAULT_DISTANCE = 0;
 
+/* this implementation is original ported from https://github.com/ElemeFE/vue-infinite-scroll */
 interface InfiniteScrollActionParams {
 	delay: number;
 	distance: number;
