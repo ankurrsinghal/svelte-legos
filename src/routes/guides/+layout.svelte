@@ -211,6 +211,18 @@ function handleClick() {
 					>
 				</li>
 			{/each}
+
+			<li class="py-2" />
+			<li class="text-sm">Store Derivatives:</li>
+			{#each data.derivatives as derivative}
+				<li on:click={handleClick} aria-hidden="true">
+					<a
+						href={"/guides/derivatives/" + derivative}
+						class="hover:underline {derivative === currentPath ? 'font-bold underline' : ''}"
+						>{derivative}</a
+					>
+				</li>
+			{/each}
 		</ul>
 	</section>
 </div>

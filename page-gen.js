@@ -97,3 +97,6 @@ watchDir("transitions");
 
 // middlewares
 watchDir("middlewares");
+
+// derivatives
+watchDir("derivatives");

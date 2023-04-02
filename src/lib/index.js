@@ -56,3 +56,4 @@ export { slide } from "./transitions/slide";
 export { roll } from "./transitions/roll";
 
 export * as middlewares from "./middlewares";
+export * as derivatives from "./derivatives";

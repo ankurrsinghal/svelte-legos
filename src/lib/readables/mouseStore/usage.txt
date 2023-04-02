@@ -1,0 +1,8 @@
+<script lang="ts">
+import { mouseStore } from 'svelte-legos';
+
+const position = mouseStore();
+
+// $position gives the
+// Position { x: number, y: number } of the mouse
+</script>

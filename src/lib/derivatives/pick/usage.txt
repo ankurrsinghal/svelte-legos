@@ -1,0 +1,16 @@
+<script lang="ts">
+import { pick } from "svelte-legos/derivatives";
+import { writable } from "svelte/store";
+
+const data = writable({
+	name: "Svelte",
+	author: "Rich",
+	createdAt: Date.now(),
+});
+
+const name = pick(data, "name"); // $name => "Svelte"
+
+const nameAndAuthor = pick(data, "name", "author");
+// $nameAndCreatedAt => { name: "Svelte", author: "Rich" }
+
+</script>

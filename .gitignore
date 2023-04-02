@@ -29,3 +29,4 @@ src/routes/guides/actions
 src/routes/guides/utilities
 src/routes/guides/transitions
 src/routes/guides/middlewares
+src/routes/guides/derivatives
