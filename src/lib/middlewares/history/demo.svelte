@@ -5,13 +5,14 @@ import PrimaryButton from "$lib/shared/components/PrimaryButton.svelte";
 import { writable } from "svelte/store";
 
 const counter = history(writable(0));
+const { undo, redo, canRedo, canUndo } = counter.history;
 </script>
 
 <DemoContainer>
 	<div>
 		<div>
-			<PrimaryButton on:click={counter.history.undo}>Undo</PrimaryButton>
-			<PrimaryButton on:click={counter.history.redo}>Redo</PrimaryButton>
+			<PrimaryButton disabled={!$canUndo} on:click={undo}>Undo</PrimaryButton>
+			<PrimaryButton disabled={!$canRedo} on:click={redo}>Redo</PrimaryButton>
 		</div>
 		<div class="text-4xl my-8">
 			{$counter}

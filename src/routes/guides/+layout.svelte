@@ -201,7 +201,7 @@ function handleClick() {
 			{/each}
 
 			<li class="py-2" />
-			<li class="text-sm">Middlewares:</li>
+			<li class="text-sm">Store Middlewares:</li>
 			{#each data.middlewares as middleware}
 				<li on:click={handleClick} aria-hidden="true">
 					<a

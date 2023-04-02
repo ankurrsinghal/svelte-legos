@@ -1,3 +1,3 @@
 {
-	"description": "This middleware makes it really easy to add undo/redo functionality to your app. It wraps any writable with any data type and provides an augmented store with an history API which has undo and redo methods."
+	"description": "This middleware makes it really easy to add undo/redo functionality to your app. It wraps any writable with any data type and provides an augmented store with an history API which has undo and redo methods and two derived store properties canUndo and canRedo."
 }

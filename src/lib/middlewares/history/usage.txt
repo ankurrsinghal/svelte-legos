@@ -3,10 +3,11 @@ import { history } from "svelte-legos";
 import { writable } from "svelte/store";
 
 const counter = history(writable(0));
+const { undo, redo canRedo, canUndo } = counter.history;
 </script>
 
-<button on:click={counter.history.undo}>Undo</button>
-<button on:click={counter.history.redo}>Redo</button>
+<button disabled={!$canUndo} on:click={undo}>Undo</button>
+<button disabled={!$canRedo} on:click={redo}>Redo</button>
 
 {$counter}
 

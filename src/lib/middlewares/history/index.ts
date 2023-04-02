@@ -1,49 +1,59 @@
-import { get, type Updater, type Writable } from "svelte/store";
+import { derived, get, writable, type Updater, type Writable } from "svelte/store";
 
-export function history<T>(writable: Writable<T>) {
-	let past: T[] = [];
-	let future: T[] = [];
-	let present: T = get(writable);
+export function history<T>(store: Writable<T>) {
+	let past = writable<T[]>([]);
+	let future = writable<T[]>([]);
+	let present: T = get(store);
 
 	function undo() {
-		if (past.length === 0) return;
-		future.unshift(present);
-		present = past.pop()!;
-		writable.set(present);
+		if (get(past).length === 0) return;
+		future.set([present, ...get(future)]);
+
+		const pasts = get(past);
+		present = pasts.pop()!;
+		past.set([...pasts]);
+
+		store.set(present);
 	}
 
 	function redo() {
-		if (future.length === 0) return;
-		past.push(present);
-		present = future.shift()!;
-		writable.set(present);
+		if (get(future).length === 0) return;
+		past.set([...get(past), present]);
+
+		const futures = get(future);
+		present = futures.shift()!;
+		future.set([...futures]);
+
+		store.set(present);
 	}
 
 	function updateHistory(value: T) {
 		if (present === value) return;
-		past.push(present);
+		past.set([...get(past), present]);
 		present = value;
-		future = [];
+		future.set([]);
 	}
 
 	function set(value: T) {
 		updateHistory(value);
-		writable.set(value);
+		store.set(value);
 	}
 
 	function update(fn: Updater<T>) {
-		const value = fn(get(writable));
+		const value = fn(get(store));
 		updateHistory(value);
-		writable.update(fn);
+		store.update(fn);
 	}
 
 	return {
-		subscribe: writable.subscribe,
+		subscribe: store.subscribe,
 		set,
 		update,
 		history: {
 			undo,
 			redo,
+			canUndo: derived(past, ($past) => $past.length !== 0),
+			canRedo: derived(future, ($future) => $future.length !== 0),
 		},
 	};
 }
