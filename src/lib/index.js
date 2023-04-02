@@ -55,4 +55,4 @@ export { swirl } from "./transitions/swirl";
 export { slide } from "./transitions/slide";
 export { roll } from "./transitions/roll";
 
-export { history } from "./middlewares/history";
+export * as middlewares from "./middlewares";

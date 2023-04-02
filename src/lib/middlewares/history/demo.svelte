@@ -1,5 +1,5 @@
 <script lang="ts">
-import { history } from "$lib";
+import { history } from "$lib/middlewares";
 import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 import PrimaryButton from "$lib/shared/components/PrimaryButton.svelte";
 import { writable } from "svelte/store";

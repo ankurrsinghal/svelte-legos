@@ -1,0 +1,8 @@
+<script lang="ts">
+import { storage } from "svelte-legos/middlewares";
+import { writable } from "svelte/store";
+
+const name = storage(writable(""), "name");
+</script>
+
+<input bind:value={$name} />

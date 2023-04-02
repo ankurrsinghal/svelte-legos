@@ -1,0 +1,3 @@
+{
+	"description": "This middleware makes it really easy to sync your writable store to localStorage. It wraps any writable with any data type and provided a key which is a string and writes back to localStorage on change. It also loads the store with the last value saved in localStorage."
+}
