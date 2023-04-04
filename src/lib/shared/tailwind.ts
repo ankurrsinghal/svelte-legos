@@ -20,3 +20,5 @@ export const PrimaryButtonClassNames = `
   `;
 
 export const PrimaryButtonClassName = buildClassName(PrimaryButtonClassNames);
+
+export const InputClass = `px-3 py-2 border border-black rounded-md text-md`;

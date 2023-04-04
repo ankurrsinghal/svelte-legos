@@ -1,5 +1,5 @@
 <script lang="ts">
-import { sizeOf } from "svelte-legos/derivatives";
+import { sizeOf } from "svelte-legos";
 import { writable } from "svelte/store";
 
 const list = writable([1, 2, 3, 4, 5, 6]);

@@ -1,0 +1,9 @@
+<script lang="ts">
+import { toNumber } from "svelte-legos";
+import { writable } from "svelte/store";
+
+const str = writable("1.0");
+const number = toNumber(str);
+
+// use $number as Number
+</script>

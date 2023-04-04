@@ -1,5 +1,5 @@
 <script lang="ts">
-import { pick } from "svelte-legos/derivatives";
+import { pick } from "svelte-legos";
 import { writable } from "svelte/store";
 
 const data = writable([
