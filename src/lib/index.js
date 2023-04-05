@@ -50,10 +50,16 @@ export { infiniteScrollAction } from "./actions/infiniteScrollAction";
 export { scrollToElementAction } from "./__bin__/scrollToElementAction";
 
 export { fetchWithTimeoutAndRetry } from "./utilities/fetchWithTimeoutAndRetry";
+export { reduceable } from "./utilities/reduceable";
 
 export { swirl } from "./transitions/swirl";
 export { slide } from "./transitions/slide";
 export { roll } from "./transitions/roll";
 
-export * as middlewares from "./middlewares";
-export * as derivatives from "./derivatives";
+export { history } from "./middlewares/history";
+export { storage } from "./middlewares/storage";
+
+export { pick } from "./derivatives/pick";
+export { pickArray } from "./derivatives/pickArray";
+export { sizeOf } from "./derivatives/sizeOf";
+export { toNumber } from "./derivatives/toNumber";

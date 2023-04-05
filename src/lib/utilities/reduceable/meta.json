@@ -1,0 +1,3 @@
+{
+	"description": "A helpful utility to use a sveltejs store as a reduceable store. It's like a useReducer hook in React. Define a reducer function and an initial state and you can use a regular `$` syntax to subscribe to state updates and a `dispatch` method to dispatch actions."
+}

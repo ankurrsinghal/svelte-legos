@@ -1,0 +1,20 @@
+<script lang="ts">
+import { reduceable } from "svelte-legos";
+
+function reducer(state: number, action: string) {
+	switch (action) {
+		case "inc":
+			return state + 1;
+		case "dec":
+			return state - 1;
+		default:
+			return state;
+	}
+}
+
+const counter = reduceable(reducer, 0);
+</script>
+
+<p>{$counter}</p>
+<button on:click={() => counter.dispatch("inc")}>+</button>
+<button on:click={() => counter.dispatch("dec")}>-</button>
