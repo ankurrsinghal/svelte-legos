@@ -1,0 +1,21 @@
+<script lang="ts">
+import { first } from "svelte-legos";
+import { writable } from "svelte/store";
+
+const data = writable([
+	{
+		name: "Svelte",
+		author: "Rich",
+		createdAt: Date.now(),
+	},
+	{
+		name: "Vue",
+		author: "Evan",
+		createdAt: Date.now(),
+	},
+]);
+
+const firstElement = first(data);
+
+// $firstElement => { name: "Svelte", author: "Rich", createdAt: number }
+</script>

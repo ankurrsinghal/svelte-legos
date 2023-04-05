@@ -63,3 +63,4 @@ export { pick } from "./derivatives/pick";
 export { pickArray } from "./derivatives/pickArray";
 export { sizeOf } from "./derivatives/sizeOf";
 export { toNumber } from "./derivatives/toNumber";
+export { first } from "./derivatives/first";
