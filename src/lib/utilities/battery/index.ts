@@ -23,12 +23,7 @@ export function battery() {
 	let level = 1;
 	let battery: BatteryManager | null;
 
-	function updateBatteryInfo(this: BatteryManager) {
-		charging = this.charging;
-		chargingTime = this.chargingTime || 0;
-		dischargingTime = this.dischargingTime || 0;
-		level = this.level;
-	}
+	let stop = [() => {}];
 
 	return readable({ isSupported, charging, chargingTime, dischargingTime, level }, (set) => {
 		isSupported = !!(
@@ -37,13 +32,33 @@ export function battery() {
 			"getBattery" in defaultWindow.navigator
 		);
 		if (isSupported) {
+			function updateBatteryInfo(this: BatteryManager) {
+				charging = this.charging;
+				chargingTime = this.chargingTime || 0;
+				dischargingTime = this.dischargingTime || 0;
+				level = this.level;
+
+				set({ isSupported, charging, chargingTime, dischargingTime, level });
+			}
+
 			(navigator as NavigatorWithBattery).getBattery().then((_battery) => {
 				battery = _battery;
 				updateBatteryInfo.call(battery);
-				set({ isSupported, charging, chargingTime, dischargingTime, level });
-				for (const event of events)
-					eventListenerStore(battery, event, updateBatteryInfo, { passive: true });
+				for (const event of events) {
+					battery.addEventListener(event, updateBatteryInfo, { passive: true });
+					stop.push(() => {
+						if (battery !== null) {
+							battery.removeEventListener(event, updateBatteryInfo);
+						}
+					});
+				}
 			});
+
+			return () => {
+				for (const fn of stop) {
+					fn();
+				}
+			};
 		}
 	});
 }
