@@ -1,0 +1,15 @@
+<script lang="ts">
+import { battery } from "svelte-legos";
+
+const info = battery();
+
+$: (
+  {
+    isSupported,
+    charging,
+    chargingTime,
+    dischargingTime,
+    level 
+  } = $info
+)
+</script>

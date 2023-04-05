@@ -51,6 +51,7 @@ export { scrollToElementAction } from "./__bin__/scrollToElementAction";
 
 export { fetchWithTimeoutAndRetry } from "./utilities/fetchWithTimeoutAndRetry";
 export { reduceable } from "./utilities/reduceable";
+export { battery } from "./utilities/battery";
 
 export { swirl } from "./transitions/swirl";
 export { slide } from "./transitions/slide";
