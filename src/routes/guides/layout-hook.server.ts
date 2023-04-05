@@ -28,7 +28,7 @@ export async function load({ route }: any) {
 	return {
 		hookName,
 		meta,
-		code: code && Prism.highlight(code, Prism.languages.svelte, "svelte"),
+		code: code && Prism.highlight(code, Prism.languages.svelte, "svelte").trim(),
 		sourceCodeURL: REPO_HOOKS_URL(itemType.toLowerCase()) + `/${hookName}/index.ts`,
 		demoCodeURL: REPO_HOOKS_URL(itemType.toLowerCase()) + `/${hookName}/demo.svelte`,
 	};

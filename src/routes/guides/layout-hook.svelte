@@ -21,11 +21,7 @@ export let data: PageData;
 		<h1 class="text-xl lg:text-2xl">Usage</h1>
 		{#if data.code}
 			<div class="mt-4 p-4 text-sm overflow-auto border border-slate-600 rounded-md bg-slate-100">
-				<pre>
-          <code>
-{@html data.code}
-          </code>
-        </pre>
+				<pre><code>{@html data.code}</code></pre>
 			</div>
 		{/if}
 	</div>

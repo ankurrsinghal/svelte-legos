@@ -1,0 +1,3 @@
+{
+	"description": "A helpful utility to sort array data in your stores. If array items are string or numbers a default compare function which uses difference of 2 items, you can provide your own comparator or whole sort function as well."
+}
