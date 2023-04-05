@@ -7,8 +7,7 @@ export function history<T>(store: Writable<T>) {
 
 	function undo() {
 		if (get(past).length === 0) return;
-		future.set([present, ...get(future)]);
-
+		future.update(($future) => [present, ...$future]);
 		const pasts = get(past);
 		present = pasts.pop()!;
 		past.set([...pasts]);
@@ -18,7 +17,7 @@ export function history<T>(store: Writable<T>) {
 
 	function redo() {
 		if (get(future).length === 0) return;
-		past.set([...get(past), present]);
+		past.update(($past) => [...$past, present]);
 
 		const futures = get(future);
 		present = futures.shift()!;
@@ -29,7 +28,7 @@ export function history<T>(store: Writable<T>) {
 
 	function updateHistory(value: T) {
 		if (present === value) return;
-		past.set([...get(past), present]);
+		past.update(($past) => [...$past, present]);
 		present = value;
 		future.set([]);
 	}
