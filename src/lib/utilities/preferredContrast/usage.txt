@@ -1,0 +1,7 @@
+<script lang="ts">
+import { preferredContrast } from "svelte-legos";
+
+const contrast = preferredContrast();
+
+// $contrast => "more" | "less" | "custom" | "no-preference"
+</script>
