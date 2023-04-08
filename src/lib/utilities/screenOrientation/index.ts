@@ -29,6 +29,8 @@ export function screenOrientation() {
 			};
 		}
 
+		update();
+
 		return stop;
 	});
 }
