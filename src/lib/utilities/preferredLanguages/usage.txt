@@ -1,0 +1,7 @@
+<script lang="ts">
+import { preferredLanguages } from "svelte-legos";
+
+const languages = preferredLanguages();
+
+// $languages => readonly string[]
+</script>
