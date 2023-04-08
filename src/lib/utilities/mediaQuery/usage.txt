@@ -1,0 +1,6 @@
+<script lang="ts">
+import { mediaQuery } from "svelte-legos";
+
+const isLargeScreen = mediaQuery("(min-width: 1024px)");
+const prefersDark = mediaQuery("(prefers-color-scheme: dark)");
+</script>
