@@ -57,6 +57,7 @@ export { preferredColorScheme } from "./utilities/preferredColorScheme";
 export { preferredContrast } from "./utilities/preferredContrast";
 export { preferredDark } from "./utilities/preferredDark";
 export { preferredLanguages } from "./utilities/preferredLanguages";
+export { preferredReduceMotion } from "./utilities/preferredReduceMotion";
 
 export { swirl } from "./transitions/swirl";
 export { slide } from "./transitions/slide";

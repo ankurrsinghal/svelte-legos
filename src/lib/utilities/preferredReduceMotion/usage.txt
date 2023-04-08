@@ -1,0 +1,7 @@
+<script lang="ts">
+import { preferredReduceMotion } from "svelte-legos";
+
+const motion = preferredReduceMotion();
+
+// $motion => "reduce" | "no-preference"
+</script>
