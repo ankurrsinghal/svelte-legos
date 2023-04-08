@@ -1,0 +1,7 @@
+<script lang="ts">
+import { preferredDark } from "svelte-legos";
+
+const prefersDark = preferredDark();
+
+// $prefersDark => true | false
+</script>

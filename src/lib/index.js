@@ -55,6 +55,7 @@ export { battery } from "./utilities/battery";
 export { mediaQuery } from "./utilities/mediaQuery";
 export { preferredColorScheme } from "./utilities/preferredColorScheme";
 export { preferredContrast } from "./utilities/preferredContrast";
+export { preferredDark } from "./utilities/preferredDark";
 
 export { swirl } from "./transitions/swirl";
 export { slide } from "./transitions/slide";
