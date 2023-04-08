@@ -12,7 +12,6 @@ export function preferredLanguages(): Readable<readonly string[]> {
 			set(navigator.languages);
 
 			function update() {
-				cleanup();
 				set(navigator.languages);
 			}
 

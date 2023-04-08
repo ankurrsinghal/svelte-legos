@@ -1,0 +1,6 @@
+<script lang="ts">
+import { screenOrientation } from "svelte-legos";
+
+const data = screenOrientation();
+$: ({ isSupported, orientation, angle } = $data);
+</script>
