@@ -1,0 +1,7 @@
+<script lang="ts">
+import { preferredColorScheme } from "svelte-legos";
+
+const colorScheme = preferredColorScheme();
+
+// $colorScheme => 'light' | 'dark' | 'no-preference'
+</script>

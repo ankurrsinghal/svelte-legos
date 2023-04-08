@@ -53,6 +53,7 @@ export { fetchWithTimeoutAndRetry } from "./utilities/fetchWithTimeoutAndRetry";
 export { reduceable } from "./utilities/reduceable";
 export { battery } from "./utilities/battery";
 export { mediaQuery } from "./utilities/mediaQuery";
+export { preferredColorScheme } from "./utilities/preferredColorScheme";
 
 export { swirl } from "./transitions/swirl";
 export { slide } from "./transitions/slide";
