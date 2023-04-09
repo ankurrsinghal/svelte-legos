@@ -76,3 +76,4 @@ export { sort } from "./derivatives/sort";
 
 export { takeUntil } from "./watchers/takeUntil";
 export { takeWhile } from "./watchers/takeWhile";
+export { watch } from "./watchers/watch";
