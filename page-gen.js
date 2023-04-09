@@ -100,3 +100,6 @@ watchDir("middlewares");
 
 // derivatives
 watchDir("derivatives");
+
+// watchers
+watchDir("watchers");

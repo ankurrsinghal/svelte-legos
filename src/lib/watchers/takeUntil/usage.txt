@@ -1,0 +1,16 @@
+<script lang="ts">
+import { takeUntil } from "svelte-legos";
+import { writable } from "svelte/store";
+
+const counter = writable(0);
+const moreThan10 = takeUntil(counter, (counter) => counter < 10);
+</script>
+
+<div>Store value:</div>
+<div>{$counter}</div>
+
+<button on:click={() => $counter++}>+</button>
+<button on:click={() => $counter--}>-</button>
+
+<div>Take until counter is less than 10:</div>
+<div>{$moreThan10}</div>

@@ -30,3 +30,4 @@ src/routes/guides/utilities
 src/routes/guides/transitions
 src/routes/guides/middlewares
 src/routes/guides/derivatives
+src/routes/guides/watchers

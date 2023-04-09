@@ -7,6 +7,7 @@ const utilitiesDir = baseDir + "/lib/utilities";
 const transitionsDir = baseDir + "/lib/transitions";
 const middlewaresDir = baseDir + "/lib/middlewares";
 const derivativesDir = baseDir + "/lib/derivatives";
+const watchersDir = baseDir + "/lib/watchers";
 
 const isDir = (path: string) => !path.includes(".");
 
@@ -16,6 +17,7 @@ export const utilities = fs.readdirSync(utilitiesDir).filter(isDir);
 export const transitions = fs.readdirSync(transitionsDir).filter(isDir);
 export const middlewares = fs.readdirSync(middlewaresDir).filter(isDir);
 export const derivatives = fs.readdirSync(derivativesDir).filter(isDir);
+export const watchers = fs.readdirSync(watchersDir).filter(isDir);
 
 export const totalUtilsLength =
 	stores.length +
@@ -23,4 +25,5 @@ export const totalUtilsLength =
 	utilities.length +
 	transitions.length +
 	middlewares.length +
-	derivatives.length;
+	derivatives.length +
+	watchers.length;

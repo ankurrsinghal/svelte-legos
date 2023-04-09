@@ -223,6 +223,18 @@ function handleClick() {
 					>
 				</li>
 			{/each}
+
+			<li class="py-2" />
+			<li class="text-sm">Watchers:</li>
+			{#each data.watchers as watcher}
+				<li on:click={handleClick} aria-hidden="true">
+					<a
+						href={"/guides/watchers/" + watcher}
+						class="hover:underline {watcher === currentPath ? 'font-bold underline' : ''}"
+						>{watcher}</a
+					>
+				</li>
+			{/each}
 		</ul>
 	</section>
 </div>

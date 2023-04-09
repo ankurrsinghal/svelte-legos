@@ -73,3 +73,6 @@ export { sizeOf } from "./derivatives/sizeOf";
 export { toNumber } from "./derivatives/toNumber";
 export { first } from "./derivatives/first";
 export { sort } from "./derivatives/sort";
+
+export { takeUntil } from "./watchers/takeUntil";
+export { takeWhile } from "./watchers/takeWhile";
