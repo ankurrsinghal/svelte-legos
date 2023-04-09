@@ -1,0 +1,9 @@
+<script lang="ts">
+import { watchOnce } from "svelte-legos";
+import { writable } from "svelte/store";
+
+const counter = writable(0);
+watchOnce(counter, (counter) => {
+	console.log(counter);
+});
+</script>
