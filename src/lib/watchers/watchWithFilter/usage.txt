@@ -1,0 +1,11 @@
+<script lang="ts">
+import { watchWithFilter } from "svelte-legos";
+import { writable } from "svelte/store";
+
+const counter = writable(0);
+watchWithFilter(
+	counter,
+	(counter) => counter % 2 === 0,
+	(counter) => console.log(counter)
+);
+</script>
