@@ -19,11 +19,15 @@ function getCurrentWindowDimenstions() {
 
 export function windowSizeStore({ window = defaultWindow }: ConfigurableWindow = {}) {
 	const size = readable(getCurrentWindowDimenstions(), (set) => {
+		let stop = () => {};
+		
 		function handler() {
 			set(getCurrentWindowDimenstions());
 		}
 
-		const stop = listen(window!, "resize", handler);
+		if(window) {
+			stop = listen(window, "resize", handler);
+		}
 		
 		return () => {
 			stop();
