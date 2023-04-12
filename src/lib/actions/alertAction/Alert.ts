@@ -1,4 +1,4 @@
-import { element, append } from "svelte/internal";
+import { element, append, attr } from "svelte/internal";
 
 export default class Alert<T extends HTMLElement = HTMLElement> {
 	private __container: HTMLDivElement;
@@ -28,7 +28,8 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
       z-index: 100000;
       box-shadow: 0px 0px 12px rgba(0, 0, 0, .12);
     `;
-		container.setAttribute("style", containerStyles);
+
+		attr(container, "style", containerStyles);
 
 		this.__container = container;
 
@@ -45,7 +46,7 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
       display: flex;
       flex-direction: column;
     `;
-		dialog.setAttribute("style", dialogStyles);
+		attr(dialog, "style", dialogStyles);
 
 		this.addHeader(dialog);
 
@@ -59,7 +60,7 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
         align-items: center;
         justify-content: space-between;
       `;
-		header.setAttribute("style", headerStyles);
+		attr(header, "style", headerStyles);
 
 		const title = element("h2");
 		const titleStyles = `
@@ -70,7 +71,7 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
         margin: 0;
       `;
 		title.textContent = this.title;
-		title.setAttribute("style", titleStyles);
+		attr(title, "style", titleStyles);
 		append(header, title);
 
 		const closeBtn = element("div");
@@ -79,7 +80,7 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
         font-size: 12px;
       `;
 		closeBtn.textContent = "╳";
-		closeBtn.setAttribute("style", closeBtnStyles);
+		attr(closeBtn, "style", closeBtnStyles);
 
 		closeBtn.addEventListener("click", () => {
 			this.onClose && this.onClose();
@@ -93,7 +94,7 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
       font-size: 13px;
     `;
 		description.textContent = this.description;
-		description.setAttribute("style", descriptionStyles);
+		attr(description, "style", descriptionStyles);
 		append(this.__container, description);
 
 		const oKBtn = element("button");
@@ -107,7 +108,7 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
       margin-top: 8px;
     `;
 		oKBtn.textContent = "OK";
-		oKBtn.setAttribute("style", oKBtnStyles);
+		attr(oKBtn, "style", oKBtnStyles);
 
 		oKBtn.addEventListener("click", () => {
 			this.onOk && this.onOk();

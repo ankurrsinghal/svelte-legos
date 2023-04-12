@@ -1,4 +1,4 @@
-import { append, element } from "svelte/internal";
+import { append, attr, element } from "svelte/internal";
 
 type ResizeHandler = (dx: number, dy: number) => void;
 
@@ -39,7 +39,7 @@ class Corner<T extends Element> {
       cursor: ${cursor};
     `;
 		const corner = element("div");
-		corner.setAttribute("style", cornerStyles);
+		attr(corner, "style", cornerStyles);
 
 		append(this.__anchor, corner);
 

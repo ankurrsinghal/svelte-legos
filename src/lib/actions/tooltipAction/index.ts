@@ -1,5 +1,5 @@
 import { hoverStore } from "$lib/stores/hoverStore";
-import { append, element, listen } from "svelte/internal";
+import { append, attr, element, listen } from "svelte/internal";
 
 type Placement = "center" | "left" | "right";
 class Tooltip<T extends HTMLElement> {
@@ -111,7 +111,7 @@ class Tooltip<T extends HTMLElement> {
       transform: translate(-50%, 98%);
     `;
 		const span = element("span");
-		span.setAttribute("style", styles);
+		attr(span, "style", styles);
 		append(this.__container, span);
 	}
 }
