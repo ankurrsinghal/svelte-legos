@@ -1,6 +1,7 @@
 import { defaultWindow } from "$lib/shared";
 import { eventListenerStore } from "$lib/stores/eventListenerStore";
 import { readable } from "svelte/store";
+import { listen } from "svelte/internal";
 
 export interface BatteryManager extends EventTarget {
 	charging: boolean;
@@ -45,10 +46,9 @@ export function battery() {
 				battery = _battery;
 				updateBatteryInfo.call(battery);
 				for (const event of events) {
-					battery.addEventListener(event, updateBatteryInfo, { passive: true });
 					stop.push(() => {
 						if (battery !== null) {
-							battery.removeEventListener(event, updateBatteryInfo);
+							listen(battery, event, updateBatteryInfo, { passive: true });
 						}
 					});
 				}

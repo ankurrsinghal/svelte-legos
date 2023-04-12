@@ -1,5 +1,6 @@
 import { defaultWindow } from "$lib/shared";
 import { readable, type Readable } from "svelte/store";
+import { listen } from "svelte/internal";
 
 export function preferredLanguages(): Readable<readonly string[]> {
 	return readable(["en"] as readonly string[], (set) => {
@@ -15,8 +16,7 @@ export function preferredLanguages(): Readable<readonly string[]> {
 				set(navigator.languages);
 			}
 
-			window.addEventListener("languagechange", update);
-			cleanup = () => window.removeEventListener("languagechange", update);
+			cleanup = listen(window, "languagechange", update);
 		}
 
 		return cleanup;
