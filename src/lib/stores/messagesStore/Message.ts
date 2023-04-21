@@ -1,3 +1,4 @@
+import { append, attr, element } from "svelte/internal";
 import { cross, error, info, success, warn } from "../../shared/icons";
 
 export type MessageType = "success" | "error" | "info" | "warning";
@@ -12,7 +13,7 @@ export default class Message {
 	constructor(message: string, type?: MessageType, onUnmount?: () => void) {
 		this.message = message;
 		this.type = type || "info";
-		this.__container = document.createElement("div");
+		this.__container = element("div");
 		this.onUnmount = onUnmount;
 		this.init();
 	}
@@ -27,8 +28,8 @@ export default class Message {
 	}
 
 	show() {
-		this.__container.style.setProperty("transform", "translateY(0)");
 		this.__container.style.setProperty("opacity", "1");
+		this.__container.style.setProperty("transform", "translateY(0)");
 	}
 
 	hide() {
@@ -49,15 +50,15 @@ export default class Message {
 	}
 
 	private addMessage() {
-		const message = document.createElement("h2");
+		const message = element("h2");
 		const messageStyles = `
       font-size: 13px;
       margin: 0;
     `;
 		message.textContent = this.message;
-		message.setAttribute("style", messageStyles);
+		attr(message, "style", messageStyles);
 
-		const icon = document.createElement("img");
+		const icon = element("img");
 		const iconStyles = `
       width: 20px;
       height: 20px;
@@ -65,39 +66,39 @@ export default class Message {
     `;
 		switch (this.type) {
 			case "success":
-				icon.setAttribute("src", success);
+				attr(icon, "src", success);
 				break;
 			case "error":
-				icon.setAttribute("src", error);
+				attr(icon, "src", error);
 				break;
 			case "info":
-				icon.setAttribute("src", info);
+				attr(icon, "src", info);
 				break;
 			case "warning":
-				icon.setAttribute("src", warn);
+				attr(icon, "src", warn);
 				break;
 		}
-		icon.setAttribute("style", iconStyles);
+		attr(icon, "style", iconStyles);
 
-		const closeBtn = document.createElement("div");
+		const closeBtn = element("div");
 		const closeBtnStyles = `
         cursor: pointer;
         font-size: 12px;
       `;
 		closeBtn.textContent = "╳";
-		closeBtn.setAttribute("style", closeBtnStyles);
+		attr(closeBtn, "style", closeBtnStyles);
 
 		closeBtn.addEventListener("click", () => {
 			clearTimeout(this.__timer);
 			this.hide();
 		});
 
-		this.__container.appendChild(icon);
-		this.__container.appendChild(message);
+		append(this.__container, icon);
+		append(this.__container, message);
 	}
 
 	mount(container: HTMLDivElement) {
-		container.appendChild(this.__container);
+		append(container, this.__container);
 	}
 
 	private addStyles() {
@@ -147,6 +148,6 @@ export default class Message {
       ${typeBasedStyles}
     `;
 
-		this.__container.setAttribute("style", styles);
+		attr(this.__container, "style", styles);
 	}
 }

@@ -1,5 +1,6 @@
 import { get_current_component, onDestroy } from "svelte/internal";
 import { get, type Readable, type Writable } from "svelte/store";
+import { is_client } from "svelte/internal";
 
 export function tryOnDestroy(fn: () => void) {
 	try {
@@ -42,6 +43,6 @@ export function isSafeIntegerThrowable(int: unknown) {
 	}
 }
 
-export const isClient = typeof window !== "undefined";
-export const defaultWindow = isClient ? window : undefined;
-export const defaultDocument = isClient ? window.document : undefined;
+export const isClient = is_client;
+export const defaultWindow = is_client ? window : undefined;
+export const defaultDocument = is_client ? window.document : undefined;

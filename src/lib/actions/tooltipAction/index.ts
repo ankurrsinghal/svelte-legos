@@ -1,4 +1,5 @@
 import { hoverStore } from "$lib/stores/hoverStore";
+import { append, attr, element, listen } from "svelte/internal";
 
 type Placement = "center" | "left" | "right";
 class Tooltip<T extends HTMLElement> {
@@ -13,7 +14,7 @@ class Tooltip<T extends HTMLElement> {
 	constructor(contents: string, anchor: T, placement: Placement = "center", pointer = true) {
 		this.contents = contents;
 		this.anchorRect = anchor.getBoundingClientRect();
-		this.__container = document.createElement("div");
+		this.__container = element("div");
 		this.__placement = placement;
 		this.__displayPointer = pointer;
 		this.init();
@@ -41,7 +42,7 @@ class Tooltip<T extends HTMLElement> {
 	}
 
 	private mount() {
-		document.body.appendChild(this.__container);
+		append(document.body, this.__container);
 	}
 
 	public position(window: Window, anchorRect: DOMRect) {
@@ -109,9 +110,9 @@ class Tooltip<T extends HTMLElement> {
       bottom: 0;
       transform: translate(-50%, 98%);
     `;
-		const span = document.createElement("span");
-		span.setAttribute("style", styles);
-		this.__container.appendChild(span);
+		const span = element("span");
+		attr(span, "style", styles);
+		append(this.__container, span);
 	}
 }
 
@@ -129,7 +130,7 @@ export function tooltipAction<T extends HTMLElement>(
 	function positionTooltip() {
 		tooltip.position(window, node.getBoundingClientRect());
 	}
-	window.addEventListener("resize", positionTooltip);
+	const cleanup = listen(window, "resize", positionTooltip);
 
 	if (typeof options === "string") {
 		tooltip = new Tooltip(options, node, "center");
@@ -143,7 +144,7 @@ export function tooltipAction<T extends HTMLElement>(
 	});
 
 	function stop() {
-		window.removeEventListener("resize", positionTooltip);
+		cleanup();
 		tooltip.unmount();
 		unsub();
 	}

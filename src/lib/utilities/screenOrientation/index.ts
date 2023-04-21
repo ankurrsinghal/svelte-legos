@@ -1,5 +1,6 @@
 import { defaultWindow } from "$lib/shared";
 import { readable } from "svelte/store";
+import { listen } from "svelte/internal";
 
 export function screenOrientation() {
 	return readable({ isSupported: false, orientation: "portrait-primary", angle: 0 }, (set) => {
@@ -23,10 +24,7 @@ export function screenOrientation() {
 		}
 
 		if (window) {
-			window.addEventListener("orientationchange", update);
-			stop = () => {
-				window.removeEventListener("orientationchange", update);
-			};
+			stop = listen(window, "orientationchange", update);
 		}
 
 		update();

@@ -1,6 +1,7 @@
 import { defaultWindow } from "$lib/shared";
 import type { ConfigurableWindow, Position } from "$lib/shared/utils/types";
 import { readable, type Readable } from "svelte/store";
+import { listen } from "svelte/internal";
 
 export interface UseMouseOptions extends ConfigurableWindow {
 	/**
@@ -32,10 +33,10 @@ export function mouseStore(options: UseMouseOptions = {}): Readable<Position> {
 		}
 
 		if (window) {
-			window.addEventListener("mousemove", handler);
+			const stop = listen(window, "mousemove", handler as () => void);
 
 			return () => {
-				window.removeEventListener("mousemove", handler);
+				stop();
 			};
 		}
 	});

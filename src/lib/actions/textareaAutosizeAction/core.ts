@@ -1,3 +1,4 @@
+import { append, attr, element } from "svelte/internal";
 type Undefineable<T> = T | undefined;
 
 type SetupType = {
@@ -118,20 +119,22 @@ class ProxyTextareaElement {
 		// setup proxy textarea element
 		// if not present
 		if (ProxyTextareaElement._proxyTextareaElement === undefined) {
-			ProxyTextareaElement._proxyTextareaElement = document.createElement("textarea");
+			ProxyTextareaElement._proxyTextareaElement = element("textarea");
 			const contextStyle = CONTEXT_STYLE.map(
 				(name) => `${name}:${styles.getPropertyValue(name)}`
 			).join(";");
 
-			ProxyTextareaElement._proxyTextareaElement.setAttribute(
+			attr(
+				ProxyTextareaElement._proxyTextareaElement, 
 				"style",
 				`${contextStyle};${PROXY_TEXTAREA_ELEMENT_HIDDEN_STYLE}`
 			);
+
 			if (
 				ProxyTextareaElement._proxyTextareaElement.parentNode === null ||
 				ProxyTextareaElement._proxyTextareaElement.parentNode !== document.body
 			) {
-				document.body.appendChild(ProxyTextareaElement._proxyTextareaElement);
+				append(document.body, ProxyTextareaElement._proxyTextareaElement);
 			}
 		}
 	}

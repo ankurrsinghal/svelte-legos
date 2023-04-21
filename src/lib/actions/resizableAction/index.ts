@@ -1,3 +1,5 @@
+import { append, attr, element } from "svelte/internal";
+
 type ResizeHandler = (dx: number, dy: number) => void;
 
 type CornerType = "top-left" | "top-right" | "bottom-left" | "bottom-right";
@@ -36,10 +38,10 @@ class Corner<T extends Element> {
       ${vertical};
       cursor: ${cursor};
     `;
-		const corner = document.createElement("div");
-		corner.setAttribute("style", cornerStyles);
+		const corner = element("div");
+		attr(corner, "style", cornerStyles);
 
-		this.__anchor.appendChild(corner);
+		append(this.__anchor, corner);
 
 		let isDragging = false;
 		function handlePointerDown(e: PointerEvent) {

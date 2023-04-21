@@ -1,3 +1,4 @@
+import { append, element, attr } from "svelte/internal";
 export type NotificationType = "success" | "error" | "info" | "warning";
 import { cross, error, info, success, warn } from "../../shared/icons";
 export default class Notification {
@@ -19,7 +20,7 @@ export default class Notification {
 	) {
 		this.title = title;
 		this.description = description;
-		this.__container = document.createElement("div");
+		this.__container = element("div");
 		this.type = type;
 		this.duration = duration ?? 4000;
 		this.onUnmount = onUnmount;
@@ -57,22 +58,22 @@ export default class Notification {
 	}
 
 	private addHeader() {
-		const header = document.createElement("div");
+		const header = element("div");
 		const headerStyles = `
         display: flex;
         align-items: center;
         justify-content: space-between;
       `;
-		header.setAttribute("style", headerStyles);
+		attr(header, "style", headerStyles);
 
-		const iconTextContainer = document.createElement("div");
+		const iconTextContainer = element("div");
 		const iconTextContainerStyles = `
         display: flex;
         align-items: center;
       `;
-		iconTextContainer.setAttribute("style", iconTextContainerStyles);
+		attr(iconTextContainer, "style", iconTextContainerStyles);
 
-		const icon = document.createElement("img");
+		const icon = element("img");
 		const iconStyles = `
         width: 20px;
         height: 20px;
@@ -80,21 +81,21 @@ export default class Notification {
       `;
 		switch (this.type) {
 			case "success":
-				icon.setAttribute("src", success);
+				attr(icon, "src", success);
 				break;
 			case "error":
-				icon.setAttribute("src", error);
+				attr(icon, "src", error);
 				break;
 			case "info":
-				icon.setAttribute("src", info);
+				attr(icon, "src", info);
 				break;
 			case "warning":
-				icon.setAttribute("src", warn);
+				attr(icon, "src", warn);
 				break;
 		}
-		icon.setAttribute("style", iconStyles);
+		attr(icon, "style", iconStyles);
 
-		const title = document.createElement("h2");
+		const title = element("h2");
 		const titleStyles = `
         font-weight: 700;
         font-size: 16px;
@@ -103,46 +104,46 @@ export default class Notification {
         margin: 0;
       `;
 		title.textContent = this.title;
-		title.setAttribute("style", titleStyles);
+		attr(title, "style", titleStyles);
 
-		if (this.type) iconTextContainer.appendChild(icon);
+		if (this.type) append(iconTextContainer, icon);
 
-		iconTextContainer.appendChild(title);
+		append(iconTextContainer, title);
 
-		header.appendChild(iconTextContainer);
+		append(header, iconTextContainer);
 
-		const closeBtn = document.createElement("img");
+		const closeBtn = element("img");
 		const closeBtnStyles = `
         cursor: pointer;
         width: 16px;
       `;
 
-		closeBtn.setAttribute("style", closeBtnStyles);
-		closeBtn.setAttribute("src", cross);
+		attr(closeBtn, "style", closeBtnStyles);
+		attr(closeBtn, "src", cross);
 
 		closeBtn.addEventListener("click", () => {
 			clearTimeout(this.__timer);
 			this.hide();
 		});
 
-		header.appendChild(closeBtn);
+		append(header, closeBtn);
 
-		this.__container.appendChild(header);
+		append(this.__container, header)
 	}
 
 	private addDescription() {
-		const description = document.createElement("p");
+		const description = element("p");
 		const descriptionStyles = `
         margin-top: 16px;
         font-size: 13px;
       `;
 		description.textContent = this.description ?? "";
-		description.setAttribute("style", descriptionStyles);
-		this.__container.appendChild(description);
+		attr(description, "style", descriptionStyles);
+		append(this.__container, description);
 	}
 
 	mount(container: HTMLDivElement) {
-		container.appendChild(this.__container);
+		append(container, this.__container);
 	}
 
 	private addStyles() {
@@ -162,6 +163,6 @@ export default class Notification {
         pointer-events: all;
         margin-bottom: 16px;
       `;
-		this.__container.setAttribute("style", styles);
+		attr(this.__container, "style", styles);
 	}
 }

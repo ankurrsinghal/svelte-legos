@@ -1,3 +1,5 @@
+import { append, element } from "svelte/internal";
+
 export class ClipboardManager {
 	private static __instance: ClipboardManager;
 
@@ -15,18 +17,18 @@ export class ClipboardManager {
 			return navigator.clipboard.writeText(text);
 		} else {
 			if (!this.__proxyElement) {
-				const element = document.createElement("input");
-				element.type = "text";
-				element.disabled = true;
-				element.id = "__SVELTE_LEGOS_CLIPBOARD_PROXY_ELEMENT";
+				const el = element("input");
+				el.type = "text";
+				el.disabled = true;
+				el.id = "__SVELTE_LEGOS_CLIPBOARD_PROXY_ELEMENT";
 
-				element.style.setProperty("position", "fixed");
-				element.style.setProperty("z-index", "-100");
-				element.style.setProperty("pointer-events", "none");
-				element.style.setProperty("opacity", "0");
-				document.body.appendChild(element);
+				el.style.setProperty("position", "fixed");
+				el.style.setProperty("z-index", "-100");
+				el.style.setProperty("pointer-events", "none");
+				el.style.setProperty("opacity", "0");
+				append(document.body, el);
 
-				this.__proxyElement = element;
+				this.__proxyElement = el;
 			} else {
 				this.__proxyElement.value = text;
 				this.__proxyElement.click();

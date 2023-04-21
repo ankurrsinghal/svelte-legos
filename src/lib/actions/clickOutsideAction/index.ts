@@ -1,3 +1,5 @@
+import { listen } from "svelte/internal";
+
 export function clickOutsideAction<T extends Element>(node: T) {
 	const handleClick = (event: MouseEvent) => {
 		if (event.target !== null && !node.contains(event.target as Node)) {
@@ -5,11 +7,11 @@ export function clickOutsideAction<T extends Element>(node: T) {
 		}
 	};
 
-	document.addEventListener("click", handleClick, true);
+	const stop = listen(document, "click", handleClick, true);
 
 	return {
 		destroy() {
-			document.removeEventListener("click", handleClick, true);
+			stop();
 		},
 	};
 }
