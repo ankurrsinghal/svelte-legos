@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { clickOutsideAction } from "$lib";
 import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 import PrimaryButton from "$lib/shared/components/PrimaryButton.svelte";
