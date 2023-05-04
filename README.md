@@ -66,3 +66,7 @@ This project is heavily inspired by the following awesome projects.
 - [u3u/vue-hooks](https://github.com/u3u/vue-hooks)
 - [logaretm/vue-use-web](https://github.com/logaretm/vue-use-web)
 - [kripod/react-hooks](https://github.com/kripod/react-hooks)
+
+## License
+
+[MIT](LICENSE.md)
