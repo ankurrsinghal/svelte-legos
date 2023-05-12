@@ -19,5 +19,5 @@ function onOk() {
     onOk
   }}
 >
-  Notify
+  Show Alert
 </button>
