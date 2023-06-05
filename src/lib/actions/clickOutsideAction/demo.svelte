@@ -16,5 +16,11 @@ let showModal = true;
 		>
 			<Text>Click outside me!</Text>
 		</div>
+		<div
+			class="border border-black p-4 w-80 h-40 fixed top-1/2 left-1/2 bg-slate-300 transform -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg"
+			use:clickOutsideAction={() => (showModal = false)}
+		>
+			<Text>Click outside me!</Text>
+		</div>
 	{/if}
 </DemoContainer>

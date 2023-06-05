@@ -13,3 +13,8 @@ function handleClickOutside() {
   use:clickOutsideAction
   on:clickoutside={handleClickOutside}
 />
+
+<div
+  class="modal"
+  use:clickOutsideAction={handleClickOutside}
+/>
