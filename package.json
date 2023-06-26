@@ -71,6 +71,6 @@
 	"svelte": "./package/index.js",
 	"types": "./package/index.d.ts",
 	"peerDependencies": {
-		"svelte": "^3.54.0"
+		"svelte": "^4.0.0"
 	}
 }
