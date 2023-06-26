@@ -1,5 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
-import adapterStatic from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -9,13 +8,13 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapterStatic()
+		adapter: adapter()
 	},
 	vite: {
 		ssr: {
-		  noExternal: ['prismjs', 'prism-svelte'],
+			noExternal: ['prismjs', 'prism-svelte'],
 		},
-	  },
+	},
 };
 
 export default config;
