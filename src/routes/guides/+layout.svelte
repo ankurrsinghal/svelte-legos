@@ -143,7 +143,7 @@ function handleClick() {
 			╳
 		</div>
 		<div class="fixed top-0 bottom-0 bg-black right-0" />
-		<ul class="space-y-3 lg:mt-8">
+		<ul class="space-y-3 lg:mt-8 lg:p-4 p-2">
 			<li>
 				<a
 					href="/guides/"
