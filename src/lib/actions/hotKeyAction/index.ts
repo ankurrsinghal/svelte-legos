@@ -31,7 +31,7 @@ export function hotKeyAction<T extends HTMLElement>(node: T, params: Partial<Sho
 
 	const update = (params: Partial<ShortActionParams>) => {
 		destroy();
-		function hanlder(event: KeyboardEvent) {
+		function handler(event: KeyboardEvent) {
 			const definedKeys = Keys.filter(
 				(key) => !isUndefined(params[key as keyof ShortActionParams])
 			);
@@ -54,7 +54,7 @@ export function hotKeyAction<T extends HTMLElement>(node: T, params: Partial<Sho
 				params.cb ? params.cb() : node.click();
 			}
 		}
-		({ stop } = eventListenerStore("keydown", hanlder));
+		({ stop } = eventListenerStore("keydown", handler));
 	};
 
 	update(params);
