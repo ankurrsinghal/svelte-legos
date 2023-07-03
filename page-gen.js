@@ -34,7 +34,7 @@ function watchDir(dirName) {
 		}
 	}
 
-	function hanldeRemove(path) {
+	function handleRemove(path) {
 		try {
 			const dir = path.split(base)[1].trim();
 			const dest = `./src/routes/guides/${dirName}` + dir;
@@ -61,7 +61,7 @@ function watchDir(dirName) {
 		.on("addDir", handleDirAdd)
 		.on("add", handleFileAdd)
 		.on("change", handleFileAdd)
-		.on("unlinkDir", hanldeRemove)
+		.on("unlinkDir", handleRemove)
 		.on("unlink", handleFileRemove)
 		.on("error", function (error) {
 			console.error("Error happened", error);
