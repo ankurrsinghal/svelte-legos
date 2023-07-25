@@ -1,0 +1,10 @@
+<script>
+  import { portalAction } from "svelte-legos";
+</script>
+
+// This action takes only one optional parameter: a target
+// The target can be a CSS selector or an HTML element
+// The default target is "body"
+<div use:portalAction={"body"}>
+  This element will render as a direct child of the document's body
+</div>

@@ -47,6 +47,7 @@ export { confettiAction } from "./actions/confettiAction";
 export { focusAction } from "./actions/focusAction";
 export { scrollToBottomAction } from "./actions/scrollToBottomAction";
 export { infiniteScrollAction } from "./actions/infiniteScrollAction";
+export { portalAction } from "./actions/portalAction";
 export { scrollToElementAction } from "./__bin__/scrollToElementAction";
 
 export { fetchWithTimeoutAndRetry } from "./utilities/fetchWithTimeoutAndRetry";
