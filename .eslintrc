@@ -1,7 +1,26 @@
 {
-	"extends": ["prettier"],
+	"extends": ["prettier", "plugin:svelte/recommended"],
+	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"sourceType": "module",
-		"ecmaVersion": 2020
-	}
+		"ecmaVersion": 2020,
+		"extraFileExtensions": [".svelte"]
+	},
+	"overrides": [
+		{
+			"files": ["*.svelte"],
+			"parser": "svelte-eslint-parser",
+			"parserOptions": {
+				"parser": "@typescript-eslint/parser"
+			}
+		}
+	],
+	"ignorePatterns": [
+		"**/*.config.js",
+		"**/*.config.cjs",
+		"**/dist/**",
+		"**/build/**",
+		"**/.svelte-kit/**",
+		"**/page-gen.js"
+	]
 }
