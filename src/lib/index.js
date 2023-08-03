@@ -4,6 +4,7 @@ export { elementSizeStore } from "./stores/elementSizeStore";
 export { elementVisibilityStore } from "./stores/elementVisibilityStore";
 export { intervalFnStore } from "./stores/intervalFnStore";
 export { mouseStore } from "./stores/mouseStore";
+export { pointerStore } from "./stores/pointerStore";
 export { resizeObserverStore } from "./stores/resizeObserverStore";
 export { timeoutStore } from "./stores/timeoutStore";
 export { timeoutFnStore } from "./stores/timeoutFnStore";
