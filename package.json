@@ -1,10 +1,10 @@
 {
 	"name": "svelte-legos",
-	"version": "0.2.0",
+	"version": "0.2.2",
 	"description": "A framework for Svelte Utilities",
 	"author": "Ankur Singhal",
 	"license": "MIT",
-	"main": "./package/index.js",
+	"main": "./dist/index.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ankurrsinghal/svelte-legos.git"
@@ -12,7 +12,7 @@
 	"bugs": {
 		"url": "https://github.com/ankurrsinghal/svelte-legos/issues"
 	},
-	"homepage": "https://svelte-legos.singhalankur.com/",
+	"homepage": "https://sveltelegos.com",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
@@ -59,17 +59,17 @@
 	},
 	"exports": {
 		".": {
-			"types": "./package/index.d.ts",
-			"svelte": "./package/index.js",
-			"import": "./package/index.js",
-			"require": "./package/index.js"
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js",
+			"import": "./dist/index.js",
+			"require": "./dist/index.js"
 		}
 	},
 	"files": [
-		"package"
+		"dist"
 	],
-	"svelte": "./package/index.js",
-	"types": "./package/index.d.ts",
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"peerDependencies": {
 		"svelte": "^4.0.0"
 	}

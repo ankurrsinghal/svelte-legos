@@ -1,5 +1,8 @@
 <script lang="ts">
-    import { dateStore } from 'svelte-legos';
+import { dateStore } from "$lib";
+import DemoContainer from "$lib/shared/components/DemoContainer.svelte";
 </script>
 
-<p>The date is {$dateStore}</p>
+<DemoContainer>
+	<p>The date is {$dateStore}</p>
+</DemoContainer>
