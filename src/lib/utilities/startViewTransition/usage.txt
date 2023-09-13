@@ -1,0 +1,9 @@
+<script lang="ts">
+  // Root layout.svelte file
+  
+  import { startViewTransition } from "svelte-legos";
+
+  startViewTransition();
+
+  // View transitions will now be enabled
+</script>
