@@ -9,7 +9,7 @@ import { readable } from "svelte/store";
  * ```ts
  * import { dateStore } from 'svelte-legos';
  *
- * $: console.log($dateStore);
+ * $: console.log($dateStore); // Fri Sep 15 2023 11:43:12 GMT+0100 (British Summer Time)
  * ```
  */
 export const dateStore = readable(new Date(), (set) => {
