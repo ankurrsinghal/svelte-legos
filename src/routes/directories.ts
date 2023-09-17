@@ -19,6 +19,19 @@ export const middlewares = fs.readdirSync(middlewaresDir).filter(isDir);
 export const derivatives = fs.readdirSync(derivativesDir).filter(isDir);
 export const watchers = fs.readdirSync(watchersDir).filter(isDir);
 
+/**
+ * All the directories in the src/lib directory.
+ */
+export const all = {
+	stores: stores,
+	actions: actions,
+	utilities: utilities,
+	transitions: transitions,
+	middlewares: middlewares,
+	derivatives: derivatives,
+	watchers: watchers,
+};
+
 export const totalUtilsLength =
 	stores.length +
 	actions.length +

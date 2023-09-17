@@ -23,6 +23,7 @@ symlink-from
 deploy.sh
 build
 package
+bun.lockb
 src/routes/guides/hooks
 src/routes/guides/stores
 src/routes/guides/actions
