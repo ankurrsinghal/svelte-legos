@@ -12,5 +12,9 @@ export const load = ({ url }) => {
 		})
 		.flat();
 
-	return { bricks, query: url.searchParams.get("query")?.trim() || "" };
+	try {
+		return { bricks, query: url.searchParams.get("query")?.trim() || "" };
+	} catch (e) {
+		return { bricks, query: "" };
+	}
 };
