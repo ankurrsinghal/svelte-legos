@@ -12,7 +12,7 @@
 	"bugs": {
 		"url": "https://github.com/ankurrsinghal/svelte-legos/issues"
 	},
-	"homepage": "https://sveltelegos.com",
+	"homepage": "https://svelte-legos.surge.sh",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
