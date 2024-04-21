@@ -6,7 +6,7 @@ Collection of essential Svelte Composition Utilities
 
 ## 🚀 Features
 
-- 🎪 [**Interactive docs & demos**](https://sveltelegos.com)
+- 🎪 [**Interactive docs & demos**](https://svelte-legos.surge.sh)
 - ⚡ **Fully tree shakeable**: Only take what you want, [bundle size]
 - 🦾 **Type Strong**: Written in [TypeScript](https://www.typescriptlang.org/), with [TS Docs](https://github.com/microsoft/tsdoc)
 - 🔋 **SSR Friendly**
@@ -43,7 +43,7 @@ function handleClickOutside() {
 <div class="modal" use:clickOutsideAction on:clickoutside={handleClickOutside} />
 ```
 
-Refer to [functions list](https://sveltelegos.com/guides) or [documentations](https://sveltelegos.com) for more details.
+Refer to [functions list](https://svelte-legos.surge.sh/guides) or [documentations](https://svelte-legos.surge.sh) for more details.
 
 ## 📦 Install
 
