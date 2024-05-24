@@ -28,6 +28,7 @@ export function cssVarStore<T extends HTMLElement>(
 
 	return {
 		subscribe: store.subscribe,
+		update: store.update,
 		set,
 	};
 }
