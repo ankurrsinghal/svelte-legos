@@ -1,0 +1,14 @@
+<script>
+import { textSelectionStore } from "svelte-legos";
+
+const selectionStore = textSelectionStore();
+
+// $selectionStore.text => current selected text
+// $selectionStore.selection => window.getSelection()
+// $selectionStore.ranges => all selection ranges
+// $selectionStore.rects => all selection ranges DOMRect
+</script>
+
+<div>
+    {$selectionStore.text}
+</div>

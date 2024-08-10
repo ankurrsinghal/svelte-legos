@@ -26,6 +26,7 @@ export { eyeDropperStore } from "./stores/eyeDropperStore";
 export { messagesStore } from "./stores/messagesStore";
 export { geolocationStore } from "./stores/geolocationStore";
 export { dateStore } from "./stores/dateStore";
+export { textSelectionStore } from "./stores/textSelectionStore";
 
 export { clickOutsideAction } from "./actions/clickOutsideAction";
 export { longPressAction } from "./actions/longPressAction";
