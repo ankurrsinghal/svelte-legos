@@ -1,0 +1,41 @@
+<script>
+import { dropAction } from "svelte-legos";;
+
+let filesData = [];
+
+function onDrop(files: File[] | null) {
+	filesData = files;
+}
+
+function onEnter(files: File[] | null) {
+	// handle dragenter
+}
+
+function onOver(files: File[] | null) {
+	// handle dragover
+}
+
+function onLeave(files: File[] | null) {
+	// handle dragleave
+}
+
+let isOverDropZone = false;
+</script>
+
+<div
+  use:dropAction={{ onDrop, onEnter, onOver, onLeave }}
+  on:over-drop-zone={() => (isOverDropZone = true)}
+  on:leave-drop-zone={() => (isOverDropZone = false)}
+>
+  <div>DropZone</div>
+  <div>
+    {#each filesData as file}
+      <div>
+        <p>Name: {file.name}</p>
+        <p>Size: {file.size}</p>
+        <p>Type: {file.type}</p>
+        <p>Last modified: {file.lastModified}</p>
+      </div>
+    {/each}
+  </div>
+</div>

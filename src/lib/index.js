@@ -51,7 +51,7 @@ export { focusAction } from "./actions/focusAction";
 export { scrollToBottomAction } from "./actions/scrollToBottomAction";
 export { infiniteScrollAction } from "./actions/infiniteScrollAction";
 export { portalAction } from "./actions/portalAction";
-export { scrollToElementAction } from "./__bin__/scrollToElementAction";
+export { dropAction } from "./actions/dropAction";
 
 export { fetchWithTimeoutAndRetry } from "./utilities/fetchWithTimeoutAndRetry";
 export { reduceable } from "./utilities/reduceable";
@@ -63,7 +63,7 @@ export { preferredDark } from "./utilities/preferredDark";
 export { preferredLanguages } from "./utilities/preferredLanguages";
 export { preferredReduceMotion } from "./utilities/preferredReduceMotion";
 export { screenOrientation } from "./utilities/screenOrientation";
-export { startViewTransition } from "./utilities/startViewTransition"
+export { startViewTransition } from "./utilities/startViewTransition";
 
 export { swirl } from "./transitions/swirl";
 export { slide } from "./transitions/slide";
