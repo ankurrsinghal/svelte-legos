@@ -40,3 +40,5 @@ export function createSingletonPromise<T>(fn: () => Promise<T>): SingletonPromis
 
 	return wrapper;
 }
+
+export function noop() {}

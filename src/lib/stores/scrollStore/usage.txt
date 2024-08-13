@@ -1,0 +1,16 @@
+<script>
+import { scrollStore } from 'svelte-legos'
+
+let el;
+
+$: myScroll = scrollStore(el);
+$: x = $myScroll.x // usage $x => scrollLeft
+$: y = $myScroll.y // usage $y => scrollTop
+$: isScrolling = $myScroll.isScrolling // usage $isScrolling => boolean
+$: arrivedState = $myScroll.arrivedState
+$: directions = $myScroll.directions
+</script>
+
+<template>
+  <div bind:this={el} />
+</template>

@@ -28,6 +28,7 @@ export { geolocationStore } from "./stores/geolocationStore";
 export { dateStore } from "./stores/dateStore";
 export { textSelectionStore } from "./stores/textSelectionStore";
 export { mouseLeftPage } from "./stores/mouseLeftPage";
+export { scrollStore } from "./stores/scrollStore";
 
 export { clickOutsideAction } from "./actions/clickOutsideAction";
 export { longPressAction } from "./actions/longPressAction";
