@@ -1,0 +1,11 @@
+<script>
+import { mouseLeftPage } from 'svelte-legos';
+
+const hasLeft = mouseLeftPage();
+
+// $hasLeft => true
+// if mouse has left the document
+
+// $hasLeft => false 
+// if mouse is in the document
+</script>

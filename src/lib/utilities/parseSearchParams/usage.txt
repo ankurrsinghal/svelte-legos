@@ -1,0 +1,30 @@
+<script>
+import { parseSearchParams } from 'svelte-legos';
+
+const { params, updateParams } = parseSearchParams('history')
+
+console.log($params.foo) // 'bar'
+
+updateParams('foo', 'bar');
+updateParams('vueuse', 'awesome');
+// url updated to `?foo=bar&vueuse=awesome`
+
+
+// Hash Mode
+// When using with hash mode route, specify the mode to hash
+const { updateParams } = parseSearchParams('hash')
+
+updateParams('foo', 'bar');
+updateParams('vueuse', 'awesome');
+// url updated to `#/your/route?foo=bar&vueuse=awesome`
+
+
+// Hash Params
+// When using with history mode route, but want to use hash as params, specify the mode to hash-params
+const { updateParams } = parseSearchParams('hash-params')
+
+updateParams('foo', 'bar');
+updateParams('vueuse', 'awesome');
+// url updated to `/your/route#foo=bar&vueuse=awesome`
+
+</script>

@@ -13,9 +13,11 @@ $: ({ isSupported, orientation, angle } = $data);
 			to simulate an orientation change)
 		</note>
 		<div>
-			isSupported: <boolean-display :value="isSupported">
-				{isSupported}
-			</boolean-display>
+			isSupported: {#if isSupported}
+				<span class="text-green-700">Yes</span>
+			{:else}
+				<span class="text-red-700">No</span>
+			{/if}
 		</div>
 		<div>Orientation Type: <b>{orientation}</b></div>
 		<div>Orientation Angle: <b>{angle}</b></div>

@@ -28,4 +28,6 @@ export function watchWithFilter<T>(
 	});
 
 	tryOnDestroy(unsub);
+
+	return unsub;
 }

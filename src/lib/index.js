@@ -27,6 +27,7 @@ export { messagesStore } from "./stores/messagesStore";
 export { geolocationStore } from "./stores/geolocationStore";
 export { dateStore } from "./stores/dateStore";
 export { textSelectionStore } from "./stores/textSelectionStore";
+export { mouseLeftPage } from "./stores/mouseLeftPage";
 
 export { clickOutsideAction } from "./actions/clickOutsideAction";
 export { longPressAction } from "./actions/longPressAction";
@@ -67,6 +68,7 @@ export { screenOrientation } from "./utilities/screenOrientation";
 export { startViewTransition } from "./utilities/startViewTransition";
 export { clipboard } from "./utilities/clipboard";
 export { hasPermission } from "./utilities/hasPermission";
+export { parseSearchParams } from "./utilities/parseSearchParams";
 
 export { swirl } from "./transitions/swirl";
 export { slide } from "./transitions/slide";
@@ -87,3 +89,4 @@ export { takeWhile } from "./watchers/takeWhile";
 export { watch } from "./watchers/watch";
 export { watchOnce } from "./watchers/watchOnce";
 export { watchWithFilter } from "./watchers/watchWithFilter";
+export { pausableWatch } from "./watchers/pausableWatch";

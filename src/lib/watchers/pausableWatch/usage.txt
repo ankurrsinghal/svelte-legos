@@ -1,0 +1,13 @@
+<script>
+import { pausableWatch } from "svelte-legos";
+import { writable } from "svelte/store";
+
+const source = writable("");
+
+const { isActive, pause, resume, stop } = pausableWatch(
+	source,
+	(newVal, oldVal) => console.log(newVal, oldVal)
+);
+
+// $isActive => reactive value
+</script>
