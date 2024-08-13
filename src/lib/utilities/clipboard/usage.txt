@@ -1,0 +1,34 @@
+<script>
+import { clipboard } from "svelte-legos";
+
+let value = "";
+const board = clipboard();
+const readableBoard = clipboard({ read: true });
+
+$: isSupported = $board.isSupported;
+$: copy = $board.copy;
+$: copied = $board.copied;
+
+$: copiedText = $readableBoard.text; // or $board.text if not reading
+</script>
+
+<div>
+    {#if isSupported}
+        <div>
+            <p>
+                Current copied: {copiedText}
+            </p>
+            <input bind:value type="text" />
+            <button on:click={() => copy(value)}>
+                <!-- by default, `copied` will be reset in 1.5s -->
+                {#if !copied}
+                    <span>Copy</span>
+                {:else}
+                    <span>Copied!</span>
+                {/if}
+            </button>
+        </div>
+    {:else}
+        <p>Your browser does not support Clipboard API</p>
+    {/if}
+</div>

@@ -65,6 +65,8 @@ export { preferredLanguages } from "./utilities/preferredLanguages";
 export { preferredReduceMotion } from "./utilities/preferredReduceMotion";
 export { screenOrientation } from "./utilities/screenOrientation";
 export { startViewTransition } from "./utilities/startViewTransition";
+export { clipboard } from "./utilities/clipboard";
+export { hasPermission } from "./utilities/hasPermission";
 
 export { swirl } from "./transitions/swirl";
 export { slide } from "./transitions/slide";
