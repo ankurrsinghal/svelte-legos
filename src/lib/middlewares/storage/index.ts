@@ -1,7 +1,7 @@
 import { isClient } from "$lib/shared";
 import { derived, get, writable, type Updater, type Writable } from "svelte/store";
 
-export function storage<T>(store: Writable<T>, key: string) {
+export function storage<T>(store: Writable<T>, key: string, type: "Map" | "other" = "other") {
 	if (!key || typeof key !== "string" || key.trim() === "") {
 		console.warn("Local storage key not provided or invalid!");
 	}
@@ -13,7 +13,11 @@ export function storage<T>(store: Writable<T>, key: string) {
 				valueStr = localStorage.getItem(key);
 				if (valueStr !== null) {
 					const json = JSON.parse(valueStr);
-					store.set(json);
+					if (type === "Map") {
+						store.set(new Map(Object.entries(json)));
+					} else {
+						store.set(json);
+					}
 				}
 			} catch (e) {
 				if (valueStr === "") {
@@ -39,7 +43,11 @@ export function storage<T>(store: Writable<T>, key: string) {
 			if (typeof value === "boolean" || typeof value === "number" || typeof value === "string") {
 				localStorage.setItem(key, value.toString());
 			} else if (typeof value === "object") {
-				localStorage.setItem(key, JSON.stringify(value));
+				if (value instanceof Map) {
+					localStorage.setItem(key, JSON.stringify(Object.fromEntries(value)));
+				} else {
+					localStorage.setItem(key, JSON.stringify(value));
+				}
 			}
 		}
 	}
