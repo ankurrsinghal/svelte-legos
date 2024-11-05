@@ -72,6 +72,6 @@
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"peerDependencies": {
-		"svelte": "^5.0.0"
+		"svelte": "^4.0.0 || ^5.0.0"
 	}
 }
