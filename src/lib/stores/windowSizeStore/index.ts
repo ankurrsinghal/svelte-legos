@@ -1,7 +1,6 @@
 import { defaultWindow } from "$lib/shared";
 import type { ConfigurableWindow } from "$lib/shared/utils/types";
 import { readable } from "svelte/store";
-import { listen } from "svelte/internal";
 
 function getCurrentWindowDimenstions() {
 	if (typeof window === "object" && "innerWidth" in window && "innerHeight" in window) {
@@ -26,11 +25,11 @@ export function windowSizeStore({ window = defaultWindow }: ConfigurableWindow =
 		}
 
 		if(window) {
-			stop = listen(window, "resize", handler);
+			window.createEventListener("resize", handler);
 		}
 		
 		return () => {
-			stop();
+			window.removeEventListener("resize", handler);
 		};
 	});
 
