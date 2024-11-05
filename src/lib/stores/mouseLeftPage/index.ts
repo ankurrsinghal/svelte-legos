@@ -1,6 +1,5 @@
 import { defaultWindow } from "$lib/shared";
 import { readable, type Readable } from "svelte/store";
-import { listen } from "svelte/internal";
 
 export function mouseLeftPage(): Readable<boolean> {
 	const window = defaultWindow;
@@ -16,14 +15,14 @@ export function mouseLeftPage(): Readable<boolean> {
 		}
 
 		if (window) {
-			const _stop = listen(window, "mouseout", handler as () => void);
-			const __stop = listen(window.document, "mouseleave", handler as () => void);
-			const ___stop = listen(window.document, "mouseenter", handler as () => void);
+			window.createEventListener("mouseout", handler as () => void);
+			window.document.createEventListener("mouseleave", handler as () => void);
+			window.document.createEventListener("mouseenter", handler as () => void);
 
 			return () => {
-				_stop && _stop();
-				__stop && __stop();
-				___stop && ___stop();
+				window.removeEventListener("mouseout", handler as () => void);
+				window.document.removeEventListener("mouseleave", handler as () => void);
+				window.document.removeEventListener("mouseenter", handler as () => void);
 			};
 		}
 	});
