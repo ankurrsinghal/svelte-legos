@@ -129,7 +129,7 @@ export function tooltipAction<T extends HTMLElement>(
 		tooltip.position(window, node.getBoundingClientRect());
 	}
 
-	document.createEventListener(window, "resize", positionTooltip);
+	window.createEventListener("resize", positionTooltip);
 
 	if (typeof options === "string") {
 		tooltip = new Tooltip(options, node, "center");
@@ -143,7 +143,7 @@ export function tooltipAction<T extends HTMLElement>(
 	});
 
 	function stop() {
-		document.removeEventListener(window, "resize", positionTooltip);
+		window.removeEventListener("resize", positionTooltip);
 		tooltip.unmount();
 		unsub();
 	}
