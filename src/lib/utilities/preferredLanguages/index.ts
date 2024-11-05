@@ -15,7 +15,7 @@ export function preferredLanguages(): Readable<readonly string[]> {
 				set(navigator.languages);
 			}
 
-			window.createEventListener("languagechange", update);
+			window.addEventListener("languagechange", update);
 
 			cleanup = () => {
 				window.removeEventListener("languagechange", update);

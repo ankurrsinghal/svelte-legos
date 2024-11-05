@@ -32,7 +32,7 @@ export function mouseStore(options: UseMouseOptions = {}): Readable<Position> {
 		}
 
 		if (window) {
-			window.createEventListener("mousemove", handler as () => void);
+			window.addEventListener("mousemove", handler as () => void);
 
 			return () => {
 				window.removeEventListener("mousemove", handler as () => void);

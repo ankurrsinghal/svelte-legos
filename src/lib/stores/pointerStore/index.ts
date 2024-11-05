@@ -34,8 +34,8 @@ export function pointerStore(options: UseMouseOptions = {}): Readable<Position> 
 		}
 
 		if (window) {
-			window.createEventListener("pointermove", handler as () => void);
-			window.createEventListener("pointerdown", handler as () => void);
+			window.addEventListener("pointermove", handler as () => void);
+			window.addEventListener("pointerdown", handler as () => void);
 
 			return () => {
 				window.removeEventListener("pointermove", handler as () => void);

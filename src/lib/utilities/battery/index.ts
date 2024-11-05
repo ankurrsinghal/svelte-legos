@@ -45,7 +45,7 @@ export function battery() {
 				battery = _battery;
 				updateBatteryInfo.call(battery);
 				for (const event of events) {
-					battery.createEventListener(event, updateBatteryInfo, { passive: true });
+					battery.addEventListener(event, updateBatteryInfo, { passive: true });
 					stop.push(() => {
 						if (battery !== null) {
 							battery.removeEventListener(event, updateBatteryInfo);

@@ -15,9 +15,9 @@ export function mouseLeftPage(): Readable<boolean> {
 		}
 
 		if (window) {
-			window.createEventListener("mouseout", handler as () => void);
-			window.document.createEventListener("mouseleave", handler as () => void);
-			window.document.createEventListener("mouseenter", handler as () => void);
+			window.addEventListener("mouseout", handler as () => void);
+			window.document.addEventListener("mouseleave", handler as () => void);
+			window.document.addEventListener("mouseenter", handler as () => void);
 
 			return () => {
 				window.removeEventListener("mouseout", handler as () => void);

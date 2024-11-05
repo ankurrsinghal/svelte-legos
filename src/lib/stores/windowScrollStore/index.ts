@@ -24,7 +24,7 @@ export function windowScrollStore({
 		}
 
 		if (window) {
-			window.createEventListener("scroll", handler);
+			window.addEventListener("scroll", handler);
 
 			return () => {
 				window.removeEventListener("scroll", handler);

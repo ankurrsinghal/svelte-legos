@@ -23,7 +23,7 @@ export function screenOrientation() {
 		}
 
 		if (window) {
-			window.createEventListener("orientationchange", update);
+			window.addEventListener("orientationchange", update);
 			stop = () => {
 				window.removeEventListener("orientationchange", update);
 			}
