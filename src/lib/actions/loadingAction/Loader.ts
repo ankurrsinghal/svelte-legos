@@ -1,10 +1,8 @@
-import { append, attr, element } from "svelte/internal";
-
 export default class Loader<T extends HTMLElement = HTMLElement> {
 	private __loader: HTMLDivElement;
 
 	constructor() {
-		const loader = element("div");
+		const loader = document.createElement("div");
 		const loaderStyles = `
         position: absolute;
         top: 0;
@@ -18,7 +16,7 @@ export default class Loader<T extends HTMLElement = HTMLElement> {
         align-items: center;
         justify-content: center;
       `;
-    attr(loader, "style", loaderStyles);
+    loader.setAttribute("style", loaderStyles);
 
 		this.__loader = loader;
 
@@ -70,18 +68,18 @@ export default class Loader<T extends HTMLElement = HTMLElement> {
         }
       `;
 
-		const style = element("style");
+		const style = document.createElement("style");
 		style.innerHTML = styles;
-    append(this.__loader, style);
+    this.__loader.appendChild(style);
 
-		const icon = element("div");
+		const icon = document.createElement("div");
 		icon.className = "loader";
 
-    append(this.__loader, icon);
+    this.__loader.appendChild(icon);
 	}
 
 	mount(container: T) {
-    append(container, this.__loader);
+    container.appendChild(this.__loader);
 	}
 
 	unmount() {
