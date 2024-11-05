@@ -1,5 +1,3 @@
-import { append, element } from "svelte/internal";
-
 export class ClipboardManager {
 	private static __instance: ClipboardManager;
 
@@ -17,7 +15,7 @@ export class ClipboardManager {
 			return navigator.clipboard.writeText(text);
 		} else {
 			if (!this.__proxyElement) {
-				const el = element("input");
+				const el = document.createElement("input");
 				el.type = "text";
 				el.disabled = true;
 				el.id = "__SVELTE_LEGOS_CLIPBOARD_PROXY_ELEMENT";
@@ -26,7 +24,7 @@ export class ClipboardManager {
 				el.style.setProperty("z-index", "-100");
 				el.style.setProperty("pointer-events", "none");
 				el.style.setProperty("opacity", "0");
-				append(document.body, el);
+				document.body.append(el);
 
 				this.__proxyElement = el;
 			} else {
