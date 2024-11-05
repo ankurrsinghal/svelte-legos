@@ -1,7 +1,6 @@
 import { defaultWindow } from "$lib/shared";
 import type { ConfigurableWindow, Position } from "$lib/shared/utils/types";
 import { readable, type Readable } from "svelte/store";
-import { listen } from "svelte/internal";
 
 const initialValue: Position = {
 	x: 0,
@@ -25,10 +24,10 @@ export function windowScrollStore({
 		}
 
 		if (window) {
-			const stop = listen(window, "scroll", handler);
+			window.createEventListener("scroll", handler);
 
 			return () => {
-				stop();
+				window.removeEventListener("scroll", handler);
 			};
 		}
 	});
