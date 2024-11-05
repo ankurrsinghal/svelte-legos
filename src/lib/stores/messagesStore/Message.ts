@@ -1,4 +1,3 @@
-import { append, attr, element } from "svelte/internal";
 import { cross, error, info, success, warn } from "../../shared/icons";
 
 export type MessageType = "success" | "error" | "info" | "warning";
@@ -13,7 +12,7 @@ export default class Message {
 	constructor(message: string, type?: MessageType, onUnmount?: () => void) {
 		this.message = message;
 		this.type = type || "info";
-		this.__container = element("div");
+		this.__container = document.createElement("div");
 		this.onUnmount = onUnmount;
 		this.init();
 	}
@@ -50,15 +49,15 @@ export default class Message {
 	}
 
 	private addMessage() {
-		const message = element("h2");
+		const message = document.createElement("h2");
 		const messageStyles = `
       font-size: 13px;
       margin: 0;
     `;
 		message.textContent = this.message;
-		attr(message, "style", messageStyles);
+		message.setAttribute("style", messageStyles);
 
-		const icon = element("img");
+		const icon = document.createElement("img");
 		const iconStyles = `
       width: 20px;
       height: 20px;
@@ -78,27 +77,27 @@ export default class Message {
 				attr(icon, "src", warn);
 				break;
 		}
-		attr(icon, "style", iconStyles);
+		icon.setAttribute("style", iconStyles);
 
-		const closeBtn = element("div");
+		const closeBtn = document.createElement("div");
 		const closeBtnStyles = `
         cursor: pointer;
         font-size: 12px;
       `;
 		closeBtn.textContent = "╳";
-		attr(closeBtn, "style", closeBtnStyles);
+		closeBtn.setAttribute("style", closeBtnStyles);
 
 		closeBtn.addEventListener("click", () => {
 			clearTimeout(this.__timer);
 			this.hide();
 		});
 
-		append(this.__container, icon);
-		append(this.__container, message);
+		this.__container.appendChild(icon);
+		this.__container.appendChild(message);
 	}
 
 	mount(container: HTMLDivElement) {
-		append(container, this.__container);
+		container.appendChild(this.__container);
 	}
 
 	private addStyles() {
@@ -148,6 +147,6 @@ export default class Message {
       ${typeBasedStyles}
     `;
 
-		attr(this.__container, "style", styles);
+		this.__container.setAttribute("style", styles);
 	}
 }
