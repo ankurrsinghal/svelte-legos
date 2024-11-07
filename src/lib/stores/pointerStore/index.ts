@@ -1,8 +1,8 @@
 import { readable, type Readable } from "svelte/store";
-import { is_client, listen } from "svelte/internal";
 import type { ConfigurableWindow, Position } from "$lib/shared/utils/types";
+import {isClient} from "$lib/shared";
 
-const defaultWindow = is_client ? window : undefined;
+const defaultWindow = isClient ? window : undefined;
 
 export interface UseMouseOptions extends ConfigurableWindow {
 	/**
@@ -34,12 +34,12 @@ export function pointerStore(options: UseMouseOptions = {}): Readable<Position> 
 		}
 
 		if (window) {
-			const stopMove = listen(window, "pointermove", handler as () => void);
-			const stopDown = listen(window, "pointerdown", handler as () => void);
+			window.addEventListener("pointermove", handler as () => void);
+			window.addEventListener("pointerdown", handler as () => void);
 
 			return () => {
-				stopMove();
-				stopDown();
+				window.removeEventListener("pointermove", handler as () => void);
+				window.removeEventListener("pointerdown", handler as () => void);
 			};
 		}
 	});

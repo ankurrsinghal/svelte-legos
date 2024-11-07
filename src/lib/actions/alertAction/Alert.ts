@@ -1,5 +1,3 @@
-import { element, append, attr } from "svelte/internal";
-
 export default class Alert<T extends HTMLElement = HTMLElement> {
 	private __container: HTMLDivElement;
 
@@ -14,7 +12,7 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
 		this.onClose = onClose;
 		this.onOk = onOk;
 
-		const container = element("div");
+		const container = document.createElement("div");
 		const containerStyles = `
       position: fixed;
       top: 0;
@@ -29,7 +27,7 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
       box-shadow: 0px 0px 12px rgba(0, 0, 0, .12);
     `;
 
-		attr(container, "style", containerStyles);
+		container.setAttribute("style", containerStyles);
 
 		this.__container = container;
 
@@ -37,7 +35,7 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
 	}
 
 	private addDialog() {
-		const dialog = element("div");
+		const dialog = document.createElement("div");
 		const dialogStyles = `
       width: 300px;
       padding: 12px 16px;
@@ -46,23 +44,24 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
       display: flex;
       flex-direction: column;
     `;
-		attr(dialog, "style", dialogStyles);
+		
+		dialog.setAttribute("style", dialogStyles);
 
 		this.addHeader(dialog);
 
-		append(this.__container, dialog);
+		this.__container.append(dialog);
 	}
 
 	private addHeader(dialog: HTMLDivElement) {
-		const header = element("div");
+		const header = document.createElement("div");
 		const headerStyles = `
         display: flex;
         align-items: center;
         justify-content: space-between;
       `;
-		attr(header, "style", headerStyles);
+		header.setAttribute("style", headerStyles);
 
-		const title = element("h2");
+		const title = document.createElement("h2");
 		const titleStyles = `
         font-weight: 700;
         font-size: 16px;
@@ -71,33 +70,33 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
         margin: 0;
       `;
 		title.textContent = this.title;
-		attr(title, "style", titleStyles);
-		append(header, title);
+		title.setAttribute("style", titleStyles);
+		header.append(title);
 
-		const closeBtn = element("div");
+		const closeBtn = document.createElement("div");
 		const closeBtnStyles = `
         cursor: pointer;
         font-size: 12px;
       `;
 		closeBtn.textContent = "╳";
-		attr(closeBtn, "style", closeBtnStyles);
+		closeBtn.setAttribute("style", closeBtnStyles);
 
 		closeBtn.addEventListener("click", () => {
 			this.onClose && this.onClose();
 		});
 
-		append(header, closeBtn)
+		header.append(closeBtn)
 
-		const description = element("p");
+		const description = document.createElement("p");
 		const descriptionStyles = `
       margin-top: 16px;
       font-size: 13px;
     `;
 		description.textContent = this.description;
-		attr(description, "style", descriptionStyles);
-		append(this.__container, description);
+		description.setAttribute("style", descriptionStyles);
+		this.__container.append(description);
 
-		const oKBtn = element("button");
+		const oKBtn = document.createElement("button");
 		const oKBtnStyles = `
       cursor: pointer;
       font-size: 12px;
@@ -108,19 +107,19 @@ export default class Alert<T extends HTMLElement = HTMLElement> {
       margin-top: 8px;
     `;
 		oKBtn.textContent = "OK";
-		attr(oKBtn, "style", oKBtnStyles);
+		oKBtn.setAttribute("style", oKBtnStyles);
 
 		oKBtn.addEventListener("click", () => {
 			this.onOk && this.onOk();
 		});
 
-		append(dialog, header);
-		append(dialog, description);
-		append(dialog, oKBtn);
+		dialog.append(header);
+		dialog.append(description);
+		dialog.append(oKBtn);
 	}
 
 	mount() {
-		append(document.body, this.__container);
+		document.body.append(this.__container);
 	}
 
 	unmount() {

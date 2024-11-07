@@ -1,4 +1,3 @@
-import { append, attr, element } from "svelte/internal";
 import Message, { type MessageType } from "./Message";
 
 export default class MessageManager {
@@ -9,7 +8,7 @@ export default class MessageManager {
 
 	createContainer() {
 		if (this.__container) return;
-		const container = element("div");
+		const container = document.createElement("div");
 		const containerStyles = `
         padding-top: 16px;
         position: fixed;
@@ -20,9 +19,9 @@ export default class MessageManager {
         z-index: 100000;
         transform: translateX(-50%);
       `;
-		attr(container, "style", containerStyles);
+		container.setAttribute("style", containerStyles);
 		this.__container = container;
-		append(document.body, this.__container);
+		document.body.appendChild(this.__container);
 	}
 
 	createMessage(message: string, type?: MessageType) {

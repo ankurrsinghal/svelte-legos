@@ -1,4 +1,3 @@
-import { append, attr, element } from "svelte/internal";
 import Notification, { type NotificationType } from "./Notification";
 
 export default class NotificationManager {
@@ -9,7 +8,7 @@ export default class NotificationManager {
 
 	createContainer() {
 		if (this.__container) return;
-		const container = element("div");
+		const container = document.createElement("div");
 		const containerStyles = `
         padding-top: 16px;
         position: fixed;
@@ -20,9 +19,9 @@ export default class NotificationManager {
         bottom: 0;
         z-index: 100000;
       `;
-		attr(container, "style", containerStyles);
+		container.setAttribute("style", containerStyles);
 		this.__container = container;
-		append(document.body, this.__container)
+		document.body.appendChild(this.__container)
 	}
 
 	createNotification(

@@ -1,7 +1,8 @@
 import type { Fn, Stoppable } from "$lib/shared/utils/types";
-import { noop } from "svelte/internal";
 import { derived, type Readable } from "svelte/store";
 import { timeoutFnStore, type UseTimeoutFnOptions } from "../timeoutFnStore";
+
+const noop = () => {};
 
 export interface UseTimeoutOptions<Controls extends boolean> extends UseTimeoutFnOptions {
 	/**

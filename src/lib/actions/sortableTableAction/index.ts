@@ -1,5 +1,3 @@
-import { append } from "svelte/internal";
-
 export function sortableTableAction(
 	node: HTMLElement,
 	{ headerSelector: headerSelector = `thead th` } = {}
@@ -42,7 +40,7 @@ export function sortableTableAction(
 				return sortDir * val_1.localeCompare(val_2, undefined, { numeric: true });
 			});
 
-			for (const row of rows) append(tableBody, row);
+			for (const row of rows) tableBody.appendChild(row);
 		});
 	}
 }
