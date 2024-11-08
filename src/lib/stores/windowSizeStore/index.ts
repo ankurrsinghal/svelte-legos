@@ -29,7 +29,9 @@ export function windowSizeStore({ window = defaultWindow }: ConfigurableWindow =
 		}
 		
 		return () => {
-			window.removeEventListener("resize", handler);
+			if (window) {
+				window.removeEventListener("resize", handler);
+			}
 		};
 	});
 
