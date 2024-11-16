@@ -24,12 +24,17 @@ export function windowSizeStore({ window = defaultWindow }: ConfigurableWindow =
 			set(getCurrentWindowDimenstions());
 		}
 
-		if(window) {
+		let cleanup = Function.prototype;
+
+		if (window) {
 			window.addEventListener("resize", handler);
+			cleanup = () => {
+				window.removeEventListener("resize", handler);
+			}
 		}
 		
 		return () => {
-			window.removeEventListener("resize", handler);
+			cleanup();
 		};
 	});
 
