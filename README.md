@@ -1,4 +1,4 @@
-# Svelte Legos
+# Svelte Legos [NOT MAINTAINING ANYMORE]
 
 Collection of essential Svelte Composition Utilities
 <br>
